@@ -89,8 +89,6 @@ website:
               text: More information for papers
         - section: "Labs"
           contents: 
-            - href: labs/lab1.qmd
-              text: Lab 1
             - href: labs/lab2.qmd
               text: Lab 2
             - href: labs/lab3.qmd
