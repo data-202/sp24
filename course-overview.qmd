@@ -1,0 +1,88 @@
+---
+title: "Course overview"
+subtitle: "DATA 202: Statistically Measuring and Modeling Social Justice"
+---
+
+## A slightly more detailed overview.
+
+On the previous page, we ended with the following three points:
+
+-   The **syllabus** provides a high-level view of the course.
+
+-   **Canvas** is the go-to for submissions and provides readings and assignments.
+
+-   This **course site** provides technical items and code to help you complete your assignments.
+
+We'll focus on the syllabus, Canvas, and this companion site to get a detailed overview of our course.
+
+### **Syllabus**
+
+A high-level view of the course.
+
+*Please note: this section is only a summary of our syllabus.* The full syllabus is available on our Canvas site [here](https://canvas.howard.edu/courses/46792). I have summarized some important items found on the syllabus below:
+
+**Instructor**: Nathan Alexander, PhD
+
+-   Contact information:
+
+    **Email**: [nathan.alexander\@howard.edu](mailto:nathan.alexander@howard.edu)
+
+    **Office hours**: By appointment at <https://nathanalexander.youcanbook.me>
+
+-   Course information:
+
+    **Course meeting times**: Wednesdays at 5:10pm EST (10:10pm UTC)
+
+    **Course meeting location**: Zoom (see Canvas)
+
+| Course component               | Weeks   | Dates[^1]       |
+|--------------------------------|---------|-----------------|
+| Part I: Statistics and society | 4 weeks | Jan 8 - Feb 2 |
+| Part II: Data and people       | 4 weeks | Feb 5 - Mar 1 |
+| Part III: Data and policy      | 4 weeks | Mar 4 - Mar 29 |
+| Part IV: Data in practice      | 3 weeks | Apr 1 - Apr 19  |
+| Course wrap-up                 | 2 weeks | Apr 22 - May 3  |
+
+: DATA 202 course schedule (spring 2024) {#tbl-schedule}
+
+[^1]: Please note that these are rough estimates
+
+### **Canvas**
+
+Canvas is the go-to for submissions, and where you can find readings and assignment rubrics. [Here](https://canvas.howard.edu/courses/46792) is another link to Canvas, I'll try to drop these as often as possible. Two things about Canvas: it has your **assignments** and it has your **readings**.
+
+#### Canvas has your course assignments
+
+::: incremental
+The four categories for **assignments** in this course are as follows:
+
+-   **Homework** (hw). Regular practice problems \[10 points\]
+-   **Mini-projects: Labs**. \[10 points\]
+-   **Mini-projects: Papers**. Four papers \[50 points\]
+-   **Exams**. Midterm exam \[30 points\]
+:::
+
+#### Canvas has your readings
+
+### **A few other items**
+
+#### Expectations
+
+This course should be viewed as an intense but remote introduction to what we might label "critical statistics" or "social justice statistics". It will be important that we gain both a conceptual and theoretical understanding of the various concepts we will explore, and then a technical understanding of the complex issues that relate to them. We also want to communicate our ideas. These can be difficult tasks.
+
+But I encourage you to explore and to be creative, and to take chances. Errors should mostly remind us that there is always the backspace button. Below are some general **expectations** to keep us all moving forward as a community:
+
+::: incremental
+-   Communicate early and often
+-   Show up to class on time
+-   Do not schedule other meetings during class time
+-   No late work will be accepted without prior discussion
+:::
+
+### **Course site** (this page!)
+
+You can return to this page to remind yourself of the four parts of our course, especially when we dive deep into specific projects. This page will remain static (it will not be updated), so use it as an archive that you can return to; start in this page position if you have questions about the schedule, procedures, expectations (above) ...then assignments (next).
+
+### Next up: Assignments
+
+In the next section, we'll start with a brief overview of assignments and dive into your first two assignments (ungraded). The HW #0 and Lab #0 assignments will serve two purposes: first, they will help introduce you to the tools we'll use as we begin to review statistical concepts; second, they will set you up for your first graded assignment coming up in two weeks.

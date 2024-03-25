@@ -1,0 +1,69 @@
+---
+title: "Assignments"
+subtitle: "DATA 202: Statistically Measuring and Modeling Social Justice"
+---
+
+This page contains three sections:
+
+-   Brief overview of <u>all</u> **course assignments**.
+
+-   Information about **homework 0** (ungraded).
+
+-   Information about **lab 0** (ungraded).
+
+### **Overview of course assignments**
+
+Our course assignments will be split between reading and typing (code and analytic results).
+
+| Course component                   | Assignment          | Date(s)                        |
+|------------------------|-----------------------------|-------------------|
+| **Part I: Statistics and society** |                     |                                |
+|                                    | Homework 0          | Due: Tue Jan 16                |
+|                                    | Lab 0               | Due: Tue Jan 16                |
+|                                    | Paper #1            | Due: Sun Jan 28                |
+| **Part II: Data and people**       |                     |                                |
+|                                    | Homework 1          | Due: Tue Jan 30                |
+|                                    | Lab 1               | Due: Tue Feb 6                 |
+|                                    | Homework 2          | Due: Tue Feb 13                |
+|                                    | Lab 2               | Due: Tue Feb 20                |
+|                                    | Paper #2            | Due: Sun Feb 25                |
+|                                    | Midterm examination | Due: Fri Mar 1                 |
+| **Part III: Data and policy**      |                     |                                |
+|                                    | Homework 3          | Due: ~~Tue Mar 12~~ Tue Mar 19 |
+|                                    | Lab 3               | Due: ~~Tue Mar 19~~ Tue Mar 26 |
+|                                    | Paper #3            | Due: Sun Mar 31                |
+| **Part IV: Data in practice**      |                     |                                |
+|                                    | Homework 4          | Due: Tue Apr 2                 |
+|                                    | Lab 4               | Due: Tue Apr 9                 |
+|                                    | Paper #4            | Due: Sun Apr 21                |
+| **Course wrap-up**                 |                     |                                |
+
+### **Homework 0**
+
+For your first homework, you will complete a few computational exercises. This homework is ungraded, and while there is no prerequisite for this course, homework 0 (HW #0) should serve as a review and a preview of content that we'll explore for the course. Please do not hesitate to reach out with questions.
+
+**Exercise 0.1**. If an individual's projected income is to be converted to a z-score, which of these z-scores would a "rational agent" prefer: -2.00, -1.00, 0, 1.00, or 2.00? What is a "rational agent"? Explain why the "rational agent" would prefer the z-score you selected? Cite any sources.
+
+**Exercise 0.2**. What is an integer? What is the sum of the first 100 positive integers? Explain your solution. Cite any sources. Bonus points (but definitely not required for our course): write a proof of the solution.
+
+**Exercise 0.3**. Have you ever heard of p-hacking? P-hacking is where a researcher conducts multiple tests and only reports the significant results from those tests. What are some main issues here?
+
+I will <u>**not**</u> collect hw-0 but I am happy to review it if you'd like; upload it to Canvas [here](https://canvas.howard.edu/courses/46792).
+
+### **Lab 0**
+
+For your first lab, you will install two software programs on your local machine: the first is base R and the second is the RStudio Integrated Development Environment, or IDE. <u>Both programs are required</u>.
+
+::: {.callout-caution collapse="false"}
+## You must download both R and RStudio!
+
+In order to complete assignments, you must download base R and RStudio to your computer.
+:::
+
+RStudio is now called Posit. When you are searching online you will begin to see language differences.
+
+It can all get very confusing. In order to reduce confusion, I am requesting that you watch [this short tutorial](https://www.youtube.com/watch?v=pUe_iD7RJvo) so that we're all on the same page. I will discuss this more when we meet.
+
+### **Next up**: Computing
+
+On the next page, I will walk you through downloading the appropriate software for our work this term.
