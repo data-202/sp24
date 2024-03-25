@@ -1,0 +1,23 @@
+---
+title: "Instructions for each paper"
+format: 
+  html: default
+---
+
+# Overview
+
+These are detailed instructions for each paper. See the syllabus for the due dates for each paper.
+
+See also another document for course papers: [More information for course papers](papers-more-info.qmd)
+
+## Preparing papers
+
+Papers #2 through #4 all require that you do original data analysis. All papers should be written as short research reports (try to make the text clear but sound professional, though the research questions/theories may be simple) and should include the elements described below.  Please give each paper a title!  
+
+Each paper should be written as a narrative essay. In writing the essay, you should structure it by using section headings as indicated for each paper. This should not detract from the narrative form (it should read like a paper not like answers to questions in a problem set). Each theory (or graph) should be described fully in about a paragraph, and more when necessary. Describe and justify the statistical relationship involving the theoretical variables that will be examined (including the variable’s unit of analysis and "what's the story," in terms of why we care about the issue(s); this is a great place to insert historical work). 
+
+Include a graph of some kind along with your opening at the beginning. Next, describe the data that you will be using to examine the theory. Describe the data source and for any survey data used describe the sampling method. For nationally representative data on high school students, I might say something like “The 2009 HSLS longitudinal sample is a two-stage stratified random sample of the nation’s high school students collected at the school level.” This detailed information can usually be found in the codebooks for the data sets you find. Be mindful, then, that it will require that you review these files in detail as it pertains to your own variables, your own analyses, and its relation to the social issue at hand. Theory is important.
+
+Next, describe the specific measures you are using and how they were obtained. Comment on how well the measures fit your theoretical variables (i.e., the face validity of the measures).  In the case of survey data, report the full question wordings (verbatim) and specify the response categories and report how the variables were coded and recorded. Present the frequency distributions (so your coding and treatment of “missing data” categories can be checked); if you want to comment on the frequency distributions, you should do so in no more than 2-3 sentences (we are interested more in what comes after the distribution of the members of your sample or population!).  Please include all R commands that you executed for each paper, this will be done in Quarto Markdown in Week 3.
+
+In your papers, specify the hypotheses for the expected relationships (correlations/regressions) of the variables and present the operational flow graph. Then report the statistical results, describing the tables, etc. and relevant statistics and any additional calculations.  Describe to what extent the evidence is consistent with your hypothesis or hypotheses and lends support to your theorizing.  What can you conclude about your original theory based upon your analysis? (*Note: Due to space limitations, when presenting exploratory data analysis and in presenting relationships of variables in research and writing, it is often useful to examine and to report simple tables of means or percentages to summarize bivariate relationships as well, especially when these include nominal or ordinal level (categorical) variables. Keep this in mind in doing research and data analysis beyond this course!)

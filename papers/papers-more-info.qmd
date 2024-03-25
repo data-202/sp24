@@ -1,0 +1,31 @@
+---
+title: "More information for course papers"
+format: 
+  html: default
+---
+
+# Overview
+
+As noted before, the course papers all require that you do original data analysis. 
+
+Papers should be written as short research reports (try to make the text clear but sound professional, though the research questions may be relatively simple), and they should include the elements described below in narrative form.  Please give each paper a substantive title (in addition to "Paper #_").
+
+Each paper should have, at minimum, four sections: Theory, Measurement, Statistical Analysis, and Conclusion.
+ 
+# Theory:
+
+Each theory (or logic graph) should be described fully in about a paragraph or two.
+
+Describe and justify the relationships involving the theoretical variables that will be examined (including what's the unit of analysis and "what's the story," in terms of why we care about the issue(s); this is a great place to insert historical work). Include a graph along with this at the beginning of the paper.
+ 
+# Measurement: 
+
+Next, describe the data that you will be using to examine the theory. Describe the data source that you are using, and for any survey data describe the sampling method.  For the General Social Survey (GSS) someone could say something like "The 2012 GSS sample is a multistage area probability sample to the segment or block level. At the block level, households are enumerated and a full probability sample is drawn."  You will need to find this type of detailed information in the Data Codebooks provided on Canvas. Describe the specific measures you are using and how they were obtained. Comment on how well the measures fit your theoretical variables (i.e., the face validity of the measures).  In the case of survey data, report the full question wordings (verbatim) and specify the response categories and report how the variables were coded and re-coded. Present the frequency distributions (so your coding and treatment of missing data can be checked); if you want to comment on the frequency distributions, you should do so in no more than a couple sentences.   Please include all the R commands that you executed in a .qmd file, so your work can be checked (or the commands for whatever code you use in R).
+ 
+# Statistical Analysis:
+
+Specify the hypotheses for the expected relationships (coefficients / correlations) in the context of the specified equations and operational flow graph. Then report the statistical results, coefficients, etc. and other relevant statistics and any additional calculations required.  Describe to what extent the evidence is consistent with your hypothesis or hypotheses and lends support to your theorizing. 
+ 
+# Conclusion: 
+
+What can you conclude about your original theorizing based upon your analysis? Were you on the right track? Were your findings different from what you originally theorized?
