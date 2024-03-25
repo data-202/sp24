@@ -1,0 +1,498 @@
+---
+title: "DATA 202 - Week 4"
+subtitle: "More on theory construction"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week04-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+# Part I: Context
+
+------------------------------------------------------------------------
+
+## More on theory construction
+
+Last week, we considered one cyclical process of theory construction.
+
+![Theory construction. Image from saylordotorg.github.io](img/wk3-e-0.jpg){width="40%"}
+
+------------------------------------------------------------------------
+
+This week, we return to this idea of theory construction but with more detail.
+
+::: incremental
+-   Research inquiry
+
+-   Hypotheses
+
+-   Analysis
+
+-   Evaluation
+
+-   Revision
+:::
+
+------------------------------------------------------------------------
+
+::: incremental
+-   **Research inquiry**
+
+    -- Transfer your reading and informal observations into pratical problems
+
+-   **Hypotheses**
+
+    -- Utilize the research literature to understand your research problem
+
+    -- Extend this research literature by developing your own research questions
+
+    -- Based on your research question(s), develop a hypothesis (or a set of hypotheses)
+
+-   **Analysis**
+
+    -- Outline your empirical study in specific details to conduct your analysis
+
+    -- Conduct your analysis and <u> consider the limitations of your methods </u>
+
+-   **Evaluation**
+
+    -- Evaluate your analytic findings alongside your hypotheses
+
+-   **Revision**
+
+    -- Utilize the reseaerch literature to revise or confirm your hypotheses
+:::
+
+------------------------------------------------------------------------
+
+### Limitations
+
+Across research methodologies, a *limitation* is any feature of a study that may cause concerns. Limitations vary in both their scope and context. As a result, it is important to consider both the obvious limitations and hidden concerns.
+
+-   Some examples of limitations in statistics
+
+::: incremental
+```         
+- Lack of reliable data
+
+- Limited sample size
+
+- Deficiencies in measurements of data
+```
+:::
+
+-   Not limitations but "bad" statistical practices
+
+::: incremental
+```         
+- Theory does not depict the entire story or phenomenon
+
+- Old data (and research citations)
+
+- Broad conclusions with no supporting data
+
+- Analyzing data for significant results. P-hacking!
+```
+:::
+
+------------------------------------------------------------------------
+
+### Developing a logic model
+
+Logic is an important component in theory construction. **Logical reasoning** is the use of critical thinking in the applications of statistics. However, *logic* in relation to theory is based on a set of ideas that help build sound and consistent arguments.
+
+A few key considerations:
+
+::: incremental
+-   **Premises and conclusions**
+
+    -- Clear statements are used; statements are focused and direct
+
+-   **Internal structure**
+
+    -- There is consistency in your premises and any conclusions
+
+    -- There are no contradictions in your structure
+
+-   **Arguments and inferences**
+
+    -- Your argument follow your initial premises, internal structure, and conclusions
+:::
+
+------------------------------------------------------------------------
+
+### Path diagrams
+
+One way to visualize the relationships between your variables is in a **path diagram**.
+
+-   Path diagrams are used in *path analysis*, a subset of statistical methods that help researchers discern and assess the relationship(s) between multiple variables.
+
+-   Path analysis is based on a closed system of nested relationships.
+
+    -- These nested relationships must have a logical internal structure.
+
+-   Together, a path diagram can represent a series of structured linear regression equations.
+
+-   Path models are often used in economics and political science.
+
+As we move further into our analyses, we will learn more about path analysis.
+
+------------------------------------------------------------------------
+
+This is a simple two-variable path diagram
+
+```{mermaid}
+%%| fig-height: 16
+%%| echo: false
+%%| fig-responsive: false
+flowchart LR
+  A[X] --> B[Y]
+```
+
+------------------------------------------------------------------------
+
+### Exercise
+
+Identify two variables for a simple path diagram.
+
+$X$ (independent variable) and $Y$ (dependent variable)
+
+-   What is the logical relationship between the variables?
+
+    -- Write a logical statement.
+
+-   What is the question that structures the relationship between the variables?
+
+    -- Turn your logic statement into a question.
+
+-   What is your theory on how the two variables relate to one another?
+
+    -- Write a theoretical statement based on the research literature.
+
+-   What is your hypothesis?
+
+    -- Develop an educated guess based on the research literature.
+
+------------------------------------------------------------------------
+
+Three variable path diagram
+
+```{mermaid}
+%%| echo: false
+%%| fig-responsive: false
+flowchart LR
+  A[Variable 1] --> B[Y]
+  C[Variable 2] --> B
+```
+
+A path diagram made of multiple variables
+
+```{mermaid}
+%%| echo: false
+%%| fig-responsive: false
+flowchart LR
+  A[Variable 1] --> B[Y]
+  C[Variable 2] --> B
+  D[Variable 3] --> B
+```
+
+# Part II: Content
+
+------------------------------------------------------------------------
+
+Our main goal for content this week will be to better frame and understand the relationship between mathematics and statistics. The two concepts are closely related but different in both their forms and functions.
+
+::: incremental
+-   Understand the role of mathematics in modern statistics
+
+-   Distinguish between algebra and statistics
+
+-   Identify basic mathematical terms useful for statistical analysis
+:::
+
+------------------------------------------------------------------------
+
+#### <u>Objective 1</u>: Understand the role of mathematics in modern statistics
+
+Statistical data analysis relies on a variety of mathematical models in order to describe and make inferences about the variables in a set of data. In particular, mathematical and statistical models allow us to make predictions about various phenomena in the world.
+
+*Mathematical statistics* is the application of probability, the branch of mathematics concerned with how likely an event is to occur or how true a proposition is, to the field of statistics.
+
+Techniques in both areas rely on topics in linear algebra, numerical analysis, and a host of other sub-areas. It is important to understand the basis of these mathematical foundations to engage in further critical statistical thinking.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(4)
+x <- rnorm(100)
+y <- 2 + 3*x + rnorm(100)
+```
+
+@fig-correlation shows the relationship between two variables, x and y.
+
+```{r}
+#| echo: false
+#| output: true
+#| warning: false
+#| label: fig-correlation 
+#| fig-cap: "Correlation plot of two variables, x and y"
+plot(x, y)
+```
+
+------------------------------------------------------------------------
+
+@fig-regression illustrates the regression line that describes the relationship between x and y.
+
+In statistical modeling, regression allows us to estimate the relationship between a dependent variable, $Y$, and an independent variable, $X$.
+
+```{r}
+#| echo: false
+#| output: true
+#| warning: false
+#| label: fig-regression
+#| fig-cap: "Illustration of a linear regression on a set of coordinates $(x_i, y_i)$"
+model <- lm(y ~ x)
+plot(x, y)
+abline(model, col ="blue")
+```
+
+------------------------------------------------------------------------
+
+#### <u>Objective 2</u>: Distinguish between algebra and statistics
+
+::: incremental
+At its core, statistics is a branch of applied mathematics.
+
+-   Statistics developed from various abstract concepts in mathematics
+
+    -- Many of these concepts were applications of probability theory, which is more abstract.
+
+-   We refer to statistics as an *applied* mathematical tool.
+
+-   We refer to algebra as a *pure* mathematical tool.
+
+-   The differences between pure and applied mathematics can be described in many ways.
+
+    -- However, applied mathematics most often relates to applications in the real world and pure mathematics focuses on abstraction.
+:::
+
+------------------------------------------------------------------------
+
+The table below presents one example on the difference in how mathematics is used in algebra versus statistics.
+
+We use our knowledge of algebra to build our understanding of statistics.
+
+| In algebra | In statistics           |
+|------------|-------------------------|
+| $y=mx + b$ | $y_i=a+bx_i+\epsilon_i$ |
+
+Generally, in the algebra equations, we model "exactness." In statistical models, we produce estimates.
+
+------------------------------------------------------------------------
+
+#### <u>Objective 3</u>: Identify basic mathematical terms useful for statistical analysis
+
+Today we will consider three terms:
+
+::: incremental
+-   Scientific notation
+
+-   Subscripts
+
+-   Summation notation
+:::
+
+------------------------------------------------------------------------
+
+**Scientific notation**.
+
+Calculators have a limited number of spaces to report values.
+
+-   In your calculator, you may have noticed a value containing a capital **E**
+
+    -   Some examples are 2.35E4 or 2.35E-4.
+
+-   This is *scientific notation*.
+
+-   The method is instructing you to move the decimal point a certain number of spaces:
+
+    -- To the right: 2.35E4 is really 2.35 x $10^{4}$, or 23,500
+
+    -- To the left: 2.35E-4 is really 2.35 x $10^{-4}$, or 0.000235
+
+------------------------------------------------------------------------
+
+**Subscripts**.
+
+We use an "$i$" to refer to a subscript and to index the position of a value in our data set.
+
+-   $x_i$ refers to the i-th entry of a data set, $X$.
+
+-   If there are multiple variables (columns) in our data set, say a first variable $X$ and a second variable is $Y$, we say that $x_i$ refers to the i-th entry for variable $X$ and $y_i$ refers to the i-th entry of variable $Y$.
+
+    -- To do so, we can make use the set of numbers (such as the whole numbers $\mathbb{Z}^+$ or the positive integers $\mathbb{Z}^{+}$) that we reviewed in class.
+
+    -- If a data set $X$ contains three values such that $X = \{9, 5, 12\}$, these values can be denoted using subscripts as: $x_1 = 9$, $x_2= 5$, $x_3 = 12$.
+
+------------------------------------------------------------------------
+
+#### Indexing elements of a data set
+
+In the table below, we can see how subscripts are used to denote the elements of a data set.
+
+| $X$   | $Y$   |
+|-------|-------|
+| $x_1$ | $y_1$ |
+| $x_2$ | $y_2$ |
+| $x_3$ | $y_3$ |
+| .     | .     |
+| .     | .     |
+| .     | .     |
+| $x_n$ | $y_n$ |
+
+------------------------------------------------------------------------
+
+**Summation notation**.
+
+In mathematics, the Greek letter $\Sigma$ (Sigma) is reserved for summation (addition)
+
+-   We may need to sum values or numbers in a data set.
+
+-- For example, the notation: $$\sum_{i=1}^{n} x_i $$ is used to indicate that we need to add up all of the values (up to $n$) for our variable $X$.
+
+------------------------------------------------------------------------
+
+If we have a total of five rows in our data set, such that $n=5$ (here $n \in \mathbb{N}$), then we write:
+
+$$\sum_{i=1}^{5} x_i = x_1 + x_2 + x_3 + x_4 + x_5$$
+
+------------------------------------------------------------------------
+
+If we wanted to square our values before adding them up, we would write: $$\sum_{i=1}^{n} (x_i)^2 $$ This would result in the following expansion if we let $n=5$ with $n \in \mathbb{N}$,$$\sum_{i=1}^{5} (x_i)^2 = (x_1)^2 + (x_2)^2 + (x_3)^2 + (x_4)^2 + (x_5)^2$$
+
+------------------------------------------------------------------------
+
+#### Rows and columns
+
+**Rows**. A *row* in a data set is generally used to refer to individual **observations**.
+
+**Columns**. A *column* in a data set is generally used to refer to individual **variables**.
+
+------------------------------------------------------------------------
+
+#### Databases
+
+Last week, we created a small data set called a data frame. This week, we'll briefly introduce databases for later.
+
+Databases are collections of data sets or multiple data frames.
+
+For example, a set of state records can be stored by year, or the same information can be restructured into a set of sets defined by state. In either case, we will define the elements of a *database as a set of k sets* where each set is a data set. As before, we index items in a set using a lower case $i$ and start with 1 such that $i = 1, 2, 3, ...,k-1, k$ (note the use of $k$ instead of $n$).
+
+------------------------------------------------------------------------
+
+::: {.callout-caution icon="false"}
+## **DEFINITION**: DATABASE
+
+A **database**, $D$, is a well-defined set of $k$ data sets (or dataframes) that includes algorithms and other components to perform operations on a data set, a set, or some cross section. $$ D = \{ d_1, d_2, d_3, ..., d_{k-1}, d_k \} $$
+:::
+
+Again, take note that we change the index from an $n$ to $k$; we do this to avoid confusion.
+
+------------------------------------------------------------------------
+
+::: {.callout-tip icon="false"}
+## **EXERCISE -- Hillman College Electronic Database**
+
+Hillman College maintains data on all enrolled students in an electronic database. The database is structured into a series of data sets that are defined by year. If the college has kept a single data set for each year since it's founding in 1875, how many data sets are in the database? That is, what is the value of $k$ for the database? **Hint: Consider the index**.
+:::
+
+------------------------------------------------------------------------
+
+## ![A database containing k datasets](img/wk3-e-5.jpg)
+
+In the first example, we can consider a "small" example to help us answer the question. Take only the first few data sets of the database. For example, assume we start collecting data in the current year (year 1) and do so for the following two years:
+
+Let $d_1$ correspond to this year, $d_2$ correspond to next year, and $d_3$ correspond to the year after.
+
+Note, however, when we rush to subtract the index on the last data set, $d_3$ from the first data set $d_1$, we end up with a value of 2. However, we see that there are, in fact, a total of three (3) data sets in the database: this year's data set, next year's data set, and the year after next year's data set. This is due to the method we use to index a database.
+
+------------------------------------------------------------------------
+
+# Part III: Code
+
+This week, we will prepare for Lab 1.
+
+## Task 1: Open a new RScript and write a preamble
+
+Prior to conducting any analyses in R, we want to include a brief summary of our work so that we (and others who read our code) know what we are prioritizing. This is an important step to documenting our research. We will write this *preamble* at the very top of our RScript file.
+
+A *preamble* is simply an introduction to your code. The structure of a preamble can vary widely.
+
+In an RScript file, we use hashtags (#) to write certain sections in our preamble. The \# symbol informs R that it should ignore that line in our code.
+
+#### Task 0.1: Check your working directory
+
+In your console, type in the following code to ensure you are in the desired directory:
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+getwd()
+```
+
+If you are not in the desired directory, you can change your directory using the associated path. This path should be the same as the project folder that you plan to work out of and set up in lecture five.
+
+For example, `stats/lab1`
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# insert your desired path in the parenthesis and remove the #
+# setwd("/your/working/directory/goes/here") 
+```
+
+You can also add a sub-folder manually or under the **Files** tab in the RStudio IDE.
+
+#### Task 0.2: Start a new R Script
+
+Once you have confirmed that you are in the correct directory, start a new R Script.
+
+#### Task 0.3: Write a preamble
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+## Name: <include your full name>
+## Assignment: Lab 1
+## Date: <here you may want to add a date>
+## Purpose: <insert the goals or purpose of the RScript>
+```
+
+Let's head over to Lab 1 to continue.
+
+------------------------------------------------------------------------
+
+### **Next up**: Week 5
+
+We will continue with our statistical work and focus on some basics for statistical models.

@@ -1,0 +1,820 @@
+---
+title: "DATA 202 - Week 5"
+subtitle: "Univariate analysis"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week05-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+## Part I: Context
+
+------------------------------------------------------------------------
+
+### Types of studies and sampling strategies
+
+The methods used to collect sample data for statistical analysis is extremely important.
+
+If sample data are not collected appropriately, resulting statistical analyses will be futile.
+
+As a result, planning a study by identifying *research questions*, the *population* and *sample* of interest, and selecting the appropriate *research method(s)* that will be used to *analyze data* that is collected are all essential parts in the statistical data analysis process.
+
+------------------------------------------------------------------------
+
+#### Understanding experimental and observational study designs
+
+There are many different types of research studies.
+
+Some studies use non-traditional methods (such as oral traditions) to collect data, while others focus on more traditional methods (such as surveys) to analyze data on a sample or a population.
+
+These data collection methods produce a set of observations upon which statistical analyses can be applied. We consider two core study designs in statistical data analysis: *experimental* studies and *observational* studies.
+
+------------------------------------------------------------------------
+
+::: callout-DEFINITIONS
+**Experimental study**: In an experimental study, a *treatment* is applied to a sample of interest to observe its effects. There is generally a control group and a treatment group used to understand the effects of the treatment. Individual observations are referred to as experimental units whereas studies involving humans are generally defined as study subjects.
+
+**Observational study**: In an observational study, specific characteristics of a sample or population are observed and measured but individual observations or subjects of study are not influenced or modified in any way.
+:::
+
+------------------------------------------------------------------------
+
+##### Three types of observational studies
+
+::: {.callout-caution icon="false"}
+## **DEFINITIONS**: Types of studies
+
+**Retrospective study**: In a retrospective study, we go back in time to collect data over some past period.
+
+**Cross-sectional study**: In a cross-sectional study, data are collected and measured at one point in time.
+
+**Prospective study**: In a prospective study, we set up a study to go forward in time and observe groups sharing common factors.
+:::
+
+------------------------------------------------------------------------
+
+##### Identify and describe the different sampling methods
+
+There are two broad categories of selecting members of a population to generate sample data:
+
+-   Probability sampling
+
+-   Non-probability sampling
+
+Within these two broad categories are other methods based on the needs of the study. Each methods is used to support statistical data analysis with some methods providing stronger evidence than others.
+
+------------------------------------------------------------------------
+
+::: {.callout-caution icon="false"}
+### **Definitions**: Sampling methods
+
+**Probability sampling**: Involves the random selection of subjects in such a way that every member of a sample has the sample probability of being selected.
+
+**Non-probability sampling**: Involves the use of criteria to select data that is not based on an equal likelihood of selection.
+:::
+
+------------------------------------------------------------------------
+
+#### Example 5.1: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-0.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.2: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-1.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.3: The Atlanta University Studies
+
+## ![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-2.jpg)
+
+#### Example 5.4: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-3.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.5: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-4.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.6: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-5.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.7: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-6.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.8: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-7.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.9: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-8.jpg)
+
+------------------------------------------------------------------------
+
+#### Example 5.10: The Atlanta University Studies
+
+![Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu](img/wk5-a-9.jpg)
+
+------------------------------------------------------------------------
+
+##### Example 5.11: The Black Census
+
+![Image from The Black Futures Lab. Blackcensus.org](img/wk5-a-10.png)
+
+------------------------------------------------------------------------
+
+##### Example 5.12: The Black Census reports
+
+![Image from The Black Futures Lab. Blackcensus.org](img/wk5-a-11.png)
+
+------------------------------------------------------------------------
+
+## Part II: Content
+
+------------------------------------------------------------------------
+
+### The Big Picture
+
+Prior to jumping into more details about univariate data examples in the next section, it will be important to gather a "big picture" view of the field. This big picture view will provide us with a high-level description of the various topics we will cover in the course.
+
+------------------------------------------------------------------------
+
+#### Population parameter
+
+A number which summarizes the entire group.
+
+#### Sample statistic
+
+A single number that summarizes a subset of data, or the sample.
+
+![Population vs. Sample. Image from Scribbr.](img/wk5-b-1.png){width="40%"}
+
+------------------------------------------------------------------------
+
+#### Confidence interval (CI)
+
+-   Range of likely or plausible values for a population parameter.
+
+-   Based on a sample and statistics from that sample.
+
+-   *Margin of error* represents the number of standard deviations on a statistic.
+
+![Plausible values for a variable via the CI. Image from Psychologicalscience.org](img/wk5-b-2.jpg)
+
+------------------------------------------------------------------------
+
+#### Hypothesis test
+
+Statistical procedure used to test an existing claim about a population.
+
+-   Test is based on data; most ideally data collected via probability sampling.
+
+-   $H_0$ - Null hypothesis: If data supports the claim, fail to reject $H_0$
+
+-   $H_a$ - Alternative hypothesis: If data does not support claim, reject $H_0$
+
+![Hypothesis testing. Image from Towards Data Science.](img/wk5-b-3.jpg){width="75%"}
+
+------------------------------------------------------------------------
+
+#### Analysis of variance (ANOVA)
+
+Comparing means of more than two populations.
+
+*F-statistic* is a ratio that is used to compare variability between sets.
+
+![Within and between group variation. Image from QCBS R Workshop Series.](img/wk5-b-4.png){width="75%"}
+
+##### Multiple comparison procedures
+
+Set of statistical tests that compare means to each other.
+
+-   Examples include Turkey's test, Least significant difference (LSD), pairwise t-test
+
+-   These tests are only conducted if you analysis of variance identifies differences
+
+------------------------------------------------------------------------
+
+#### Interaction effects
+
+Interaction effects are relevant to statistical models that use two or more variables.
+
+#### Correlation
+
+Measures the strength and direction of a linear relationship between two variables.
+
+#### Linear regression
+
+Helps make predictions for one variable based on the values of another.
+
+-   There are many types of regression:
+
+    -   Simple linear regression
+
+    -   Multiple linear regression
+
+    -   Logistic regression
+
+    -   Non-linear regression
+
+#### Chi-square test
+
+When using correlation and regression analyses, one core assumption is that the variables are quantitative in nature.
+
+We use a chi-square test to study categorical variables.
+
+![Example research question for a chi-square test. Image from Datatab.net.](img/wk5-b-6.png){width="75%"}
+
+In the example above, the *null hypothesis* is that there is no relationship between gender and highest level of education; the *alternative hypothesis* is that there is a relationship between gender and highest level of education.
+
+## Part III: Code
+
+Our coding tasks this week will provide an overview of `Lab 1`.
+
+`Lab 1` focused on univariate statistics.
+
+Univariate statistics refer to analyses that describe a single variable or attribute.
+
+------------------------------------------------------------------------
+
+Open RStudio.
+
+![Open RStudio.](img/wk5-c-1.png)
+
+------------------------------------------------------------------------
+
+### Task 0: Start a new project
+
+First, you will need to navigate to: `File > New Project`
+
+Select the first option: *New Directory*.
+
+![Select New Directory.](img/wk5-c-2.png)
+
+------------------------------------------------------------------------
+
+Then you will want to select the *New Project* option.
+
+![Select New Project](img/wk5-c-3.png)
+
+------------------------------------------------------------------------
+
+Select the directory where you wish to store your project.
+
+![Select New Directory.](img/wk5-c-4.png)
+
+------------------------------------------------------------------------
+
+Then, name your project to an appropriate title. Consider `stats-pt2`[^1].
+
+[^1]: We are in part two of our course, so I have chosen `stats-pt2` for this project's title. We'll be starting other projects in parts three and four of our course. Note: there will be no project for part one of our course.
+
+![Name your project.](img/wk5-c-5.png)
+
+------------------------------------------------------------------------
+
+Be sure to place the project in your preferred directory.
+
+One good option is to make a sub-folder in your `Documents`.
+
+![Place your project in an appropriate directory.](img/wk5-c-6.png)
+
+------------------------------------------------------------------------
+
+Click the box at the bottom right of the pop-up window.
+
+We generally want to start a new project in a *new* RStudio session.
+
+![Check the box in the bottom right of the popup box.](img/wk5-c-7.png)
+
+Then click `Create Project`.
+
+------------------------------------------------------------------------
+
+### Task 1: Open a new RScript
+
+Now we will open a new RScript.
+
+Navigate to `File > New File > RScript`.
+
+This RScript file is what you will use to outline your analysis.
+
+![Open a new RScript.](img/wk3-g-1.png)
+
+------------------------------------------------------------------------
+
+### Task 2: Write a preamble
+
+A preamble is similar to the heading of a paper.
+
+The preamble contains information that will be useful for you and your collaborators.
+
+```{r}
+# Use the `#` symbol to tell R to ignore the text
+## Name: <include your full name>
+## Date: <sometimes you may want to add a date>
+## Purpose: <insert the goals or purpose of the RScript>
+```
+
+Remember to use the `#` symbol to write your preamble.
+
+------------------------------------------------------------------------
+
+### Task 3: Check your working directory
+
+Prior to inserting any code, it is generally helpful to check your working directory.
+
+This will ensure that you are in the right location to call and save files.
+
+```{r}
+#| echo: true
+#| output: false
+# get the working directory
+getwd()
+```
+
+If, for any reason, the working directory is different from where you saved your R-project, check in the top right of your screen. Here, you should be able to select `stats-pt2` or open the project using the menu options.
+
+------------------------------------------------------------------------
+
+### Task 4: Install your packages
+
+We will use the `install.packages` function to complete a few tasks.
+
+Any required packages are generally placed at the very top of our code.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+install.packages("remotes", repos = "http://cran.us.r-project.org")
+```
+
+------------------------------------------------------------------------
+
+### Task 5: Load your libraries
+
+After using the `install.packages` function, we need to load specific libraries.
+
+Similar to installing packages, we generally load libraries at the very top of our code.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# load libraries
+library(tidyverse)
+library(remotes)
+```
+
+------------------------------------------------------------------------
+
+### Task 6: Call in the `critstats` data package
+
+We will use the `remotes::install_github()` command to install packages to call in data that I have prepared in a package for our course. The `remotes::install_github()` command communicates with GitHub to access files.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+remotes::install_github("professornaite/critstats", force=TRUE)
+```
+
+------------------------------------------------------------------------
+
+#### Task 6-a: Load the `critstats` library
+
+Next, we load the `critstats` library which will give us access to the package's contents.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+library(critstats)
+```
+
+------------------------------------------------------------------------
+
+### Task 7: View datasets in the current R session
+
+RStudio has a lot of pre-loaded data sets that we can view or use to practice on different types of variables. We use the `data()` function to view all of the data sets loaded in R.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+data()
+```
+
+A new window should open in your RStudio session.
+
+------------------------------------------------------------------------
+
+### Task 8: View datasets only in the `critstats` data package
+
+We can also view only the data sets loaded into the `critstats` package.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+data(package="critstats")
+```
+
+A new window containing only the `critstats` data should open in your RStudio session.
+
+------------------------------------------------------------------------
+
+### Task 9: View documentation for another data package called `datasets`
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+data(package="datasets")
+```
+
+------------------------------------------------------------------------
+
+### Task 10: View documentation for the entire `critstats` data package
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+??critstats
+```
+
+------------------------------------------------------------------------
+
+### Task 11: View documentation for a specific data set
+
+We will select the `africa_data_all` data set and view its documentation.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+??africa_data_all
+```
+
+This documentation is the `codebook` for the data. It contains more specific information about the data frame, each of the variables, and any sourcing information.
+
+------------------------------------------------------------------------
+
+### Task 12: Assign a dataset to an object for efficiency
+
+If we want to call a data set more efficiently, we can assign it to an object.
+
+The `df` object is a short name for data frame.
+
+We will assign `df1` using our assignment operator to the data set.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+df1 <- africa_data_all
+```
+
+------------------------------------------------------------------------
+
+### Task 13: Run a simple command
+
+We can run simple commands on a data frame using the shorthand object we assigned to it.
+
+Let's use the `glimpse()` function to explore the `africa_data_all` data frame that we assigned to the object `df1`.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+glimpse(df1)
+```
+
+------------------------------------------------------------------------
+
+### Task 14: View your data
+
+We can use the `view()` function to see our entire data frame.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+view(df1)
+```
+
+You may have noticed that a new window opened so that you can `view()` the entire data set. Sometimes, it is inefficient to use this command. Let's look at two other options.
+
+------------------------------------------------------------------------
+
+#### Task 14-a: View the `head` of your data
+
+We use the `head` function to get a closer look at the first few observations.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# use the `head` function to view the top of the data
+head(df1)
+```
+
+Change the number of observations that you want to view in the data frame.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# use the `head` function to view ten (10) observations at the top of the data
+head(df1, n=10)
+```
+
+------------------------------------------------------------------------
+
+#### Task 14-b: View the `tail` of your data
+
+We use the `tail` function to get a closer look at the last few observations.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# use the `tail` function to view the top of the data
+tail(df1)
+```
+
+Change the number of observations that you want to view in the data frame.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# use the `tail` function to view ten (10) observations at the top of the data
+tail(df1, n=10)
+```
+
+------------------------------------------------------------------------
+
+### Task 15: Make and save a plot
+
+The goal of this last task is to learn how to save a plot.
+
+On the bottom left of your RStudio session, you should notice a few tabs.
+
+The second tab is the `Plots` tab.
+
+![Find the `Plots` tab.](img/wk3-g-0.png)
+
+------------------------------------------------------------------------
+
+#### Task 15-a: Make a plot
+
+We will make a random plot using the `plot` command (the plot itself is not important for now).
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+plot(df1$pop)
+```
+
+Whenever you make a plot, you can save it in your working directory.
+
+Be sure to check your working directory using the `getwd` command prior to saving.
+
+------------------------------------------------------------------------
+
+#### Task 15-b: Save a plot
+
+Whenever you want to save a plot, you can do so manually in directory portion of your RStudio session.
+
+-   Navigate to the bottom right portion of your RStudio session.
+
+-   Got to the *Plots* tab.
+
+    -   Run the code for your plot, or navigate to your plot using the arrows.
+
+-   Click *Export*
+
+    -   You can save your file as a `.pdf` or as an image.
+
+Later, we will learn to customize plots and insert them into reports and papers.
+
+## ![See the bottom right of the screen.](img/wk3-g-1.png)
+
+### Task 16: Run univariate statistics in R
+
+We will generate some code to examine univariate statistics in R. This will help you with HW 2.
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(5)
+x <- rnorm(100)
+y <- 5 -2*x + rnorm(100)
+```
+
+Take the plot of data for two variables, $x$ and $y$ below.
+
+```{r}
+#| echo: false
+#| output: true
+#| warning: false
+#| label: fig-correlation 
+#| fig-cap: "Correlation plot of two variables, x and y"
+plot(x, y)
+```
+
+Noticing that there is a relationship between $x$ and $y$, a first step is to run *univariate functions* on each variable individually.
+
+------------------------------------------------------------------------
+
+#### Task 16-a: Measures of center
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# mean of x
+mean(x)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# mean of y
+mean(y)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# median of x
+median(x)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# median of y
+median(y)
+```
+
+Note: the median of a continuous variable constitutes the point at which the function of the distribution has the value 0.5
+
+Given the nature of the variables, we will not compute the mode. Take note, howevever, that a table can be used to find the mode in a discrete variable.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# Let some variable V contain a set of values
+v <- c(1, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 8, 8, 8, 9)
+mode(v)
+```
+
+The output is not what we desire. We can create a table to get the values we'd like.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# Let some variable z be a set of values
+table.v <- table(v)
+table.v
+```
+
+The table shows us the mode of the variable.
+
+------------------------------------------------------------------------
+
+#### Task 16-b: Measures of variation
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# range of x
+max(x)
+min(x)
+# create an object for the range
+range.x = max(x) - min(x)
+range.x # recall that we only stored the value in the last line, we must call it separately
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# range of y
+max(y)
+min(y)
+# create an object for the range
+range.y = max(y) - min(y)
+range.y
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# standard deviation of x
+sd(x)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# standard deviation of y
+sd(y)
+```
+
+------------------------------------------------------------------------
+
+#### Task 16-c: Measures of relative standing
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# Interquartile range of x
+IQR(x) # IQR computes the spread of the middle 50 percent of the values in X
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# Interquartile range of y
+IQR(y) # IQR computes the spread of the middle 50 percent of the values in Y
+```
+
+#### Task 16-d: Plots
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# boxplot
+boxplot(x)
+boxplot(y)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# histogram
+hist(x)
+hist(y)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# density curve
+plot(density(x))
+plot(density(y))
+```
+
+### **Next up**: Week 6

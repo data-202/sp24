@@ -1,0 +1,43 @@
+---
+title: "Solutions"
+---
+
+This page contains solutions to selected homework problems.
+
+#### <u>**Homework 0 Solutions**</u>
+
+**Exercise 0.1**. If an individual's projected income is to be converted to a z-score, which of these z-scores would a "rational agent" prefer: -2.00, -1.00, 0, 1.00, or 2.00? What is a "rational agent"? Explain why the "rational agent" would prefer the z-score you selected? Cite any sources. [Solution not provided.]{style="color:red;"}
+
+**Exercise 0.2**. What is an integer? What is the sum of the first 100 positive integers? Explain your solution. Cite any sources. Bonus points (but definitely not required for our course): write a proof of the solution. [Solution outlined in the bullets below.]{style="color:red;"}
+
+-   An integer value $x$ is any number in the set of numbers known as the integers. This set includes: zero, $0$; the natural numbers, $\mathbb{N} = \{1, 2, 3, ...\}$; and the additive inverses (opposites) of the values in $\mathbb{N}$, or the set of values $\{..., -3, -2, -1 \}$.
+
+-   Together these three sets make up the integers, $\mathbb{Z} = \{..., -3, -2, -1, 0, 1, 2, 3, ... \}$.
+
+-   The sum of the first 100 positive integers is equivalent to asking for the sum of the first 100 natural numbers.
+
+-   A short explanation of the solution is provided below:
+
+    -   Assume that we have a list of numbers from 1 to 100. Let's add them up and call the sum $S$:
+
+        $$ S = 1 + 2 + 3 + ... + 99 + 100 $$
+
+    -   Now, assume we reverse the order of the sum, $S$, to get the following:
+
+        $$ S = 100 + 99 + 98 + ... + 2 + 1 $$
+
+    -   If we add these two sums up, we should get something similar to the line below:
+
+        $$ 2S = (1 + 100) + (2 + 99) + (3 + 98) + ... + (99 + 2) + (100 + 1) $$
+
+    -   It is important that you see what was done in the line above; try writing it out yourself!
+
+        $$ 2S = 101 + 101 + 101 + ... + 101 + 101 $$
+
+    -   Solving for S in the above equation, we get the following:
+
+        $$ S = \dfrac{100(101)}{2} = 5050$$
+
+    -   The sum, $S$, is equal to 5050, which is the solution; try generalizing the sum for any case.
+
+**Exercise 0.3**. Have you ever heard of p-hacking? P-hacking is where a researcher conducts multiple tests and only reports the significant results from those tests. What are some main issues here? [Answers will vary.]{style="color:red;"}
