@@ -1,0 +1,95 @@
+---
+title: "Homework 3"
+subtitle: "DATA 202 - Alexander - Spring 2024"
+format: 
+  html: 
+    self-contained: true
+    self-contained-math: true
+editor: visual
+---
+
+Please submit **Homework 3** responses as a `.pdf` file on Canvas [here](https://canvas.howard.edu/courses/46792).
+
+### Exercise 1.1
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(203)
+x <- rnorm(75)
+y <- 9 - 6*x + rnorm(75)
+```
+
+Is the relationship between the $x$ and $y$ variables in the below model significant?
+
+If so, explain. If not, explain why.
+
+```{r}
+model <- lm(y ~ x)
+summary(model)
+```
+
+### Exercise 1.2
+
+Examine the plot below. Estimate the correlation coefficient for the plot.
+
+```{r}
+plot(x, y)
+```
+
+### Exercise 1.3
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+# Generate sample data
+set.seed(11)
+age <- runif(n = 100, min = 18, max = 65)
+income <- runif(n = 100, min = 20000, max = 152500)
+```
+
+Examine the plot below. Estimate the correlation coefficient for the plot.
+
+Based on your estimate, should we move forward with our analysis? If so, why? If no, why not?
+
+```{r}
+plot(age, income)
+```
+
+### Exercise 1.4
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+id <- c(1:100)
+capacity = rpois(n = 100, lambda = 7500)
+funding = rnorm(n = 100, mean = 87000, sd = 15000)
+```
+
+In a few sentences, summarize the relationship between the variables based on the output.
+
+Is there a significant relationship?
+
+```{r}
+model2 <- lm(funding ~ capacity)
+summary(model2)
+plot(capacity, funding)
+abline(model2, col="blue")
+```
+
+### Exercise 1.5
+
+Using the model outlined above and the plot shown below, explain the function of a residual plot.
+
+Does the residual plot represent a "healthy" or "problematic" pattern?
+
+```{r}
+resids2 <- residuals(model2)
+plot(funding, resids2)
+```
