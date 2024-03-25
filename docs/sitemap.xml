@@ -2,114 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/data-202/week02.html</loc>
-    <lastmod>2024-03-25T22:26:36.554Z</lastmod>
+    <lastmod>2024-03-25T22:32:07.099Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week02-slides.html</loc>
-    <lastmod>2024-03-25T22:26:36.473Z</lastmod>
+    <lastmod>2024-03-25T22:32:07.017Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week03.html</loc>
-    <lastmod>2024-03-25T22:26:32.682Z</lastmod>
+    <lastmod>2024-03-25T22:32:02.878Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week03-slides.html</loc>
-    <lastmod>2024-03-25T22:26:32.527Z</lastmod>
+    <lastmod>2024-03-25T22:32:02.740Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week10.html</loc>
-    <lastmod>2024-03-25T22:26:25.000Z</lastmod>
+    <lastmod>2024-03-25T22:31:55.899Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week10-slides.html</loc>
-    <lastmod>2024-03-25T22:26:24.920Z</lastmod>
+    <lastmod>2024-03-25T22:31:55.817Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week05.html</loc>
-    <lastmod>2024-03-25T22:26:17.787Z</lastmod>
+    <lastmod>2024-03-25T22:31:49.116Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week05-slides.html</loc>
-    <lastmod>2024-03-25T22:26:17.424Z</lastmod>
+    <lastmod>2024-03-25T22:31:48.962Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week07.html</loc>
-    <lastmod>2024-03-25T22:26:08.458Z</lastmod>
+    <lastmod>2024-03-25T22:31:41.679Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week07-slides.html</loc>
-    <lastmod>2024-03-25T22:26:08.304Z</lastmod>
+    <lastmod>2024-03-25T22:31:41.493Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/solutions.html</loc>
-    <lastmod>2024-03-25T22:26:00.864Z</lastmod>
+    <lastmod>2024-03-25T22:31:34.204Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/index.html</loc>
-    <lastmod>2024-03-25T22:25:59.374Z</lastmod>
+    <lastmod>2024-03-25T22:31:32.552Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/papers-more-info.html</loc>
+    <lastmod>2024-03-25T22:31:30.629Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/paper3.html</loc>
+    <lastmod>2024-03-25T22:31:24.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/paper4.html</loc>
+    <lastmod>2024-03-25T22:31:22.308Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week08.html</loc>
-    <lastmod>2024-03-25T22:25:56.757Z</lastmod>
+    <lastmod>2024-03-25T22:31:20.029Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week08-slides.html</loc>
-    <lastmod>2024-03-25T22:25:56.705Z</lastmod>
+    <lastmod>2024-03-25T22:31:19.945Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/data-202/assignments.html</loc>
-    <lastmod>2024-03-25T22:25:52.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/data-202/week09-slides.html</loc>
-    <lastmod>2024-03-25T22:25:54.864Z</lastmod>
+    <loc>https://github.com/data-202/hw/hw2.html</loc>
+    <lastmod>2024-03-25T22:31:04.876Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week09.html</loc>
-    <lastmod>2024-03-25T22:25:54.938Z</lastmod>
+    <lastmod>2024-03-25T22:30:45.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/week09-slides.html</loc>
+    <lastmod>2024-03-25T22:30:45.374Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/labs/lab4.html</loc>
+    <lastmod>2024-03-25T22:30:42.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/labs/lab3.html</loc>
+    <lastmod>2024-03-25T22:30:24.278Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/labs/lab2.html</loc>
+    <lastmod>2024-03-25T22:30:36.401Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/assignments.html</loc>
+    <lastmod>2024-03-25T22:30:43.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/hw/hw1.html</loc>
+    <lastmod>2024-03-25T22:30:55.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/hw/hw3.html</loc>
+    <lastmod>2024-03-25T22:31:18.656Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/papers-instructions.html</loc>
+    <lastmod>2024-03-25T22:31:21.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/paper1.html</loc>
+    <lastmod>2024-03-25T22:31:23.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/data-202/papers/paper2.html</loc>
+    <lastmod>2024-03-25T22:31:29.870Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/course-overview.html</loc>
-    <lastmod>2024-03-25T22:25:57.887Z</lastmod>
+    <lastmod>2024-03-25T22:31:31.505Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/computing.html</loc>
-    <lastmod>2024-03-25T22:26:00.114Z</lastmod>
+    <lastmod>2024-03-25T22:31:33.269Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week06-slides.html</loc>
-    <lastmod>2024-03-25T22:26:03.699Z</lastmod>
+    <lastmod>2024-03-25T22:31:37.154Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week06.html</loc>
-    <lastmod>2024-03-25T22:26:03.948Z</lastmod>
+    <lastmod>2024-03-25T22:31:37.285Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week11-slides.html</loc>
-    <lastmod>2024-03-25T22:26:12.369Z</lastmod>
+    <lastmod>2024-03-25T22:31:44.798Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week11.html</loc>
-    <lastmod>2024-03-25T22:26:12.617Z</lastmod>
+    <lastmod>2024-03-25T22:31:44.896Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week04-slides.html</loc>
-    <lastmod>2024-03-25T22:26:21.655Z</lastmod>
+    <lastmod>2024-03-25T22:31:52.465Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week04.html</loc>
-    <lastmod>2024-03-25T22:26:21.777Z</lastmod>
+    <lastmod>2024-03-25T22:31:52.566Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week01-slides.html</loc>
-    <lastmod>2024-03-25T22:26:26.240Z</lastmod>
+    <lastmod>2024-03-25T22:31:57.130Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/week01.html</loc>
-    <lastmod>2024-03-25T22:26:26.301Z</lastmod>
+    <lastmod>2024-03-25T22:31:57.214Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/data-202/schedule.html</loc>
-    <lastmod>2024-03-25T22:26:33.469Z</lastmod>
+    <lastmod>2024-03-25T22:32:03.831Z</lastmod>
   </url>
 </urlset>

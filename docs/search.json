@@ -504,11 +504,340 @@
     "text": "Site Description\nThe pages on this site outline the coding components of the DATA 202: Statistically Measuring and Modeling Social Justice course at Howard University, taught by me: Professor Nathan Alexander.\nThe information on this page will serve as a technical companion to our Canvas site.\nThis page will support you in our course in the following ways:\n\nThis page will help you work with data sets and complete small tasks over time.\nThis page will walk you through the measurement aspect of research questions relevant to modeling issues of social justice.\nThis page will help you integrate mathematical ideas and technical formulas into your work.\nThis page will support your use of theory in your statistical practice, and increase your ability to document reproducible code around a set of research questions.\n\nOur canvas site (click here) contains readings and is where you will submit all assignments.\nThis site should be paired with Canvas to help you complete course assignments.\nAnd just for good measure: all assignments should be turned in via Canvas.\nWhen turning in assignments on Canvas:\n\nGenerally, PDF submissions are the way to go.\nI will not download any files not uploaded to Canvas. I will only click on a clearly visible Github repository (i.e., no shortened or bit.ly links). Article citations that include DOIs are preferred.\nWe will discuss Quarto Markdown files which integrate code, formulas, and text. Quarto is actually how I created this site for our course, and it is a great way to communicate your technical ideas.\nThis is a Canvas companion site/page (I’ll use these terms interchangeably) and it will serve as your guide to completing all technical assignments.\n\n\n It is alive!\nThis is a living document, meaning that more materials will be added as topics are introduced. It is important that you check these pages regularly. You should also use this course organization as an archive of any technical code that is covered in class. Canvas contains readings and this page will integrate code.\n\n\nJust a reminder.\nCanvas contains readings. This site integrates code. All submissions go to Canvas: here.\n\n\nNext up: Overview\nThe overview in the next section will walk you through the technical flow of the course.\nLike this section, a preview of forthcoming topics will be included at the bottom of each page; this means that you can treat this site like a textbook that you would read in order from start to finish. Though I encourage you to explore what else is out there and make use of other resources. That said, submissions should follow the formal guidelines outlined on our syllabus, Canvas, and this site.\n\nThe syllabus provides a high-level view of the course.\nCanvas is the go-to for submissions and provides readings and assignments.\nThis course site provides technical items and code to help you complete your assignments.\n\nComing up next are the four parts of the course and an overview of the assignments for the term. Course topics are outlined in more detail and integrated into the assignment submission schedule on the next page; see you over there!"
   },
   {
+    "objectID": "papers/papers-more-info.html",
+    "href": "papers/papers-more-info.html",
+    "title": "More information for course papers",
+    "section": "",
+    "text": "Overview\nAs noted before, the course papers all require that you do original data analysis.\nPapers should be written as short research reports (try to make the text clear but sound professional, though the research questions may be relatively simple), and they should include the elements described below in narrative form. Please give each paper a substantive title (in addition to “Paper #_“).\nEach paper should have, at minimum, four sections: Theory, Measurement, Statistical Analysis, and Conclusion.\n\n\nTheory:\nEach theory (or logic graph) should be described fully in about a paragraph or two.\nDescribe and justify the relationships involving the theoretical variables that will be examined (including what’s the unit of analysis and “what’s the story,” in terms of why we care about the issue(s); this is a great place to insert historical work). Include a graph along with this at the beginning of the paper.\n\n\nMeasurement:\nNext, describe the data that you will be using to examine the theory. Describe the data source that you are using, and for any survey data describe the sampling method. For the General Social Survey (GSS) someone could say something like “The 2012 GSS sample is a multistage area probability sample to the segment or block level. At the block level, households are enumerated and a full probability sample is drawn.” You will need to find this type of detailed information in the Data Codebooks provided on Canvas. Describe the specific measures you are using and how they were obtained. Comment on how well the measures fit your theoretical variables (i.e., the face validity of the measures). In the case of survey data, report the full question wordings (verbatim) and specify the response categories and report how the variables were coded and re-coded. Present the frequency distributions (so your coding and treatment of missing data can be checked); if you want to comment on the frequency distributions, you should do so in no more than a couple sentences. Please include all the R commands that you executed in a .qmd file, so your work can be checked (or the commands for whatever code you use in R).\n\n\nStatistical Analysis:\nSpecify the hypotheses for the expected relationships (coefficients / correlations) in the context of the specified equations and operational flow graph. Then report the statistical results, coefficients, etc. and other relevant statistics and any additional calculations required. Describe to what extent the evidence is consistent with your hypothesis or hypotheses and lends support to your theorizing.\n\n\nConclusion:\nWhat can you conclude about your original theorizing based upon your analysis? Were you on the right track? Were your findings different from what you originally theorized?"
+  },
+  {
+    "objectID": "papers/paper3.html",
+    "href": "papers/paper3.html",
+    "title": "Paper 3",
+    "section": "",
+    "text": "For review, you may also refer to more information for course papers in two additional documents:\n\nInstructions for papers\nMore information for course papers\n\n\nStep 1: Theory and logic diagram\nFor paper #3, we are interested in exploring theories pertaining to the relationship between two variables. Specifically, we are interested in understanding the association of characteristics. Your paper 3 assignment should align with your lab 3 submissions, although updates may be made.\nNote: For your paper, please remember to address the theoretical relationship that the literature has identified between the conceptual variables selected. That is, before describing the measures and the survey you will be using, explain your theory and why you think that your independent variable is having an effect on your dependent variable.\n\n\nStep 2: Variables, Measurement, Hypothesis\nAll variables and analyses should be described in detail.\n\n\nStep 3: Statistical Analysis\nPlease be sure to utilize analyses on the interactions between multiple variables.\n\n\nStep 4: Conclusion\nFor this paper, please be sure to focus on a solid conclusion based on your statistical analysis."
+  },
+  {
+    "objectID": "papers/paper4.html",
+    "href": "papers/paper4.html",
+    "title": "Paper 4",
+    "section": "",
+    "text": "For review, you may also refer to more information for course papers in two additional documents:\n\nInstructions for papers\nMore information for course papers\n\n\nStep 1: Theory and logic diagram\nFor paper #4 (similar to paper 3), we are interested in exploring theories pertaining to the relationships and interactions between multiple variables. For this paper, you should pay particular attention to the theory underlying your identified relationships and conduct a focused analysis as it relates to each variable. For example, given three variables: X, Y, and Z, your paper should be sure to take care in discussing and analyzing the relationships between X and Y, X and Z, and Y and Z. Please note: you should not use the same variables from a previous assignment but you may use the same data set.\nNote: For your paper, please remember to address the theoretical relationship that the literature has identified between the conceptual variables selected. That is, before describing the measures and the survey you will be using, explain your theory and why you think that your independent variable is having an effect on your dependent variable.\n\n\nStep 2: Variables, Measurement, Hypothesis\nAll variables and analyses should be described in detail.\n\n\nStep 3: Statistical Analysis\nPlease be sure to utilize analyses on the interactions between multiple variables.\n\n\nStep 4: Conclusion\nFor your final paper, please be sure to focus on a solid conclusion based on your statistical analysis."
+  },
+  {
     "objectID": "week08.html",
     "href": "week08.html",
     "title": "DATA 202 - Week 8",
     "section": "",
     "text": "The midterm examination can be accessed here."
+  },
+  {
+    "objectID": "hw/hw2.html",
+    "href": "hw/hw2.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Please submit Homework 2 responses as a .pdf file on Canvas here.\n\nExercise 1.1\nIn the following questions, read each scenario and (a) describe the sampling method used and (b) determine whether the sampling method appears to be sound or flawed. Explain your reasoning in complete sentences.\n\n(Study hours): A group of students decides to collect data on the number of hours students in a university spend in the library per week. The researchers collect data by setting up a table outside of the library entrance.\n(Clinical trials): Researchers at a lab conduct a wide variety of clinical trials by using subjects who volunteer after reading advertisements hung on boards and light poles soliciting paid volunteers to participate in the study.\n(Covid-19): In an online survey with a sample of 957 subjects, the following question was posed on both Instagram and Twitter: “In your view, is the Covid-19 vaccine safe?” The survey respondents were internet users who chose to respond to the question posted on the social media accounts over the course of 24 hours.\n(Community data): A group of researchers decides to partner with a major company to examine environmental hazards at the neighborhood level. They code each region by zip code and randomly select zip codes in the metropolitan region. The researchers then plan to randomly select households within each of the selected zip codes.\n(Debt): In a survey of hospital workers, a total of 2,087 respondents were randomly selected and asked how much credit card debt they pay off each month. Survey results were used to generate population parameters.\n\n\n\nExercise 1.2\nIn the following exercises, explain the issue with the study and sampling method. Use complete sentences.\n\n(Political party): In a research study conducted by a political party at their annual rally, a convenience sample of 1000 adults were asked to select their favorite political party, the favorite choice was the political party in question, which was selected by 92% of respondents.\n(Marijuana): Proponents of the legalization of marijuana in their state collected data using an electronic poll in various CBD and vape shops across the city, showing that 65% of those surveyed said that they “strongly agree” and 15% said that they “agree” with the legalization of marijuana.\n(Police Training Facility): A group study citizen beliefs about the “Cop City” facility in Atlanta collected data from 367 individuals at four city council meetings. In a report on their findings, in which they describe the use of advanced statistical methods, they state: “a majority of Atlanta citizens support the development of the training facility.”\n\n\n\nExercise 1.3\n(Discrete vs. continuous data): Identify which of the following is discrete vs continuous.\n\nThe number of people surveyed in a national election poll\nThe exact height of a random sample of students in a statistics course\nThe exact times that drives spend texting while driving over a 7 day period\nThe number of animals observed in a reserve on a given day\nThe temperature recorded by the National Weather Service\n\n\n\nExercise 1.4\n(Levels of measurement): Identify the level of measurement for the variables below.\n\nCollege rankings in the U.S. News and World Report.\nExit poll results for a presidential election where respondents were asked to identify political affiliation.\nThe colors of shirts (e.g., red, green, blue, etc.) worn by a group of students listed in a data set.\nThe amount of a virus in a sample of blood collected in a medical study.\n\n\n\nExercise 1.5\nIn your own words, define the term “social justice” and describe how statistics can be used to support and advocate for social movement building around issues of injustice.\n\nFor Exercises 1.6 through 1.10, you should complete all calculations in R.\nLet P be a sample of payments (in thousands of dollars) for residents of a small rural community. These payments represent a random sample of 140 payments being made through the local city council. Payments are restitution for an environmental hazard. The hazard was the result of a major corporation’s new factory construction, which forced many of the town’s residents to relocate and required a series of medical examinations.\n\\[ P = \\{25.4, 27.6, 19.7, 18.1, 72.4, 45.6, 18.7, 65.6, 20.0, 21.7, 39.6, 17.2, 34.5, 32.7, 92.7, 12.3\\} \\]\n\n\nExercise 1.6\nCalculate the measures of center for \\(P\\). What do these measures tell us about the payments?\n\n\nExercise 1.7\nCalculate the measures of variation for \\(P\\). What do these measures tell us about the data?\n\n\nExercise 1.8\nCalculate the IQR for \\(P\\) and the z-scores for the minimum and maximum values and write up a brief note for the local city council meeting to review. Note: your write-up should contain a clear description for the average citizen as opposed to only technical notes; that is, interpret the values and communicate them effectively to the population.\n\n\nExercise 1.9\nBased on the descriptive statistics (measures of center, measures of variation, and measures of relative standing) on the sample data in \\(P\\), what notes might you add as a researcher in relation to equity across the total payouts. What information may be needed (or is missing) to help you make a clear determination of equity in the cases?\n\n\nExercise 1.10\nGenerate a descriptive and appropriate plot for the data in the set \\(P\\), include labels."
+  },
+  {
+    "objectID": "week09.html",
+    "href": "week09.html",
+    "title": "DATA 202 - Week 9",
+    "section": "",
+    "text": "No classes held. Spring Break observed by the University."
+  },
+  {
+    "objectID": "labs/lab4.html",
+    "href": "labs/lab4.html",
+    "title": "Lab 4",
+    "section": "",
+    "text": "For Lab 4, you may submit your work to Canvas as a .pdf or an R Script or even as a .txt file.\nPlease see the Preparing Lab Reports at the bottom of the lab 1 assignment."
+  },
+  {
+    "objectID": "labs/lab4.html#learning-objectives",
+    "href": "labs/lab4.html#learning-objectives",
+    "title": "Lab 4",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nThe Lab 4 assignment will provide you with an opportunity to self-direct your analysis to write a substantive argument in Paper 3. In Lab 4, your analysis should focus on exploring the relationships between multiple variables. Specifically, your inquiry in this lab should utilize methods for a multivariate analysis.\nThis lab focuses on you exploring the relationships between a minimum of three variables. These data can come from the critstats, gssr, or a data set of your choice once approved by the instructor (please email me ahead of time with the raw data and a high-level outline of your plan). You will continue to return to some of the functions we have used before to clean variables and manipulate data frames. Your analyses in this lab should focus on an analysis between two or more variables, with an emphasis on your research design and analytic goals.\nPlease note: you may use the same variables from a previous assignment but please use different questions.\nImportantly, your analysis in lab 4 should inform the paper 4 assignment."
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.1",
+    "href": "labs/lab4.html#report-1.1",
+    "title": "Lab 4",
+    "section": "Report 1.1",
+    "text": "Report 1.1\nWhat data set have you decided to use?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.2",
+    "href": "labs/lab4.html#report-1.2",
+    "title": "Lab 4",
+    "section": "Report 1.2",
+    "text": "Report 1.2\nWhich two variables from your data set will be analyzed?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.3",
+    "href": "labs/lab4.html#report-1.3",
+    "title": "Lab 4",
+    "section": "Report 1.3",
+    "text": "Report 1.3\nWhat is your research question?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.4",
+    "href": "labs/lab4.html#report-1.4",
+    "title": "Lab 4",
+    "section": "Report 1.4",
+    "text": "Report 1.4\nWhat is your data analysis plan? Please be descriptive."
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.5",
+    "href": "labs/lab4.html#report-1.5",
+    "title": "Lab 4",
+    "section": "Report 1.5",
+    "text": "Report 1.5\nWhat are some potential limitations for your analysis?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.6",
+    "href": "labs/lab4.html#report-1.6",
+    "title": "Lab 4",
+    "section": "Report 1.6",
+    "text": "Report 1.6\nDoes your data contain missing values? If so, how have you dealt with these values?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.7",
+    "href": "labs/lab4.html#report-1.7",
+    "title": "Lab 4",
+    "section": "Report 1.7",
+    "text": "Report 1.7\nPlease include all code used to clean and manipulate the variables."
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.8",
+    "href": "labs/lab4.html#report-1.8",
+    "title": "Lab 4",
+    "section": "Report 1.8",
+    "text": "Report 1.8\nWhat relationship, if any, exists between the two variables?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.9",
+    "href": "labs/lab4.html#report-1.9",
+    "title": "Lab 4",
+    "section": "Report 1.9",
+    "text": "Report 1.9\nHow do these findings relate to your research question and theory?"
+  },
+  {
+    "objectID": "labs/lab4.html#report-1.10",
+    "href": "labs/lab4.html#report-1.10",
+    "title": "Lab 4",
+    "section": "Report 1.10",
+    "text": "Report 1.10\nWhat limitations exist as a result of the data analysis?"
+  },
+  {
+    "objectID": "labs/lab3.html",
+    "href": "labs/lab3.html",
+    "title": "Lab 3",
+    "section": "",
+    "text": "For Lab 3, you may submit your work to Canvas as a .pdf or an R Script or even as a .txt file.\nPlease see the Preparing Lab Reports at the bottom of the lab 1 assignment."
+  },
+  {
+    "objectID": "labs/lab3.html#learning-objectives",
+    "href": "labs/lab3.html#learning-objectives",
+    "title": "Lab 3",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nThe Lab 3 assignment will provide you with an opportunity to self-direct your analysis to write a substantive argument in Paper 3.\nSimilar to Lab 2', this lab focuses on you exploring at least two (or more) variables located in one of the data sets provided for analysis. These data can come from thecritstats,gssr`, or a data set of your choice once approved by the instructor (please email me ahead of time with the raw data and a high-level outline of your plan). You will continue to return to some of the functions we have used before to clean variables and manipulate data frames. Your analyses in this lab should focus on an analysis between two or more variables, with an emphasis on your research design and analytic goals.\nPlease note: you should not use the same variables from a previous assignment but you may use the same data set."
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.1",
+    "href": "labs/lab3.html#report-1.1",
+    "title": "Lab 3",
+    "section": "Report 1.1",
+    "text": "Report 1.1\nWhat data set have you decided to use?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.2",
+    "href": "labs/lab3.html#report-1.2",
+    "title": "Lab 3",
+    "section": "Report 1.2",
+    "text": "Report 1.2\nWhich two variables from your data set will be analyzed?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.3",
+    "href": "labs/lab3.html#report-1.3",
+    "title": "Lab 3",
+    "section": "Report 1.3",
+    "text": "Report 1.3\nWhat is your research question?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.4",
+    "href": "labs/lab3.html#report-1.4",
+    "title": "Lab 3",
+    "section": "Report 1.4",
+    "text": "Report 1.4\nWhat is your data analysis plan? Please be descriptive."
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.5",
+    "href": "labs/lab3.html#report-1.5",
+    "title": "Lab 3",
+    "section": "Report 1.5",
+    "text": "Report 1.5\nWhat are some potential limitations for your analysis?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.6",
+    "href": "labs/lab3.html#report-1.6",
+    "title": "Lab 3",
+    "section": "Report 1.6",
+    "text": "Report 1.6\nDoes your data contain missing values? If so, how have you dealt with these values?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.7",
+    "href": "labs/lab3.html#report-1.7",
+    "title": "Lab 3",
+    "section": "Report 1.7",
+    "text": "Report 1.7\nPlease include all code used to clean and manipulate the variables."
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.8",
+    "href": "labs/lab3.html#report-1.8",
+    "title": "Lab 3",
+    "section": "Report 1.8",
+    "text": "Report 1.8\nWhat relationship, if any, exists between the two variables?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.9",
+    "href": "labs/lab3.html#report-1.9",
+    "title": "Lab 3",
+    "section": "Report 1.9",
+    "text": "Report 1.9\nHow do these findings relate to your research question and theory?"
+  },
+  {
+    "objectID": "labs/lab3.html#report-1.10",
+    "href": "labs/lab3.html#report-1.10",
+    "title": "Lab 3",
+    "section": "Report 1.10",
+    "text": "Report 1.10\nWhat limitations exist as a result of the data analysis?"
+  },
+  {
+    "objectID": "labs/lab2.html",
+    "href": "labs/lab2.html",
+    "title": "Lab 2",
+    "section": "",
+    "text": "For Lab 2, you may submit your solutions to Canvas as a .pdf or an R Script or even as a .txt file.\nPlease see the Preparing Lab Reports at the bottom of the lab 1 assignment."
+  },
+  {
+    "objectID": "labs/lab2.html#learning-objectives",
+    "href": "labs/lab2.html#learning-objectives",
+    "title": "Lab 2",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nThe Lab 2 assignment focuses on you exploring any two variables located in one of the data frames in the critstats package or in gss_cat. You will also return to some of the functions we have used before to clean variables and manipulate data frames. Your analyses in this lab should focus on a bivariate analysis between two categorical variables, two numeric variables, or one numeric variable and one categorical variable.\nPlease note: you should not use the same variables from a previous assignment but you may use the same data set."
+  },
+  {
+    "objectID": "labs/lab2.html#learning-activities",
+    "href": "labs/lab2.html#learning-activities",
+    "title": "Lab 2",
+    "section": "Learning Activities",
+    "text": "Learning Activities\nBy the end of this lab you will be able to:\n\nLocate data sets in the critstats package, or use gss_cat\nDevelop an original research question\nClean and manipulate data for analysis\nExamine the relationship between two variables\n\nYou should submit your final output on Canvas here."
+  },
+  {
+    "objectID": "labs/lab2.html#task-0.1-create-a-new-project",
+    "href": "labs/lab2.html#task-0.1-create-a-new-project",
+    "title": "Lab 2",
+    "section": "Task 0.1: Create a new project",
+    "text": "Task 0.1: Create a new project\nIn your R session, navigate to: File &gt; New Project. Create a new project using an appropriate title"
+  },
+  {
+    "objectID": "labs/lab2.html#task-0.2-check-your-working-directory",
+    "href": "labs/lab2.html#task-0.2-check-your-working-directory",
+    "title": "Lab 2",
+    "section": "Task 0.2: Check your working directory",
+    "text": "Task 0.2: Check your working directory\nCheck your working directory by typing getwd().\nIf you are not in the desired directory, you can change your directory using the associated path. This path should be the same as the project folder that you plan to work out of for the next several weeks.\n\n# insert your desired path in the parenthesis and remove the #\n# setwd(\"/your/working/directory/goes/here\") \n\nYou can add a new sub-folder manually or under the Files tab in the RStudio IDE."
+  },
+  {
+    "objectID": "labs/lab2.html#task-0.3-start-a-new-file-in-your-session",
+    "href": "labs/lab2.html#task-0.3-start-a-new-file-in-your-session",
+    "title": "Lab 2",
+    "section": "Task 0.3: Start a new file in your session",
+    "text": "Task 0.3: Start a new file in your session\nOnce you have confirmed that you are in the correct directory, start a new R Script."
+  },
+  {
+    "objectID": "labs/lab2.html#task-0.4-write-a-preamble",
+    "href": "labs/lab2.html#task-0.4-write-a-preamble",
+    "title": "Lab 2",
+    "section": "Task 0.4: Write a preamble",
+    "text": "Task 0.4: Write a preamble\n\n## Name: &lt;include your full name&gt;\n## Assignment: Lab 2\n## Date: &lt;here you may want to add a date&gt;\n## Purpose: &lt;insert the goals or purpose of the RScript&gt;"
+  },
+  {
+    "objectID": "labs/lab2.html#task-0.5-packages-and-libraries",
+    "href": "labs/lab2.html#task-0.5-packages-and-libraries",
+    "title": "Lab 2",
+    "section": "Task 0.5: Packages and libraries",
+    "text": "Task 0.5: Packages and libraries\n\n# install the tidyverse package\ninstall.packages(\"tidyverse\", repos = \"http://cran.us.r-project.org\")\n\n# load the libraries needed for today's analyses\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(critstats)\n\n## update packages if needed; remove # to run code\n# update.packages(\"package-name\")"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.1",
+    "href": "labs/lab2.html#report-1.1",
+    "title": "Lab 2",
+    "section": "Report 1.1",
+    "text": "Report 1.1\nWhat data set have you decided to use?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.2",
+    "href": "labs/lab2.html#report-1.2",
+    "title": "Lab 2",
+    "section": "Report 1.2",
+    "text": "Report 1.2\nWhich two variables from your data set will be analyzed?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.3",
+    "href": "labs/lab2.html#report-1.3",
+    "title": "Lab 2",
+    "section": "Report 1.3",
+    "text": "Report 1.3\nWhat is your research question?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.4",
+    "href": "labs/lab2.html#report-1.4",
+    "title": "Lab 2",
+    "section": "Report 1.4",
+    "text": "Report 1.4\nWhat is your data analysis plan? Please be descriptive."
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.5",
+    "href": "labs/lab2.html#report-1.5",
+    "title": "Lab 2",
+    "section": "Report 1.5",
+    "text": "Report 1.5\nWhat are some potential limitations for your analysis?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.6",
+    "href": "labs/lab2.html#report-1.6",
+    "title": "Lab 2",
+    "section": "Report 1.6",
+    "text": "Report 1.6\nDoes your data contain missing values? If so, how have you dealt with these values?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.7",
+    "href": "labs/lab2.html#report-1.7",
+    "title": "Lab 2",
+    "section": "Report 1.7",
+    "text": "Report 1.7\nPlease include all code used to clean and manipulate the variables."
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.8",
+    "href": "labs/lab2.html#report-1.8",
+    "title": "Lab 2",
+    "section": "Report 1.8",
+    "text": "Report 1.8\nWhat relationship, if any, exists between the two variables?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.9",
+    "href": "labs/lab2.html#report-1.9",
+    "title": "Lab 2",
+    "section": "Report 1.9",
+    "text": "Report 1.9\nHow do these findings relate to your research question and theory?"
+  },
+  {
+    "objectID": "labs/lab2.html#report-1.10",
+    "href": "labs/lab2.html#report-1.10",
+    "title": "Lab 2",
+    "section": "Report 1.10",
+    "text": "Report 1.10\nWhat limitations exist as a result of the data analysis?"
   },
   {
     "objectID": "assignments.html",
@@ -518,11 +847,95 @@
     "text": "This page contains three sections:\n\nBrief overview of all course assignments.\nInformation about homework 0 (ungraded).\nInformation about lab 0 (ungraded).\n\n\nOverview of course assignments\nOur course assignments will be split between reading and typing (code and analytic results).\n\n\n\n\n\n\n\n\nCourse component\nAssignment\nDate(s)\n\n\n\n\nPart I: Statistics and society\n\n\n\n\n\nHomework 0\nDue: Tue Jan 16\n\n\n\nLab 0\nDue: Tue Jan 16\n\n\n\nPaper #1\nDue: Sun Jan 28\n\n\nPart II: Data and people\n\n\n\n\n\nHomework 1\nDue: Tue Jan 30\n\n\n\nLab 1\nDue: Tue Feb 6\n\n\n\nHomework 2\nDue: Tue Feb 13\n\n\n\nLab 2\nDue: Tue Feb 20\n\n\n\nPaper #2\nDue: Sun Feb 25\n\n\n\nMidterm examination\nDue: Fri Mar 1\n\n\nPart III: Data and policy\n\n\n\n\n\nHomework 3\nDue: Tue Mar 12 Tue Mar 19\n\n\n\nLab 3\nDue: Tue Mar 19 Tue Mar 26\n\n\n\nPaper #3\nDue: Sun Mar 31\n\n\nPart IV: Data in practice\n\n\n\n\n\nHomework 4\nDue: Tue Apr 2\n\n\n\nLab 4\nDue: Tue Apr 9\n\n\n\nPaper #4\nDue: Sun Apr 21\n\n\nCourse wrap-up\n\n\n\n\n\n\n\nHomework 0\nFor your first homework, you will complete a few computational exercises. This homework is ungraded, and while there is no prerequisite for this course, homework 0 (HW #0) should serve as a review and a preview of content that we’ll explore for the course. Please do not hesitate to reach out with questions.\nExercise 0.1. If an individual’s projected income is to be converted to a z-score, which of these z-scores would a “rational agent” prefer: -2.00, -1.00, 0, 1.00, or 2.00? What is a “rational agent”? Explain why the “rational agent” would prefer the z-score you selected? Cite any sources.\nExercise 0.2. What is an integer? What is the sum of the first 100 positive integers? Explain your solution. Cite any sources. Bonus points (but definitely not required for our course): write a proof of the solution.\nExercise 0.3. Have you ever heard of p-hacking? P-hacking is where a researcher conducts multiple tests and only reports the significant results from those tests. What are some main issues here?\nI will not collect hw-0 but I am happy to review it if you’d like; upload it to Canvas here.\n\n\nLab 0\nFor your first lab, you will install two software programs on your local machine: the first is base R and the second is the RStudio Integrated Development Environment, or IDE. Both programs are required.\n\n\n\n\n\n\nYou must download both R and RStudio!\n\n\n\n\n\nIn order to complete assignments, you must download base R and RStudio to your computer.\n\n\n\nRStudio is now called Posit. When you are searching online you will begin to see language differences.\nIt can all get very confusing. In order to reduce confusion, I am requesting that you watch this short tutorial so that we’re all on the same page. I will discuss this more when we meet.\n\n\nNext up: Computing\nOn the next page, I will walk you through downloading the appropriate software for our work this term."
   },
   {
-    "objectID": "week09.html",
-    "href": "week09.html",
-    "title": "DATA 202 - Week 9",
+    "objectID": "hw/hw1.html",
+    "href": "hw/hw1.html",
+    "title": "Homework 1",
     "section": "",
-    "text": "No classes held. Spring Break observed by the University."
+    "text": "Please submit Homework 1 responses as a .pdf file on Canvas here.\n\nExercise 1.1\nThe USPHS Syphilis Study at Tuskegee was one of many historical cases of scientific racism and unethical practices enacted by the U.S. government. Was the USPHS Syphilis Study at Tuskegee an experimental or observational study? Explain your reasoning.\n\n\nExercise 1.2\nConduct a web search and literature review to identify two (2) other cases where data and/or information was collected using unethical practices. Provide a brief explanation of each case and its significance to understanding ethics. Include a full citation of all sources.\n\n\nExercise 1.3\nThere are many definitions of statistics. What is the definition of statistics that has been used in our course lectures? Conduct a web search and find two (2) alternative definitions of statistics. Include a full citation of all sources.\n\n\nExercise 1.4\nBased on your current understanding of statistics, what should it mean to be critical in the context of statistics? Explain your thinking. Include a full citation of all sources.\n\n\nExercise 1.5\nYou have been tasked with identifying data for a new study on homelessness and housing insecurity in your local area. Identify and describe two (2) of each variable type that could be collected for this study: nominal, ordinal, discrete, continuous. That is, identify and fully describe two nominal, two ordinal, two discrete, and two continuous variables that could be used to gather insights about homelessness and housing insecurity. Your descriptions should be detailed.\n\n\nExercise 1.6\nYour local city council plans to conduct a 2024 census of the local homeless population. You have been hired as a data analyst to identify priorities for the project. This census is part of a broader effort to understand the issues experienced during homelessness and to find ways to mitigate issues given the recent increase in the homeless population. What are some potential ethical issues that could arise with the councils’ plans to conduct a local homeless census? In the city’s plan to collect data on those experiencing homelessness, should informed consent be obtained per the IRB? If so, why and how?\n\n\nExercise 1.7\nDescribe the contents of the data set below and what the values most likely represent.\n\n\n# A tibble: 6 × 62\n  country  year_1960 year_1961 year_1962 year_1963 year_1964 year_1965 year_1966\n  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Afghani…   8996967   9169406   9351442   9543200   9744772   9956318  10174840\n2 Albania    1608800   1659800   1711319   1762621   1814135   1864791   1914573\n3 Algeria   11057864  11336336  11619828  11912800  12221675  12550880  12902626\n4 America…     20127     20605     21246     22029     22850     23675     24473\n5 Andorra      13410     14378     15379     16407     17466     18542     19646\n6 Angola     5454938   5531451   5608499   5679409   5734995   5770573   5781305\n# ℹ 54 more variables: year_1967 &lt;dbl&gt;, year_1968 &lt;dbl&gt;, year_1969 &lt;dbl&gt;,\n#   year_1970 &lt;dbl&gt;, year_1971 &lt;dbl&gt;, year_1972 &lt;dbl&gt;, year_1973 &lt;dbl&gt;,\n#   year_1974 &lt;dbl&gt;, year_1975 &lt;dbl&gt;, year_1976 &lt;dbl&gt;, year_1977 &lt;dbl&gt;,\n#   year_1978 &lt;dbl&gt;, year_1979 &lt;dbl&gt;, year_1980 &lt;dbl&gt;, year_1981 &lt;dbl&gt;,\n#   year_1982 &lt;dbl&gt;, year_1983 &lt;dbl&gt;, year_1984 &lt;dbl&gt;, year_1985 &lt;dbl&gt;,\n#   year_1986 &lt;dbl&gt;, year_1987 &lt;dbl&gt;, year_1988 &lt;dbl&gt;, year_1989 &lt;dbl&gt;,\n#   year_1990 &lt;dbl&gt;, year_1991 &lt;dbl&gt;, year_1992 &lt;dbl&gt;, year_1993 &lt;dbl&gt;, …\n\n\n# A tibble: 6 × 62\n  country  year_1960 year_1961 year_1962 year_1963 year_1964 year_1965 year_1966\n  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Vietnam   32670048  33666111  34683410  35721213  36780001  37858947  38958046\n2 Virgin …     32500     34300     35000     39800     40800     43500     46200\n3 West Ba…        NA        NA        NA        NA        NA        NA        NA\n4 Yemen, …   5315351   5393034   5473671   5556767   5641598   5727745   5816241\n5 Zambia     3070780   3164330   3260645   3360099   3463211   3570466   3681953\n6 Zimbabwe   3776679   3905038   4039209   4178726   4322854   4471178   4623340\n# ℹ 54 more variables: year_1967 &lt;dbl&gt;, year_1968 &lt;dbl&gt;, year_1969 &lt;dbl&gt;,\n#   year_1970 &lt;dbl&gt;, year_1971 &lt;dbl&gt;, year_1972 &lt;dbl&gt;, year_1973 &lt;dbl&gt;,\n#   year_1974 &lt;dbl&gt;, year_1975 &lt;dbl&gt;, year_1976 &lt;dbl&gt;, year_1977 &lt;dbl&gt;,\n#   year_1978 &lt;dbl&gt;, year_1979 &lt;dbl&gt;, year_1980 &lt;dbl&gt;, year_1981 &lt;dbl&gt;,\n#   year_1982 &lt;dbl&gt;, year_1983 &lt;dbl&gt;, year_1984 &lt;dbl&gt;, year_1985 &lt;dbl&gt;,\n#   year_1986 &lt;dbl&gt;, year_1987 &lt;dbl&gt;, year_1988 &lt;dbl&gt;, year_1989 &lt;dbl&gt;,\n#   year_1990 &lt;dbl&gt;, year_1991 &lt;dbl&gt;, year_1992 &lt;dbl&gt;, year_1993 &lt;dbl&gt;, …\n\n\n\n\nExercise 1.8\n\nsum(1:51)\n\n\nWhat is the meaning of the code chunk sum(1:51)?\nWhat is the numerical output?\n\n\n\nExercise 1.9\nThe population of five countries is listed in a data set using computational scientific notation.\nNumerically expand the population for each country.\n\nCountry 1: 2.06139E8\nCountry 2: 8.9561E7\nCountry 3: 2.77E7\nCountry 4: 2.72815E5\nCountry 5: 6.077E3\n\n\n\nExercise 1.10\nDescribe the error in the following attempt to construct a data frame.\n\nvec1 &lt;- c(1, 2, 3, 4)\nvec2 &lt;- c(\"a\",\"b\",\"c\",\"d\")\nvec3 &lt;- data.frame(T, F, F, T)\ndf &lt;- data.frame(vec1, vec2, vec3)"
+  },
+  {
+    "objectID": "hw/hw3.html",
+    "href": "hw/hw3.html",
+    "title": "Homework 3",
+    "section": "",
+    "text": "Please submit Homework 3 responses as a .pdf file on Canvas here.\n\nExercise 1.1\nIs the relationship between the \\(x\\) and \\(y\\) variables in the below model significant?\nIf so, explain. If not, explain why.\n\nmodel &lt;- lm(y ~ x)\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.19086 -0.70179 -0.07264  0.79898  2.37303 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   9.1441     0.1231   74.28   &lt;2e-16 ***\nx            -5.9740     0.1277  -46.77   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.062 on 73 degrees of freedom\nMultiple R-squared:  0.9677,    Adjusted R-squared:  0.9673 \nF-statistic:  2187 on 1 and 73 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nExercise 1.2\nExamine the plot below. Estimate the correlation coefficient for the plot.\n\nplot(x, y)\n\n\n\n\n\n\nExercise 1.3\nExamine the plot below. Estimate the correlation coefficient for the plot.\nBased on your estimate, should we move forward with our analysis? If so, why? If no, why not?\n\nplot(age, income)\n\n\n\n\n\n\nExercise 1.4\nIn a few sentences, summarize the relationship between the variables based on the output.\nIs there a significant relationship?\n\nmodel2 &lt;- lm(funding ~ capacity)\nsummary(model2)\n\n\nCall:\nlm(formula = funding ~ capacity)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-28999 -12361   1602  10632  35789 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) 238752.68  124897.76   1.912   0.0589 .\ncapacity       -19.92      16.64  -1.197   0.2342  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 14590 on 98 degrees of freedom\nMultiple R-squared:  0.01441,   Adjusted R-squared:  0.004349 \nF-statistic: 1.432 on 1 and 98 DF,  p-value: 0.2342\n\nplot(capacity, funding)\nabline(model2, col=\"blue\")\n\n\n\n\n\n\nExercise 1.5\nUsing the model outlined above and the plot shown below, explain the function of a residual plot.\nDoes the residual plot represent a “healthy” or “problematic” pattern?\n\nresids2 &lt;- residuals(model2)\nplot(funding, resids2)"
+  },
+  {
+    "objectID": "papers/papers-instructions.html",
+    "href": "papers/papers-instructions.html",
+    "title": "Instructions for each paper",
+    "section": "",
+    "text": "These are detailed instructions for each paper. See the syllabus for the due dates for each paper.\nSee also another document for course papers: More information for course papers\n\n\nPapers #2 through #4 all require that you do original data analysis. All papers should be written as short research reports (try to make the text clear but sound professional, though the research questions/theories may be simple) and should include the elements described below. Please give each paper a title!\nEach paper should be written as a narrative essay. In writing the essay, you should structure it by using section headings as indicated for each paper. This should not detract from the narrative form (it should read like a paper not like answers to questions in a problem set). Each theory (or graph) should be described fully in about a paragraph, and more when necessary. Describe and justify the statistical relationship involving the theoretical variables that will be examined (including the variable’s unit of analysis and “what’s the story,” in terms of why we care about the issue(s); this is a great place to insert historical work).\nInclude a graph of some kind along with your opening at the beginning. Next, describe the data that you will be using to examine the theory. Describe the data source and for any survey data used describe the sampling method. For nationally representative data on high school students, I might say something like “The 2009 HSLS longitudinal sample is a two-stage stratified random sample of the nation’s high school students collected at the school level.” This detailed information can usually be found in the codebooks for the data sets you find. Be mindful, then, that it will require that you review these files in detail as it pertains to your own variables, your own analyses, and its relation to the social issue at hand. Theory is important.\nNext, describe the specific measures you are using and how they were obtained. Comment on how well the measures fit your theoretical variables (i.e., the face validity of the measures). In the case of survey data, report the full question wordings (verbatim) and specify the response categories and report how the variables were coded and recorded. Present the frequency distributions (so your coding and treatment of “missing data” categories can be checked); if you want to comment on the frequency distributions, you should do so in no more than 2-3 sentences (we are interested more in what comes after the distribution of the members of your sample or population!). Please include all R commands that you executed for each paper, this will be done in Quarto Markdown in Week 3.\nIn your papers, specify the hypotheses for the expected relationships (correlations/regressions) of the variables and present the operational flow graph. Then report the statistical results, describing the tables, etc. and relevant statistics and any additional calculations. Describe to what extent the evidence is consistent with your hypothesis or hypotheses and lends support to your theorizing. What can you conclude about your original theory based upon your analysis? (*Note: Due to space limitations, when presenting exploratory data analysis and in presenting relationships of variables in research and writing, it is often useful to examine and to report simple tables of means or percentages to summarize bivariate relationships as well, especially when these include nominal or ordinal level (categorical) variables. Keep this in mind in doing research and data analysis beyond this course!)"
+  },
+  {
+    "objectID": "papers/papers-instructions.html#preparing-papers",
+    "href": "papers/papers-instructions.html#preparing-papers",
+    "title": "Instructions for each paper",
+    "section": "",
+    "text": "Papers #2 through #4 all require that you do original data analysis. All papers should be written as short research reports (try to make the text clear but sound professional, though the research questions/theories may be simple) and should include the elements described below. Please give each paper a title!\nEach paper should be written as a narrative essay. In writing the essay, you should structure it by using section headings as indicated for each paper. This should not detract from the narrative form (it should read like a paper not like answers to questions in a problem set). Each theory (or graph) should be described fully in about a paragraph, and more when necessary. Describe and justify the statistical relationship involving the theoretical variables that will be examined (including the variable’s unit of analysis and “what’s the story,” in terms of why we care about the issue(s); this is a great place to insert historical work).\nInclude a graph of some kind along with your opening at the beginning. Next, describe the data that you will be using to examine the theory. Describe the data source and for any survey data used describe the sampling method. For nationally representative data on high school students, I might say something like “The 2009 HSLS longitudinal sample is a two-stage stratified random sample of the nation’s high school students collected at the school level.” This detailed information can usually be found in the codebooks for the data sets you find. Be mindful, then, that it will require that you review these files in detail as it pertains to your own variables, your own analyses, and its relation to the social issue at hand. Theory is important.\nNext, describe the specific measures you are using and how they were obtained. Comment on how well the measures fit your theoretical variables (i.e., the face validity of the measures). In the case of survey data, report the full question wordings (verbatim) and specify the response categories and report how the variables were coded and recorded. Present the frequency distributions (so your coding and treatment of “missing data” categories can be checked); if you want to comment on the frequency distributions, you should do so in no more than 2-3 sentences (we are interested more in what comes after the distribution of the members of your sample or population!). Please include all R commands that you executed for each paper, this will be done in Quarto Markdown in Week 3.\nIn your papers, specify the hypotheses for the expected relationships (correlations/regressions) of the variables and present the operational flow graph. Then report the statistical results, describing the tables, etc. and relevant statistics and any additional calculations. Describe to what extent the evidence is consistent with your hypothesis or hypotheses and lends support to your theorizing. What can you conclude about your original theory based upon your analysis? (*Note: Due to space limitations, when presenting exploratory data analysis and in presenting relationships of variables in research and writing, it is often useful to examine and to report simple tables of means or percentages to summarize bivariate relationships as well, especially when these include nominal or ordinal level (categorical) variables. Keep this in mind in doing research and data analysis beyond this course!)"
+  },
+  {
+    "objectID": "papers/paper1.html",
+    "href": "papers/paper1.html",
+    "title": "Paper 1",
+    "section": "",
+    "text": "As a thought exercise for your first assignment, you will write a short quantitative research proposal based on a social issue you are familiar with or wish to learn more about.\nIn this paper, you should write about a theory concerning the relationships between and among some dependent variable and particular independent variables (you may have one or more than one independent variables of interest at the outset). After introducing your theory and assuming you had unlimited research funding, propose a research design and measurement plan for a study that would use real-world data and statistical analysis to examine the theory.\nFor review, you may also refer to more information for course papers in two additional documents:\nYour paper should be clear on the following:"
+  },
+  {
+    "objectID": "papers/paper1.html#paper-requirements",
+    "href": "papers/paper1.html#paper-requirements",
+    "title": "Paper 1",
+    "section": "Paper requirements",
+    "text": "Paper requirements\nThis is an individual paper. Your paper should be no longer than five (5) pages in length and written as a narrative essay in 12-point Times New Roman font with one-inch margins.\nIn writing the paper, you should structure it by using section headings and relevant citations for any referenced work."
+  },
+  {
+    "objectID": "papers/paper1.html#resource",
+    "href": "papers/paper1.html#resource",
+    "title": "Paper 1",
+    "section": "Resource",
+    "text": "Resource\nSpencer Foundation (2020). A Guide to Quantitative Research Proposals"
+  },
+  {
+    "objectID": "papers/paper2.html",
+    "href": "papers/paper2.html",
+    "title": "Paper 2",
+    "section": "",
+    "text": "For review, you may also refer to more information for course papers in two additional documents:"
+  },
+  {
+    "objectID": "papers/paper2.html#path-diagram",
+    "href": "papers/paper2.html#path-diagram",
+    "title": "Paper 2",
+    "section": "Path Diagram",
+    "text": "Path Diagram\n\n\n\n\nflowchart LR\n  A[Income] --&gt; B[Strength of support for a political party]"
+  },
+  {
+    "objectID": "papers/paper2.html#prepare-files",
+    "href": "papers/paper2.html#prepare-files",
+    "title": "Paper 2",
+    "section": "Prepare files",
+    "text": "Prepare files\nTo investigate the relationship outlined in the path diagram, we will use data from the General Social Survey (GSS). To begin your exploratory analysis, start a new RScript in your stats-pt2 RStudio project directory and give your RScript a proper preamble."
+  },
+  {
+    "objectID": "papers/paper2.html#data-set",
+    "href": "papers/paper2.html#data-set",
+    "title": "Paper 2",
+    "section": "Data set",
+    "text": "Data set\nFor paper #2, you will use the gss_cat data located in the forcats package.\nTo test our hypothesis, two survey variables/measures are selected from the gss_cat data:\n\nrincome (respondent’s reported income)\npartyid (respondent’s levels of support for one of three major US political parties)\n\n\nLoad the libraries\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(tidycensus)\n\n\n\nView data in your current R session\n\ndata()\n\nLocate the gss_cat data in the forcats pacakge.\nThis is a data set for us to examine the use of categorical data and factor variable types.\n\n\nView documentation for your data\n\n?gss_cat\n\nView your data\n\ngss_cat\n\n# A tibble: 21,483 × 9\n    year marital         age race  rincome        partyid    relig denom tvhours\n   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;      &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;\n 1  2000 Never married    26 White $8000 to 9999  Ind,near … Prot… Sout…      12\n 2  2000 Divorced         48 White $8000 to 9999  Not str r… Prot… Bapt…      NA\n 3  2000 Widowed          67 White Not applicable Independe… Prot… No d…       2\n 4  2000 Never married    39 White Not applicable Ind,near … Orth… Not …       4\n 5  2000 Divorced         25 White Not applicable Not str d… None  Not …       1\n 6  2000 Married          25 White $20000 - 24999 Strong de… Prot… Sout…      NA\n 7  2000 Never married    36 White $25000 or more Not str r… Chri… Not …       3\n 8  2000 Divorced         44 White $7000 to 7999  Ind,near … Prot… Luth…      NA\n 9  2000 Married          44 White $25000 or more Not str d… Prot… Other       0\n10  2000 Married          47 White $25000 or more Strong re… Prot… Sout…       3\n# ℹ 21,473 more rows\n\n\nBe sure to check the categories and codes for your variables.\n\nCategories for rincome\n\nsummary(gss_cat$rincome)\n\n     No answer     Don't know        Refused $25000 or more $20000 - 24999 \n           183            267            975           7363           1283 \n$15000 - 19999 $10000 - 14999  $8000 to 9999  $7000 to 7999  $6000 to 6999 \n          1048           1168            340            188            215 \n $5000 to 5999  $4000 to 4999  $3000 to 3999  $1000 to 2999       Lt $1000 \n           227            226            276            395            286 \nNot applicable \n          7043 \n\n\n\n\nCategories for partyid\n\nsummary(gss_cat$partyid)\n\n         No answer         Don't know        Other party  Strong republican \n               154                  1                393               2314 \nNot str republican       Ind,near rep        Independent       Ind,near dem \n              3032               1791               4119               2499 \n  Not str democrat    Strong democrat \n              3690               3490 \n\n\nNotice how each variable is measured and take notes for the measurement section of your paper.\nYou will need to re-code these values prior to any statistical analysis."
+  },
+  {
+    "objectID": "papers/paper2.html#prepare-data-for-analysis",
+    "href": "papers/paper2.html#prepare-data-for-analysis",
+    "title": "Paper 2",
+    "section": "Prepare data for analysis",
+    "text": "Prepare data for analysis\nBegin exploratory analyses on each variable.\nWhile doing exploratory analyses, you should prepare your data for statistical analysis.\n\nInspect your data using str()\nCheck the distribution of your variables using count()\nDecide how you will work with missing data, such as na.omit()\n\n\nRemove missing values from your analysis\nFor this paper, it is fine to drop all missing observations.\nWe will also explore the data from the year 2000.\n\ndf &lt;- gss_cat %&gt;% \n  na.omit() %&gt;% \n  filter(year == 2000) %&gt;% \n  select(year, rincome, partyid)\n\nExamine the reduced data frame.\n\ndf\n\n# A tibble: 1,824 × 3\n    year rincome        partyid           \n   &lt;int&gt; &lt;fct&gt;          &lt;fct&gt;             \n 1  2000 $8000 to 9999  Ind,near rep      \n 2  2000 Not applicable Independent       \n 3  2000 Not applicable Ind,near rep      \n 4  2000 Not applicable Not str democrat  \n 5  2000 $25000 or more Not str republican\n 6  2000 $25000 or more Not str democrat  \n 7  2000 $25000 or more Strong republican \n 8  2000 $25000 or more Not str democrat  \n 9  2000 $25000 or more Strong democrat   \n10  2000 $25000 or more Ind,near dem      \n# ℹ 1,814 more rows\n\n\nView the top and bottom of your data using head and tail, respectively.\n\nhead(df)\n\n# A tibble: 6 × 3\n   year rincome        partyid           \n  &lt;int&gt; &lt;fct&gt;          &lt;fct&gt;             \n1  2000 $8000 to 9999  Ind,near rep      \n2  2000 Not applicable Independent       \n3  2000 Not applicable Ind,near rep      \n4  2000 Not applicable Not str democrat  \n5  2000 $25000 or more Not str republican\n6  2000 $25000 or more Not str democrat  \n\ntail(df)\n\n# A tibble: 6 × 3\n   year rincome        partyid          \n  &lt;int&gt; &lt;fct&gt;          &lt;fct&gt;            \n1  2000 $25000 or more Not str democrat \n2  2000 $25000 or more Strong republican\n3  2000 $10000 - 14999 Independent      \n4  2000 $25000 or more Strong republican\n5  2000 $25000 or more Ind,near rep     \n6  2000 $7000 to 7999  Strong republican\n\n\nIn paper 2, you will conduct original statistical analyses.\n\n\nGet frequency tables for your data\nUsing the count() function, we will get frequency tables for each variable.\n\ndf %&gt;% \n  count(rincome)\n\n# A tibble: 16 × 2\n   rincome            n\n   &lt;fct&gt;          &lt;int&gt;\n 1 No answer         15\n 2 Don't know        22\n 3 Refused           92\n 4 $25000 or more   590\n 5 $20000 - 24999   126\n 6 $15000 - 19999   115\n 7 $10000 - 14999   139\n 8 $8000 to 9999     45\n 9 $7000 to 7999     18\n10 $6000 to 6999     24\n11 $5000 to 5999     17\n12 $4000 to 4999     20\n13 $3000 to 3999     22\n14 $1000 to 2999     36\n15 Lt $1000          24\n16 Not applicable   519\n\n\n\ndf %&gt;% \n  count(partyid)\n\n# A tibble: 9 × 2\n  partyid                n\n  &lt;fct&gt;              &lt;int&gt;\n1 No answer              3\n2 Other party           22\n3 Strong republican    180\n4 Not str republican   244\n5 Ind,near rep         168\n6 Independent          392\n7 Ind,near dem         213\n8 Not str democrat     331\n9 Strong democrat      271\n\n\nFrom our frequency tables, it is clear that we will need to transform our data."
+  },
+  {
+    "objectID": "papers/paper2.html#recode-categories-into-two-levels-dichotomous",
+    "href": "papers/paper2.html#recode-categories-into-two-levels-dichotomous",
+    "title": "Paper 2",
+    "section": "Recode categories into two-levels (dichotomous)",
+    "text": "Recode categories into two-levels (dichotomous)\nFor this analysis, we will transform our data into two dichotomous variables. Let’s examine the outputs before overwriting our data frame.\nWe will use the logic operator != to imply we do not want to keep these values (i.e., we will filter the values that are not equal to the right hand side).\n\ndf %&gt;% \n  filter(year == 2000) %&gt;% \n  filter(rincome != \"No answer\"\n         & rincome != \"Refused\"\n         & rincome != \"Not applicable\")\n\n# A tibble: 1,198 × 3\n    year rincome        partyid           \n   &lt;int&gt; &lt;fct&gt;          &lt;fct&gt;             \n 1  2000 $8000 to 9999  Ind,near rep      \n 2  2000 $25000 or more Not str republican\n 3  2000 $25000 or more Not str democrat  \n 4  2000 $25000 or more Strong republican \n 5  2000 $25000 or more Not str democrat  \n 6  2000 $25000 or more Strong democrat   \n 7  2000 $25000 or more Ind,near dem      \n 8  2000 $25000 or more Strong democrat   \n 9  2000 $25000 or more Independent       \n10  2000 $10000 - 14999 Not str democrat  \n# ℹ 1,188 more rows\n\n\nWe now recode the categories using mutuate() and recode().\n\ndf %&gt;% \n  mutate(rincome = fct_recode(rincome, \n          \"More than 10000\" = \"$25000 or more\",\n          \"More than 10000\" = \"$20000 to 24999\",\n          \"More than 10000\" = \"$15000 to 19999\",\n          \"More than 10000\" = \"$10000 to 14999\",\n          \"Less than 10000\" = \"$8000 to 9999\",\n          \"Less than 10000\" = \"$7000 to 7999\",\n          \"Less than 10000\" = \"$6000 to 6999\",\n          \"Less than 10000\" = \"$5000 to 5999\",\n          \"Less than 10000\" = \"$4000 to 4999\",\n          \"Less than 10000\" = \"$3000 to 3999\",\n          \"Less than 10000\" = \"$1000 to 2999\",\n          \"Less than 10000\" = \"$Lt $1000\"))\n\n# A tibble: 1,824 × 3\n    year rincome         partyid           \n   &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;             \n 1  2000 Less than 10000 Ind,near rep      \n 2  2000 Not applicable  Independent       \n 3  2000 Not applicable  Ind,near rep      \n 4  2000 Not applicable  Not str democrat  \n 5  2000 More than 10000 Not str republican\n 6  2000 More than 10000 Not str democrat  \n 7  2000 More than 10000 Strong republican \n 8  2000 More than 10000 Not str democrat  \n 9  2000 More than 10000 Strong democrat   \n10  2000 More than 10000 Ind,near dem      \n# ℹ 1,814 more rows\n\n\n\ndf %&gt;% \n  mutate(partyid = fct_recode(partyid,\n                              \"Republican\" = \"Strong republican\",\n                              \"Republican\" = \"Not str republican\",\n                              \"Republican\" = \"Ind,near rep\",\n                              \"Democrat\" = \"Ind,near dem\",\n                              \"Democrat\" = \"Not str democrat\",\n                              \"Democrat\" = \"Strong democrat\"))\n\n# A tibble: 1,824 × 3\n    year rincome        partyid    \n   &lt;int&gt; &lt;fct&gt;          &lt;fct&gt;      \n 1  2000 $8000 to 9999  Republican \n 2  2000 Not applicable Independent\n 3  2000 Not applicable Republican \n 4  2000 Not applicable Democrat   \n 5  2000 $25000 or more Republican \n 6  2000 $25000 or more Democrat   \n 7  2000 $25000 or more Republican \n 8  2000 $25000 or more Democrat   \n 9  2000 $25000 or more Democrat   \n10  2000 $25000 or more Democrat   \n# ℹ 1,814 more rows\n\n\nWe can stack our variable transformations together into one chunk of code.\nTake note of the way we are creating our new data set for analysis.\n\ndf %&gt;% \n  filter(year == 2000) %&gt;% \n  filter(rincome != \"No answer\"\n         & rincome != \"Refused\"\n         & rincome != \"Not applicable\") %&gt;% \n  mutate(rincome = fct_recode(rincome, \n          \"More than 20000\" = \"$25000 or more\",\n          \"More than 20000\" = \"$20000 - 24999\",\n          \"Less than 20000\" = \"$15000 - 19999\",\n          \"Less than 20000\" = \"$10000 - 14999\",\n          \"Less than 20000\" = \"$8000 to 9999\",\n          \"Less than 20000\" = \"$7000 to 7999\",\n          \"Less than 20000\" = \"$6000 to 6999\",\n          \"Less than 20000\" = \"$5000 to 5999\",\n          \"Less than 20000\" = \"$4000 to 4999\",\n          \"Less than 20000\" = \"$3000 to 3999\",\n          \"Less than 20000\" = \"$1000 to 2999\",\n          \"Less than 20000\" = \"Lt $1000\")) %&gt;%\n  mutate(partyid = fct_recode(partyid,\n                              \"Republican\" = \"Strong republican\",\n                              \"Republican\" = \"Not str republican\",\n                              \"Republican\" = \"Ind,near rep\",\n                              \"Democrat\" = \"Ind,near dem\",\n                              \"Democrat\" = \"Not str democrat\",\n                              \"Democrat\" = \"Strong democrat\"))\n\n# A tibble: 1,198 × 3\n    year rincome         partyid    \n   &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;      \n 1  2000 Less than 20000 Republican \n 2  2000 More than 20000 Republican \n 3  2000 More than 20000 Democrat   \n 4  2000 More than 20000 Republican \n 5  2000 More than 20000 Democrat   \n 6  2000 More than 20000 Democrat   \n 7  2000 More than 20000 Democrat   \n 8  2000 More than 20000 Democrat   \n 9  2000 More than 20000 Independent\n10  2000 Less than 20000 Democrat   \n# ℹ 1,188 more rows\n\n\nAs you examine the code more closely, you will notice that I created two categories:\n\nPeople making less than $20,000\nPeople making more than $20,000"
   },
   {
     "objectID": "course-overview.html",
