@@ -1,0 +1,424 @@
+---
+title: "DATA 202 - Week 12"
+subtitle: "Bivariate regression analysis"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week12-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+    self-contained: true
+---
+
+We explore the case of bivariate regression when attempting to measure and model conceptions of in/justice.
+
+## Part I: Context
+
+This week we focus on more examples from our darta sources; we'll take a closer look at the General Social Survey data, or GSS.
+
+The data is located in the `gssr` package in R (see part III). You should become very familiar with the GSS data. Please explore the [website](https://gss.norc.org/) as we will be prioritizing the use of the GSS data for the remainder of our course. The use of the GSS data will allow us to consider the meaning of *social justice* in the context of attitudes and beliefs around social issues.
+
+Ahead of modeling multiple variables, we'll examine the importance of underlying theoretical anlayses ahead of solely doing statistical investigations.
+
+---
+
+Let us begin with a set of three variables: $x$, $y$, and $z$.
+
+We will assume that there is a hypothesized association between all three variables. However, let us also assume that we have *not* yet taken time to properly structure the relationships between the variables. Namely, we have yet to consider if $z$, for example, is a mediator, moderator, or spurious variable.
+
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(400)
+x <- rnorm(100)
+y <- 2 + -3*x^2 + rnorm(100)
+z <- -4 + 3*x - rnorm(100)
+```
+
+Let us take a look at the scatterplots between each pair of variables.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+plot(x, y)
+cor(x, y)
+```
+
+Take note of the value of the correlation coefficient.
+
+------------------------------------------------------------------------
+
+Let us take a look at the scatterplots between each pair of variables.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+plot(x, z)
+cor(x, z)
+```
+
+Take note of the value of the correlation coefficient.
+
+------------------------------------------------------------------------
+
+Let us take a look at the scatterplots between each pair of variables.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+plot(y, z)
+cor(y, z)
+```
+
+Take note of the value of the correlation coefficient.
+
+------------------------------------------------------------------------
+
+### Regression assumptions
+
+In our previous lectures, we have discussed the function of assumptions and principles in regression analysis. In progressing towards different types of tests, it is important to consider the specific assumptions for any given test.
+
+Analyzing relationships among social science variables has an assumptions of linearity. However, this assumptions is not always correct. The adoption of this assumption is based on a host of factors. Most notably, that many relationships have been found to be linear when considered in the empirical sense.
+
+Some additional assumptions are as follows:
+
+-   The sample is representative of the population
+
+-   The variables of interest are normally distributed
+
+-   There are no outliers in the data
+
+-   Independence
+
+-   There is a linear relationship between the independent variable(s) and dependent variable(s)
+
+------------------------------------------------------------------------
+
+## Part II: Content
+
+### A tradition: Fitting a straight line
+
+In statistics, we often inquire about the relationship between two variables, $X$ and $Y$. 
+
+These variables are sets that contain values (observations) as noted before. To launch our discussion, we will begin with a sample line.
+
+```{r}
+plot(0:10, type="l", main = "A sample line", xlab = "X-axis", ylab = "Y-axis")
+```
+
+#### Matheamtics and exact relationships
+
+
+In mathematics, two variables, $x$ and $y$ may be related to each other in various ways. These relationships form the basis for many inquiries in statistics. However, mathematical modeling most often involves identifying the parameters in which we can use to assess the validity of the stated relationship. In this way, we examine the difference between exact and inexact relationships.
+
+##### A straight line
+
+The line in the graphic above follows the standard notation: $$y = a + bX$$
+
+#### Statistical modeling and inexact relationships
+
+Regression analysis is a standard analysis in many statistical studies.
+
+There are many different types of regression. We'll continue with our exploration of bivariate regression analysis and focus on some of the base assumptions as it relates to study development.
+
+We will begin by looking at the underlying assumptions of regression analysis. 
+
+These assumptions are the technical (or structural) components of our analyses, and should be checked at the initiation of a research study, starting with data collection or understanding how data was collected if it is a secondary analysis.
+
+------------------------------------------------------------------------
+
+##### Analyzing two numeric variables
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(123)
+x <- rnorm(100)
+y <- 2*x*rnorm(100) + 3*x + rnorm(100)
+```
+
+Let us take two variables, $x$ and $y$.
+
+```{r}
+cor(x, y)
+```
+
+```{r}
+# Fit simple linear regression model
+model <- lm(y ~ x)
+```
+
+```{r}
+# Examine regression outputs
+summary(model)
+```
+
+```{r}
+# Check regression coefficients
+coeff <- coef(model)
+coeff
+```
+
+
+```{r}
+# Check R-squared value
+rsq <- summary(model)$r.squared
+rsq
+```
+
+```{r}
+# Generate predictions
+pred <- predict(model) # call this object to show the predicted values of the model
+```
+
+```{r}
+# Plot the regression line
+plot(x, y)
+abline(model, col="blue")
+```
+
+```{r}
+# Check residuals
+resids <- residuals(model)
+plot(x, resids)
+```
+
+```{r}
+# Diagnostic plots
+par(mfrow=c(2,2))
+plot(model)
+```
+
+
+```{r}
+# Check significance of predictor
+anova(model)
+```
+
+#### Examining plots
+
+##### Scatter plots
+
+##### Bar plots
+
+##### Histograms
+
+#### Analyzing a categorical and a numeric variable
+
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+
+require(dplyr)
+require(ggplot2)
+require(summarytools)
+
+# Create a dataframe with race and income variables
+df <- data.frame(
+  race = c("Black", "White", "White", "Other", "Black", "Other", "White", "Black", "Other", "White"),
+  income = c(25000, 35000, 42000, 31000, 27000, 38000, 29000, 40000, 32000, 39000)
+)
+```
+
+```{r}
+desc(df$income)
+
+# Bar plot of the categorical variable (race)
+ggplot(df, aes(x = race)) +
+  geom_bar(fill = "steelblue") +
+  labs(x = "Race", y = "Count") +
+  ggtitle("Distribution of Races")
+
+# Box plot of income by race
+ggplot(df, aes(x = race, y = income)) +
+  geom_boxplot(fill = "lightgray", color = "steelblue") +
+  labs(x = "Race", y = "Income") +
+  ggtitle("Income by Race")
+```
+
+#### Analyzing two categorical variables
+
+In previous lectures, we discussed some methods to hypothesize around the relationship between two variables that are categorical in nature.
+
+
+
+## Part III: Code
+
+This week we'll explore the GSS data in more detail. This is a reminder to deepen your understanding of the General Social Survey (GSS) using the notes provided below from [week 11](week11.qmd).
+
+### General Social Survey
+
+This week we'll return to our examination of the General Social Survey (GSS) data.
+
+As a first task, please identify up to two or three variables that you can utilize to follow along with your analysis.
+
+------------------------------------------------------------------------
+
+#### Load the data
+
+We will begin by loading a host of libraries so that we can perform more complex analyses.
+
+There will also be a need to install some additional packages that we have not used before.
+
+We will begin by installing a few new packages.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+## install new packages
+install.packages("srvyr", repos = "http://cran.us.r-project.org")
+install.packages("statsr", repos = "http://cran.us.r-project.org")
+```
+
+------------------------------------------------------------------------
+
+Then we will load the libraries.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+## load libraries
+library(tidyverse)
+library(Hmisc)
+library(descr)
+library(foreign)
+library(haven)
+library(dplyr)
+library(survey)
+library(srvyr)
+library(statsr)
+```
+
+------------------------------------------------------------------------
+
+To access the GSS data, we will need to use a remote install command.
+
+The data come from the `GSSR` package.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# install GSSR data
+remotes::install_github("kjhealy/gssr")
+library(gssr)
+```
+
+------------------------------------------------------------------------
+
+We will now load the GSS documentation.
+
+```{r}
+data(gss_doc)
+```
+
+------------------------------------------------------------------------
+
+View the GSS documentation.
+
+```{r}
+data(gss_doc)
+```
+
+We will run through a sample analysis using the `gssr` package.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# install packages
+install.packages("remotes", repos = "http://cran.us.r-project.org")
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+install.packages("tidyr", repos = "http://cran.us.r-project.org")
+
+# load gssr package
+remotes::install_github("kjhealy/gssr")
+
+# load libraries
+library(gssr)
+library(dplyr)
+library(tidyr)
+```
+
+------------------------------------------------------------------------
+
+#### Explore variables in the GSSR documentation file
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# load the master documentation files
+data(gss_all) # note that this is a large file of all GSS data
+data(gss_doc) # this is the documentation for the GSS data
+data(gss_dict) # this is the documentation for the GSS dictionary
+```
+
+------------------------------------------------------------------------
+
+#### Use the GSSR dictionary documentation
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# use the dictionary to get information in a different format
+gss_dict %>% 
+  filter(variable == "race")
+gss_dict %>% 
+  filter(variable == "sex")
+gss_dict %>% 
+  filter(variable == "hrs2")
+gss_dict %>% 
+  filter(variable == "educ")
+```
+
+
+------------------------------------------------------------------------
+
+#### Examine the years available for any given variable
+
+```{r}
+# check which years your variables are available
+gss_which_years(gss_all, race)
+gss_which_years(gss_all, sex)
+gss_which_years(gss_all, hrs2)
+gss_which_years(gss_all, educ)
+
+# when you want to return information for multiple variables
+gss_all %>%
+  gss_which_years(c(race, sex, hrs2, educ)) %>%
+  print(n = Inf)
+```
+
+------------------------------------------------------------------------
+
+
+### **Next up**: Week 13
+

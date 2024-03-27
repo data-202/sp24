@@ -23,10 +23,9 @@ format:
 
 Over the next several weeks, our goals will relate to the various ways we can integrate social and theoretical concepts (the context) into decisions around measurement (the content) and analysis (the code). Importantly, we will examine various historical contexts to make sense of what has been done. In doing so, we will make sense on how to build on theory using context.
 
----
+------------------------------------------------------------------------
 
-::: {#fig-theorists layout-ncol=2}
-
+::: {#fig-theorists layout-ncol="2"}
 ![DuBois](img/dubois.jpg){#fig-surus}
 
 ![Wells-Barnett](img/wells.jpg){#fig-hanno}
@@ -52,19 +51,19 @@ In connecting the contexts of the United States in the late 1800s to the modern 
 
 Some important questions to consider:
 
-  - What terms need to be defined?
-  
-  - What historical evidence may be needed to frame this conceptual link?
+-   What terms need to be defined?
 
-  - What data and data sources might help to inform this conceptual link?
-  
+-   What historical evidence may be needed to frame this conceptual link?
+
+-   What data and data sources might help to inform this conceptual link?
+
 Consider this article [Shooting death of Ahmaud Arbery shows 'culture of complicity' akin to lynchings, says activist](https://www.cbc.ca/radio/thecurrent/the-current-for-may-8-2020-1.5561204/shooting-death-of-ahmaud-arbery-shows-culture-of-complicity-akin-to-lynchings-says-activist-1.5561771) that connects the shooting of Ahmaud Arbery to lynching.
 
 Consider the song `Strange Fruit` by Billie Holiday.
 
 ![Record Cover of Strange Fruit by Billie Holiday](img/wk11-a-3.jpg){width="50%"}
 
----
+------------------------------------------------------------------------
 
 To further explore the connections between theory, method, and analysis, we will explore the use of a more recent data set at the individual level in @sec-code. The data we will use is the Fatal Force data set from the Washington Post.
 
@@ -84,12 +83,11 @@ This week, we will discuss a series of data sources that can be used for your pa
 
 The main site for the GSS can be found [here](https://gssdataexplorer.norc.org/).
 
-> Problem: There was no high quality, accessible data set documenting societal change in America. 
+> Problem: There was no high quality, accessible data set documenting societal change in America.
 
-> Solution: National Opinion Research Council (NORC) launched the General Social Survey (GSS)—our longest-running, most respected project. 
+> Solution: National Opinion Research Council (NORC) launched the General Social Survey (GSS)—our longest-running, most respected project.
 
-![Regions of the United States included in the GSS](img/wk11-b-1.png){width="40%"}
----
+## ![Regions of the United States included in the GSS](img/wk11-b-1.png){width="40%"}
 
 ### Inter-university Consortium for Political and Social Research (ICPSR)
 
@@ -99,7 +97,7 @@ The main site for the ICPSR data can be found [here](https://www.icpsr.umich.edu
 
 ![ICPSR logo](img/wk11-b-2.jpg){width="40%"}
 
----
+------------------------------------------------------------------------
 
 ### Pew Research Center
 
@@ -109,7 +107,7 @@ The main site for the Pew Research Center can be found [here](https://www.pewres
 
 ![Pew Research Center logo](img/wk11-b-3.jpg){width="40%"}
 
----
+------------------------------------------------------------------------
 
 ### American National Election Studies (ANES)
 
@@ -119,13 +117,13 @@ The main site for the ANES can be found [here](https://electionstudies.org/).
 
 ![ANES logo](img/wk11-b-4.png){width="40%"}
 
----
+------------------------------------------------------------------------
 
 ### Census data and resources linked directly to R/RStudio
 
-  - [`tidycensus` Package](https://walker-data.com/tidycensus/index.html) 
-  
-  - [IPUMS USA](https://usa.ipums.org/usa/index.shtml): "IPUMS provides census and survey data from around the world integrated across time and space. IPUMS integration and documentation makes it easy to study change, conduct comparative research, merge information across data types, and analyze individuals within family and community context. Data and services available free of charge." (From IPUMS site)
+-   [`tidycensus` Package](https://walker-data.com/tidycensus/index.html)
+
+-   [IPUMS USA](https://usa.ipums.org/usa/index.shtml): "IPUMS provides census and survey data from around the world integrated across time and space. IPUMS integration and documentation makes it easy to study change, conduct comparative research, merge information across data types, and analyze individuals within family and community context. Data and services available free of charge." (From IPUMS site)
 
 ## Part III: Code {#sec-code}
 
@@ -430,6 +428,3 @@ graph LR
 With our conceptual framing and backing theoretical work, we can proceed to examine exploratory analyses on the data. During the exploratory phase of analysis, a nice opportunity is presented that will allow you to examine the data is to generate a series of discrete research questions that help you make associations between various components of your data.
 
 ### **Next up**: Week 12
-
-
-
