@@ -1,0 +1,268 @@
+---
+title: "Paper 2"
+format: 
+  html: default
+---
+
+For review, you may also refer to *more information for course papers* in two additional documents:
+
+-   [Instructions for papers](papers-instructions.qmd)
+
+-   [More information for course papers](papers-more-info.qmd)
+
+# Step 1: Theory and logic diagram
+
+For paper #2, we are interested in exploring theories pertaining to the relationship between two individual level variables - a bivariate analysis. Specifically, we are interested in understanding the association of individual characteristics as they relate to some broader systems-level issue. For example, we could examine the relationship between income and gender at the individual level to understand the historical practices and development of systems that have contributed to theories relating income and gender.
+
+*Note: For your paper, please remember to address the theoretical relationship that the literature has identified between the conceptual variables selected. That is, before describing the measures and the survey you will be using, explain your theory and why you think that your independent variable is having an effect on your dependent variable.*
+
+# Step 2: Variables, Measurement, Hypothesis
+
+Our goal in paper #2 is to empirically test a hypothesis on a bivariate relationship.
+
+For example, we might assume that certain individual level characteristics, like income, will inform the likelihood of someone's support for a particular social issue or their membership in a certain political party.
+
+## Path Diagram
+
+```{mermaid}
+%%| echo: false
+%%| fig-responsive: false
+flowchart LR
+  A[Income] --> B[Strength of support for a political party]
+  
+```
+
+## Prepare files
+
+To investigate the relationship outlined in the path diagram, we will use data from the General Social Survey (GSS). To begin your exploratory analysis, start a new RScript in your `stats-pt2` RStudio project directory and give your RScript a proper preamble.
+
+## Data set
+
+For paper #2, you will use the `gss_cat` data located in the `forcats` package.
+
+To test our hypothesis, two survey variables/measures are selected from the `gss_cat` data:
+
+-   **rincome** (respondent's reported income)
+
+-   **partyid** (respondent's levels of support for one of three major US political parties)
+
+### Load the libraries
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+library(tidyverse)
+library(dplyr)
+library(tidycensus)
+```
+
+### View data in your current R session
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+data()
+```
+
+Locate the `gss_cat` data in the `forcats` pacakge.
+
+This is a data set for us to examine the use of categorical data and `factor` variable types.
+
+### View documentation for your data
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+?gss_cat
+```
+
+View your data
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+gss_cat
+```
+
+Be sure to check the categories and codes for your variables.
+
+#### Categories for `rincome`
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+summary(gss_cat$rincome)
+```
+
+#### Categories for `partyid`
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+summary(gss_cat$partyid)
+```
+
+Notice how each variable is measured and take notes for the measurement section of your paper.
+
+You will need to re-code these values prior to any statistical analysis.
+
+## Prepare data for analysis
+
+Begin exploratory analyses on each variable.
+
+While doing exploratory analyses, you should prepare your data for statistical analysis.
+
+-   Inspect your data using `str()`
+
+-   Check the distribution of your variables using `count()`
+
+-   Decide how you will work with missing data, such as `na.omit()`
+
+#### Remove missing values from your analysis
+
+For this paper, it is fine to drop all missing observations.
+
+We will also explore the data from the year 2000.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+df <- gss_cat %>% 
+  na.omit() %>% 
+  filter(year == 2000) %>% 
+  select(year, rincome, partyid)
+```
+
+Examine the reduced data frame.
+
+```{r}
+df
+```
+
+View the top and bottom of your data using `head` and `tail`, respectively.
+
+```{r}
+head(df)
+tail(df)
+```
+
+In paper 2, you will conduct original statistical analyses.
+
+### Get frequency tables for your data
+
+Using the `count()` function, we will get frequency tables for each variable.
+
+```{r}
+df %>% 
+  count(rincome)
+```
+
+```{r}
+df %>% 
+  count(partyid)
+```
+
+From our frequency tables, it is clear that we will need to transform our data.
+
+## Recode categories into two-levels (dichotomous)
+
+For this analysis, we will transform our data into two dichotomous variables. Let's examine the outputs before overwriting our data frame.
+
+We will use the logic operator `!=` to imply we do not want to keep these values (i.e., we will filter the values that are not equal to the right hand side).
+
+```{r}
+df %>% 
+  filter(year == 2000) %>% 
+  filter(rincome != "No answer"
+         & rincome != "Refused"
+         & rincome != "Not applicable")
+```
+
+We now recode the categories using `mutuate()` and `recode()`.
+
+```{r}
+#| warning: false
+df %>% 
+  mutate(rincome = fct_recode(rincome, 
+          "More than 10000" = "$25000 or more",
+          "More than 10000" = "$20000 to 24999",
+          "More than 10000" = "$15000 to 19999",
+          "More than 10000" = "$10000 to 14999",
+          "Less than 10000" = "$8000 to 9999",
+          "Less than 10000" = "$7000 to 7999",
+          "Less than 10000" = "$6000 to 6999",
+          "Less than 10000" = "$5000 to 5999",
+          "Less than 10000" = "$4000 to 4999",
+          "Less than 10000" = "$3000 to 3999",
+          "Less than 10000" = "$1000 to 2999",
+          "Less than 10000" = "$Lt $1000"))
+```
+
+```{r}
+df %>% 
+  mutate(partyid = fct_recode(partyid,
+                              "Republican" = "Strong republican",
+                              "Republican" = "Not str republican",
+                              "Republican" = "Ind,near rep",
+                              "Democrat" = "Ind,near dem",
+                              "Democrat" = "Not str democrat",
+                              "Democrat" = "Strong democrat"))
+```
+
+We can stack our variable transformations together into one chunk of code.
+
+Take note of the way we are creating our new data set for analysis.
+
+```{r}
+#| warning: false
+df %>% 
+  filter(year == 2000) %>% 
+  filter(rincome != "No answer"
+         & rincome != "Refused"
+         & rincome != "Not applicable") %>% 
+  mutate(rincome = fct_recode(rincome, 
+          "More than 20000" = "$25000 or more",
+          "More than 20000" = "$20000 - 24999",
+          "Less than 20000" = "$15000 - 19999",
+          "Less than 20000" = "$10000 - 14999",
+          "Less than 20000" = "$8000 to 9999",
+          "Less than 20000" = "$7000 to 7999",
+          "Less than 20000" = "$6000 to 6999",
+          "Less than 20000" = "$5000 to 5999",
+          "Less than 20000" = "$4000 to 4999",
+          "Less than 20000" = "$3000 to 3999",
+          "Less than 20000" = "$1000 to 2999",
+          "Less than 20000" = "Lt $1000")) %>%
+  mutate(partyid = fct_recode(partyid,
+                              "Republican" = "Strong republican",
+                              "Republican" = "Not str republican",
+                              "Republican" = "Ind,near rep",
+                              "Democrat" = "Ind,near dem",
+                              "Democrat" = "Not str democrat",
+                              "Democrat" = "Strong democrat"))
+```
+
+As you examine the code more closely, you will notice that I created two categories:
+
+-   People making less than \$20,000
+
+-   People making more than \$20,000
+
+# Step 3: Statistical Analysis
+
+In paper 2, you should use two variables and conduct a bivariate analyses, such as hypothesis testing with `crosstab`, examining differences in proportions, etc. Please refer to course lecture notes and lab assignments for further support.
+
+# Step 4: Conclusion
+
+Using your cross-tabulations and statistical analyses, you should write up the results of your findings. These findings should refer to your initial hypothesis and whether or not the statistical outputs confirm those findings.
+
+You should include relevant plots or graphics in your paper.
+
+Be sure to save your Rscript as you work, one easy name is `paper2`.

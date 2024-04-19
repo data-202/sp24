@@ -30,12 +30,11 @@ The data is located in the `gssr` package in R (see part III). You should become
 
 Ahead of modeling multiple variables, we'll examine the importance of underlying theoretical anlayses ahead of solely doing statistical investigations.
 
----
+------------------------------------------------------------------------
 
 Let us begin with a set of three variables: $x$, $y$, and $z$.
 
 We will assume that there is a hypothesized association between all three variables. However, let us also assume that we have *not* yet taken time to properly structure the relationships between the variables. Namely, we have yet to consider if $z$, for example, is a mediator, moderator, or spurious variable.
-
 
 ```{r}
 #| echo: false
@@ -116,7 +115,7 @@ Some additional assumptions are as follows:
 
 ### A tradition: Fitting a straight line
 
-In statistics, we often inquire about the relationship between two variables, $X$ and $Y$. 
+In statistics, we often inquire about the relationship between two variables, $X$ and $Y$.
 
 These variables are sets that contain values (observations) as noted before. To launch our discussion, we will begin with a sample line.
 
@@ -125,7 +124,6 @@ plot(0:10, type="l", main = "A sample line", xlab = "X-axis", ylab = "Y-axis")
 ```
 
 #### Matheamtics and exact relationships
-
 
 In mathematics, two variables, $x$ and $y$ may be related to each other in various ways. These relationships form the basis for many inquiries in statistics. However, mathematical modeling most often involves identifying the parameters in which we can use to assess the validity of the stated relationship. In this way, we examine the difference between exact and inexact relationships.
 
@@ -139,7 +137,7 @@ Regression analysis is a standard analysis in many statistical studies.
 
 There are many different types of regression. We'll continue with our exploration of bivariate regression analysis and focus on some of the base assumptions as it relates to study development.
 
-We will begin by looking at the underlying assumptions of regression analysis. 
+We will begin by looking at the underlying assumptions of regression analysis.
 
 These assumptions are the technical (or structural) components of our analyses, and should be checked at the initiation of a research study, starting with data collection or understanding how data was collected if it is a secondary analysis.
 
@@ -181,7 +179,6 @@ coeff <- coef(model)
 coeff
 ```
 
-
 ```{r}
 # Check R-squared value
 rsq <- summary(model)$r.squared
@@ -211,7 +208,6 @@ par(mfrow=c(2,2))
 plot(model)
 ```
 
-
 ```{r}
 # Check significance of predictor
 anova(model)
@@ -226,7 +222,6 @@ anova(model)
 ##### Histograms
 
 #### Analyzing a categorical and a numeric variable
-
 
 ```{r}
 #| echo: false
@@ -264,8 +259,6 @@ ggplot(df, aes(x = race, y = income)) +
 
 In previous lectures, we discussed some methods to hypothesize around the relationship between two variables that are categorical in nature.
 
-
-
 ## Part III: Code
 
 This week we'll explore the GSS data in more detail. This is a reminder to deepen your understanding of the General Social Survey (GSS) using the notes provided below from [week 11](week11.qmd).
@@ -276,149 +269,6 @@ This week we'll return to our examination of the General Social Survey (GSS) dat
 
 As a first task, please identify up to two or three variables that you can utilize to follow along with your analysis.
 
-------------------------------------------------------------------------
-
-#### Load the data
-
-We will begin by loading a host of libraries so that we can perform more complex analyses.
-
-There will also be a need to install some additional packages that we have not used before.
-
-We will begin by installing a few new packages.
-
-```{r}
-#| echo: true
-#| output: false
-#| warning: false
-## install new packages
-install.packages("srvyr", repos = "http://cran.us.r-project.org")
-install.packages("statsr", repos = "http://cran.us.r-project.org")
-```
-
-------------------------------------------------------------------------
-
-Then we will load the libraries.
-
-```{r}
-#| echo: true
-#| output: false
-#| warning: false
-## load libraries
-library(tidyverse)
-library(Hmisc)
-library(descr)
-library(foreign)
-library(haven)
-library(dplyr)
-library(survey)
-library(srvyr)
-library(statsr)
-```
-
-------------------------------------------------------------------------
-
-To access the GSS data, we will need to use a remote install command.
-
-The data come from the `GSSR` package.
-
-```{r}
-#| echo: true
-#| output: false
-#| warning: false
-# install GSSR data
-remotes::install_github("kjhealy/gssr")
-library(gssr)
-```
-
-------------------------------------------------------------------------
-
-We will now load the GSS documentation.
-
-```{r}
-data(gss_doc)
-```
-
-------------------------------------------------------------------------
-
-View the GSS documentation.
-
-```{r}
-data(gss_doc)
-```
-
-We will run through a sample analysis using the `gssr` package.
-
-```{r}
-#| echo: true
-#| output: false
-#| warning: false
-# install packages
-install.packages("remotes", repos = "http://cran.us.r-project.org")
-install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-install.packages("tidyr", repos = "http://cran.us.r-project.org")
-
-# load gssr package
-remotes::install_github("kjhealy/gssr")
-
-# load libraries
-library(gssr)
-library(dplyr)
-library(tidyr)
-```
-
-------------------------------------------------------------------------
-
-#### Explore variables in the GSSR documentation file
-
-```{r}
-#| echo: true
-#| output: true
-#| warning: false
-# load the master documentation files
-data(gss_all) # note that this is a large file of all GSS data
-data(gss_doc) # this is the documentation for the GSS data
-data(gss_dict) # this is the documentation for the GSS dictionary
-```
-
-------------------------------------------------------------------------
-
-#### Use the GSSR dictionary documentation
-
-```{r}
-#| echo: true
-#| output: true
-#| warning: false
-# use the dictionary to get information in a different format
-gss_dict %>% 
-  filter(variable == "race")
-gss_dict %>% 
-  filter(variable == "sex")
-gss_dict %>% 
-  filter(variable == "hrs2")
-gss_dict %>% 
-  filter(variable == "educ")
-```
-
-
-------------------------------------------------------------------------
-
-#### Examine the years available for any given variable
-
-```{r}
-# check which years your variables are available
-gss_which_years(gss_all, race)
-gss_which_years(gss_all, sex)
-gss_which_years(gss_all, hrs2)
-gss_which_years(gss_all, educ)
-
-# when you want to return information for multiple variables
-gss_all %>%
-  gss_which_years(c(race, sex, hrs2, educ)) %>%
-  print(n = Inf)
-```
-
-------------------------------------------------------------------------
 
 
 ### **Next up**: Week 13
-
