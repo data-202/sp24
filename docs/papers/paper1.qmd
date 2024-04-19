@@ -1,0 +1,45 @@
+---
+title: "Paper 1"
+format: 
+  html: default
+---
+
+As a thought exercise for your first assignment, you will write a short quantitative research proposal based on a social issue you are familiar with or wish to learn more about.
+
+In this paper, you should write about a theory concerning the relationships between and among some dependent variable and particular independent variables (you may have one or more than one independent variables of interest at the outset). After introducing your theory and assuming you had unlimited research funding, propose a research design and measurement plan for a study that would use real-world data and statistical analysis to examine the theory.
+
+For review, you may also refer to *more information for course papers* in two additional documents:
+
+-   [Instructions for papers](papers-instructions.qmd)
+
+-   [More information for course papers](papers-more-info.qmd)
+
+Your paper should be clear on the following:
+
+```         
+- What are the variables (especially the dependent one that is explained by the independent variable(s))?
+
+- What is the unit of analysis?
+
+- Draw and discuss a path diagram (flow graph) for the theory.
+
+- What are the measurement, data collection, and sampling strategies?
+
+- How are the variables to be measured?
+
+- What are the categories of the variables/measures?
+
+- What are the hypotheses concerning the relationships among the variables/measures?
+
+- Explain how this study would offer evidence bearing on the relationship(s) of interest.
+```
+
+## Paper requirements
+
+This is an individual paper. Your paper should be no longer than five (5) pages in length and written as a narrative essay in 12-point Times New Roman font with one-inch margins.
+
+In writing the paper, you should structure it by using section headings and relevant citations for any referenced work.
+
+## Resource
+
+[Spencer Foundation (2020). A Guide to Quantitative Research Proposals](https://www.spencer.org/resources/a-guide-to-quantitative-research-proposals){target="_blank"}

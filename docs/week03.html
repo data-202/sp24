@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nathan Alexander, PhD">
+
+<title>DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week04.html" rel="next">
+<link href="./week02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3">
+<meta property="og:description" content="Theory Construction">
+<meta property="og:image" content="https://github.com/data-202/img/wk3-e-0.jpg">
+<meta property="og:site-name" content="DATA 202: Statistically Measuring and Modeling Social Justice">
+<meta name="twitter:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3">
+<meta name="twitter:description" content="Theory Construction">
+<meta name="twitter:image" content="https://github.com/data-202/img/wk3-e-0.jpg">
+<meta name="twitter:creator" content="@professornaite">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="./week03.html">Week 3</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./img/dubois-loc.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://data-202.github.io/sp24" rel="" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://canvas.howard.edu/courses/46792" rel="" title="Canvas site" class="quarto-navigation-tool px-1" aria-label="Canvas site"><i class="bi bi-code-square"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course landing page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./course-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weekly materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Papers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions for each paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-more-info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">More information for papers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">HW</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-i-context" id="toc-part-i-context" class="nav-link active" data-scroll-target="#part-i-context">Part I: Context</a>
+  <ul class="collapse">
+  <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study">Case Study</a></li>
+  <li><a href="#institutional-review-board-irb" id="toc-institutional-review-board-irb" class="nav-link" data-scroll-target="#institutional-review-board-irb">Institutional Review Board (IRB)</a>
+  <ul class="collapse">
+  <li><a href="#group-work" id="toc-group-work" class="nav-link" data-scroll-target="#group-work">Group work</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-ii-content" id="toc-part-ii-content" class="nav-link" data-scroll-target="#part-ii-content">Part II: Content</a>
+  <ul class="collapse">
+  <li><a href="#theory" id="toc-theory" class="nav-link" data-scroll-target="#theory">Theory</a></li>
+  <li><a href="#theory-construction.-image-from-saylordotorg.github.io" id="toc-theory-construction.-image-from-saylordotorg.github.io" class="nav-link" data-scroll-target="#theory-construction.-image-from-saylordotorg.github.io"><img src="img/wk3-e-0.jpg" class="img-fluid" style="width:40.0%" alt="Theory construction. Image from saylordotorg.github.io"></a></li>
+  <li><a href="#theory-construction" id="toc-theory-construction" class="nav-link" data-scroll-target="#theory-construction">Theory construction</a></li>
+  <li><a href="#data-and-information" id="toc-data-and-information" class="nav-link" data-scroll-target="#data-and-information">Data and information</a></li>
+  <li><a href="#population-and-sample" id="toc-population-and-sample" class="nav-link" data-scroll-target="#population-and-sample">Population and sample</a></li>
+  <li><a href="#what-is-a-variable" id="toc-what-is-a-variable" class="nav-link" data-scroll-target="#what-is-a-variable">What is a variable?</a>
+  <ul class="collapse">
+  <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types">Variable types</a></li>
+  <li><a href="#levels-of-measurement" id="toc-levels-of-measurement" class="nav-link" data-scroll-target="#levels-of-measurement">Levels of measurement</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-iii-code" id="toc-part-iii-code" class="nav-link" data-scroll-target="#part-iii-code">Part III: Code</a>
+  <ul class="collapse">
+  <li><a href="#task-0-understanding-the-rstudio-ide" id="toc-task-0-understanding-the-rstudio-ide" class="nav-link" data-scroll-target="#task-0-understanding-the-rstudio-ide">Task 0: Understanding the RStudio IDE</a></li>
+  <li><a href="#task-1-create-an-r-script" id="toc-task-1-create-an-r-script" class="nav-link" data-scroll-target="#task-1-create-an-r-script">Task 1: Create an R Script</a>
+  <ul class="collapse">
+  <li><a href="#using-the-rscript" id="toc-using-the-rscript" class="nav-link" data-scroll-target="#using-the-rscript">Using the RScript</a></li>
+  </ul></li>
+  <li><a href="#rstudio-ide-with-an-rscript" id="toc-rstudio-ide-with-an-rscript" class="nav-link" data-scroll-target="#rstudio-ide-with-an-rscript"><img src="img/wk3-g-1.png" class="img-fluid" alt="RStudio IDE with an RScript"></a>
+  <ul class="collapse">
+  <li><a href="#inserting-code-into-an-rscript" id="toc-inserting-code-into-an-rscript" class="nav-link" data-scroll-target="#inserting-code-into-an-rscript">Inserting code into an RScript</a></li>
+  </ul></li>
+  <li><a href="#task-2-explore-different-object-types" id="toc-task-2-explore-different-object-types" class="nav-link" data-scroll-target="#task-2-explore-different-object-types">Task 2: Explore different object types</a></li>
+  <li><a href="#task-3-creating-vectors" id="toc-task-3-creating-vectors" class="nav-link" data-scroll-target="#task-3-creating-vectors">Task 3: Creating vectors</a></li>
+  <li><a href="#task-4-creating-data-frames" id="toc-task-4-creating-data-frames" class="nav-link" data-scroll-target="#task-4-creating-data-frames">Task 4: Creating data frames</a>
+  <ul class="collapse">
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a></li>
+  <li><a href="#next-up-week-4" id="toc-next-up-week-4" class="nav-link" data-scroll-target="#next-up-week-4"><strong>Next up</strong>: Week 4</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week03-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DATA 202 - Week 3</h1>
+<p class="subtitle lead">Theory Construction</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nathan Alexander, PhD </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Center for Applied Data Science and Analytics
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="part-i-context" class="level1">
+<h1>Part I: Context</h1>
+<section id="case-study" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="case-study">Case Study</h2>
+<p><strong>Tuskegee Study of Untreated Syphilis in the Negro Male</strong></p>
+<p>We begin by exploring a critical historical issue in statistics: understanding the ethics of a medical intervention or study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-a.jpg" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Uninformed participants of the Tuskegee Study of Untreated Syphilis in the Negro Male</figcaption>
+</figure>
+</div>
+<p><em>“In 1932, the USPHS, working with the Tuskegee Institute, began a study to record the natural history of syphilis. It was originally called the”Tuskegee Study of Untreated Syphilis in the Negro Male” (now referred to as the “USPHS Syphilis Study at Tuskegee”). The study initially involved 600 Black men – 399 with syphilis, 201 who did not have the disease. Participants’ informed consent was not collected.”</em> (Office of Science, Centers for Disease Control and Prevention, 2022)</p>
+<hr>
+<p>All images are from <a href="http://www.examiningtuskegee.com/"><strong>Examining Tuskegee</strong></a> by Susan Reverby.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-1.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-2.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-3.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-4.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-5.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-6.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-7.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-8.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-9.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-c-10.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-1.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-2.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-3.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-4.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-5.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-6.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-7.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-8.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-10a.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-10b.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-10c.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-10d.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-d-10e.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+<section id="ethics-and-statistics" class="level5">
+<h5 class="anchored" data-anchor-id="ethics-and-statistics">Ethics and statistics</h5>
+<p>This case study will help frame our understanding between ethics and statistics. The study will allow us to explore longstanding injustices, consider ethical practices in historical contexts, and explore the sociology of statistics. More specifically, we will use this case to understand the history of the Institutional Review Board (IRB) and discuss concepts related to scientific racism. These explorations will help in two key ways: first, we will come to understand what it can mean to be <em>critical</em> in the context of statistics and, second, we will be prepared to respond to problems focused on main concepts in the first few weeks of our course. We will then formalize a few terms.</p>
+<hr>
+<p><em>Framing a relationship between ethics and statistics</em></p>
+<p>The “Tuskegee Study of Untreated Syphilis in the Negro Male” (now referred to as the “USPHS Syphilis Study at Tuskegee”) took place in Macon County, Alabama, in an area known as the “Black Belt” because of its rich soil and vast number of Black sharecroppers who were the economic backbone of the region. The research took place at the Tuskegee Institute.</p>
+<hr>
+<p><em>Purpose of the study</em></p>
+<p>The intent of the study was to record the natural progression of syphilis in Black men. The study was related to a 1928 retrospective study, the “Oslo Study of Untreated Syphilis,” which reported on the pathological manifestations of untreated syphilis in several hundred white males. However, this original study used secondary data to piece together findings. When the study was initiated in the U.S., there were no proven treatments for the disease. Researchers told the men participating in the study that they were to be treated for “bad blood.” This term had been used by local community members to describe a host of ailments that could be diagnosed including things like anemia, fatigue, and syphilis.</p>
+<hr>
+<p><em>Study participants</em></p>
+<p>A total of 600 men were enrolled in the study.</p>
+<ul>
+<li>Of this group 399, who had syphilis were a part of the experimental group, and 201 were control subjects.</li>
+<li>Most of the men were poor and illiterate sharecroppers from the county.</li>
+<li>The participants were offered medical care and insurance.</li>
+<li>They were enrolled in the study with incentives as well, including medical exams, rides to and from the clinics, meals on examination days, free treatment for minor ailments and guarantees that provisions would be made after their deaths in terms of burial stipends paid to their survivors.</li>
+</ul>
+<hr>
+<p><em>Ethical issues</em></p>
+<div class="incremental">
+<ul class="incremental">
+<li>There were no proven treatments for syphilis when the study began in 1932.</li>
+<li>When penicillin became the standard treatment for the disease in 1947 the medicine was withheld as a part of the treatment for both the experimental group and control group.</li>
+<li>On July 25, 1972, Jean Heller of the Associated Press broke the story that appeared in both New York and Washington, that there had been a 40-year non-therapeutic experiment called “a study” on the effects of untreated syphilis on Black men in the rural South.</li>
+<li>Between the start of the study in 1932 and 1947, the date when penicillin was determined as a cure for the disease, dozens of men had died and their wives, children and untold number of others had been infected.</li>
+<li>There was evidence that scientific research protocol routinely applied to human subjects was either ignored or deeply flawed to ensure the safety and well-being of the men involved. Specifically, the men were never told about or offered the research procedure called informed consent.</li>
+</ul>
+</div>
+<hr>
+<p>Researchers had not informed the men of the actual name of the study, its purpose, and potential consequences of the treatment or non-treatment that they would receive during the study. The men never knew of the debilitating and life-threatening consequences of the treatments they were to receive, the impact on their partners and children they may have conceived once involved in the research. The panel also concluded that there were no choices given to the participants to quit the study when penicillin became available as a treatment and cure for syphilis. Reviewing the results of the research the panel concluded that the study was “ethically unjustified.” The panel articulated all the above findings in October of 1972 and then one month later the Assistant Secretary for Health and Scientific Affairs officially declared the end of the Tuskegee Study.</p>
+<hr>
+<p><em>Class-Action Suit</em></p>
+<p>In the summer of 1973, Attorney Fred Gray filed a class-action suit on behalf of the men in the study, recognized partners, children, and families. It ended a settlement giving more than $9 million to the study participants. Despite these reparative measures, the effects remain.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-b.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="institutional-review-board-irb" class="level2">
+<h2 class="anchored" data-anchor-id="institutional-review-board-irb">Institutional Review Board (IRB)</h2>
+<p>The Tuskegee Syphilis Study conducted by the U.S Public Health Service was only one of many other past abuses that included unethical experimentation on marginalized groups. As a result of these injustices, a set of mandates were instituted and policies are governed under the IRB, which define the rules and regulations for the approval of research activities. Other countries have equivalent measures focused on ethics.</p>
+<p>Additional details about can be found online.</p>
+<p>Learn more at <a href="https://www.cdc.gov/tuskegee/timeline.htm">https://www.cdc.gov/tuskegee/timeline</a>.</p>
+<p>Learn more about the Howard University IRB at the <a href="https://www.orrchoward.com/humanresearchmain.html">Office of Regulatory Research Compliance</a>.</p>
+<section id="group-work" class="level3">
+<h3 class="anchored" data-anchor-id="group-work">Group work</h3>
+<section id="problem-1" class="level5">
+<h5 class="anchored" data-anchor-id="problem-1">Problem #1:</h5>
+<p>Was the Syphilis Study at Tuskegee an <em>experimental or an observational</em> study? Explain.</p>
+</section>
+<section id="problem-2" class="level5">
+<h5 class="anchored" data-anchor-id="problem-2">Problem #2:</h5>
+<p>Was data collected for this study using <em>probability or non-probability sampling</em> methods?</p>
+</section>
+<section id="problem-3" class="level5">
+<h5 class="anchored" data-anchor-id="problem-3">Problem #3:</h5>
+<p>Based on your knowledge of the researchers for the USPHS Syphilis Study at Tuskegee, what was the most likely <em>sampling method</em> used to gather data? Explain.</p>
+</section>
+<section id="problem-4" class="level5">
+<h5 class="anchored" data-anchor-id="problem-4">Problem #4:</h5>
+<p>Based on your knowledge of the study and the data tables below, list five variables that were collected during the study and explain their <em>variable types</em> in detail.</p>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="part-ii-content" class="level1">
+<h1>Part II: Content</h1>
+<p>One main goal this week will be to understand theory and theory construction.</p>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory</h2>
+<p>Some definitions:</p>
+<ul>
+<li><p>Per the Oxford Languages dictionary, a theory is a supposition or a system of ideas intended to explain something, especially one based on general principles independent of the thing to be explained.</p></li>
+<li><p>Per Britannica, a theory is an idea or set of ideas that is intended to explain facts or events.</p></li>
+</ul>
+<p>We will need to think more acutely about theory development as we progress through the term.</p>
+<ul>
+<li>For now, how might you define a theory?</li>
+</ul>
+<hr>
+</section>
+<section id="theory-construction.-image-from-saylordotorg.github.io" class="level2">
+<h2 class="anchored" data-anchor-id="theory-construction.-image-from-saylordotorg.github.io"><img src="img/wk3-e-0.jpg" class="img-fluid" style="width:40.0%" alt="Theory construction. Image from saylordotorg.github.io"></h2>
+</section>
+<section id="theory-construction" class="level2">
+<h2 class="anchored" data-anchor-id="theory-construction">Theory construction</h2>
+<p>Per Markovsky &amp; Webster (2015), theory construction is the process of formulating components of a theory into a logical whole.</p>
+<p>We may consider some of the following elements as we prepare theoretical statements.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Research inquiry</p></li>
+<li><p>Hypotheses</p></li>
+<li><p>Analysis</p></li>
+<li><p>Evaluation</p></li>
+<li><p>Revision</p></li>
+</ul>
+</div>
+<section id="framing-data-and-information" class="level4">
+<h4 class="anchored" data-anchor-id="framing-data-and-information">Framing data and information</h4>
+<p>There are many different ways to conceptualize data and information.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Depending on our specific context, statistical needs, or research purposes, we can frame information <em>as</em> data, or data <em>as</em> information, or even place an equivalence statement between the two terms such that we have: <span class="math display">\[\text{information} = \text{data}\]</span></p></li>
+<li><p>As we continue to explore what it should mean to be critical in the context of statistics, we will need some common language and base definitions to understand the processes involved in a statistical study.</p></li>
+<li><p>We defined <strong>statistics</strong> as the <em>science</em> of collecting, organizing, analyzing, interpreting, communicating, and visualizing data and information. “Collecting” and “organizing” – the first two steps of this process – requires that we define what we mean by data and information.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="data-and-information" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-information">Data and information</h2>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITION</strong>: Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Data</strong> are collections of information or observations.</p>
+<p>The term <em>data</em> is plural, so we should say “data <em>are</em>…” not “data <em>is</em>…”.</p>
+<p>A single data value is referred to as a <em>datum</em> but this term is very rarely used.</p>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><p>The term “information” is a universal concept that is highly useful but it also lacks precision.</p></li>
+<li><p>In every day terms, information is defined rather loosely.</p></li>
+<li><p>In statistics, however, we might contend that information becomes data when it is collected and organized in some form or fashion.</p></li>
+<li><p>Thus, it takes some structure to turn information into usable data.</p></li>
+</ul>
+</div>
+<hr>
+<p>One method of organizing collections of data or information is in a Microsoft Excel sheet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-e-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Excel spreadsheet</figcaption>
+</figure>
+</div>
+<hr>
+<p>A spreadsheet in a traditional format contains important features that will support data analysis.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p><strong>Columns</strong> are <em>vertical arrangements</em> of sets.</p>
+<p>– Columns are represented by capital letters: <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and so on.</p>
+<p>– We relate columns to <em>sets</em>, which we defined as collections of elements or items.</p></li>
+<li><p><strong>Rows</strong> are <em>horizontal arrangements</em> of elements.</p>
+<p>– Rows are represented by numbers and relate to the <em>index</em> of a set.</p>
+<p>– The subscript <span class="math inline">\(i \in \mathbb{N}\)</span> such that <span class="math inline">\(i = 1, 2, 3, ...\)</span>, indicates an element’s position.</p></li>
+</ul>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-e-2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Excel spreadsheet with data on US states</figcaption>
+</figure>
+</div>
+<hr>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITION</strong>: Filename extension
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>file extension</strong> (or file name extension) is a suffix at the end of a digital file name:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p>.doc</p></li>
+<li><p>.docx</p></li>
+<li><p>.txt</p></li>
+</ul>
+<p>The extension indicates the file’s format and the organization of information.</p>
+</div>
+</div>
+</div>
+<div class="incremental">
+<p>There are many different file extensions.</p>
+<ul class="incremental">
+<li><p>For example, the file extension for an MS Excel document can be <em>.xlxs</em>, <em>.csv</em>, or <em>.htm</em>.</p></li>
+<li><p>CSV (.csv) files remove all formatting.</p>
+<p>– The removal of formatting helps to reduce errors when transferring data between computers or software programs.</p></li>
+<li><p>“CSV” stands for <strong>c</strong>omma-<strong>s</strong>eparated <strong>v</strong>alues.</p></li>
+</ul>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-e-3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">CSV file with data on US states</figcaption>
+</figure>
+</div>
+<hr>
+<section id="formatting-data-into-a-data-frame" class="level4">
+<h4 class="anchored" data-anchor-id="formatting-data-into-a-data-frame">Formatting data into a data frame</h4>
+<ul>
+<li><p>Although the CSV format removes formatting, the file is not yet in a structure that we can use to conduct efficient statistical analyses.</p></li>
+<li><p>The CSV format supports a user with <em>collecting</em> and <em>organizing</em> information into a usable data structure.</p></li>
+<li><p>However, the data needs to be sent to a computer program to undergo the next step in our statistical process: <em>analyzing</em> data. Specifically, we re-format the CSV file to a <strong>data frame</strong> to conduct analyses.</p></li>
+</ul>
+<hr>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITION</strong>: Data frame
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>data frame</strong> (or dataframe) is a two-dimensional table of rows and columns.</p>
+</div>
+</div>
+<p>Data frames are a common and popular way to structure, store, and share data.</p>
+<ul>
+<li><p>Data frames allow analysts to store <em>sets</em> of observations that vary in size and content.</p></li>
+<li><p>Each <strong>row</strong> describes a single observation.</p></li>
+<li><p>Each <strong>column</strong> stores information for one set, or variable.</p></li>
+</ul>
+<hr>
+<p>Recall that a set is a collection of elements.</p>
+<ul>
+<li>We extend this definition to say that a set is a collection of <span class="math inline">\(n \in \mathbb{N}\)</span> elements, where <span class="math inline">\(n\)</span> refers to the number of elements in the set.</li>
+</ul>
+<div class="callout callout-style-simple callout-note callout-titled" data-apperance="simple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Note – Sets with</strong> <span class="math inline">\(n\)</span> elements
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> is a set with <span class="math inline">\(n\)</span> elements, then <span class="math inline">\(X\)</span> can be represented as <span class="math inline">\(X = \{x_1, x_2, x_3, ..., x_n \}\)</span>.</p>
+<p>If <span class="math inline">\(Y\)</span> is a set with <span class="math inline">\(n\)</span> elements, then <span class="math inline">\(Y\)</span> can be represented as <span class="math inline">\(Y = \{y_1, y_2, y_3, ..., y_n \}\)</span>.</p>
+</div>
+</div>
+<p>The value of <span class="math inline">\(n\)</span> can be used to represent the “size” of a set.</p>
+<ul>
+<li>A set with no elements is referred to as the <strong>empty set</strong> and can be represented as <span class="math inline">\(\{ \emptyset \}\)</span>.</li>
+</ul>
+<p>We will need to make sense of the various <em>objects</em> that a set can contain.</p>
+<hr>
+<p>First, we think more mathematically about sets and data frames.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITION</strong>: Matrix
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In mathematics, a <strong>matrix</strong> is a rectangular table of entries arranged in rows and columns.</p>
+</div>
+</div>
+<div class="incremental">
+<p>A data frame containing only numbers is an <span class="math inline">\(n \times m\)</span> matrix:</p>
+<ul class="incremental">
+<li><p><span class="math inline">\(n\)</span> refers to the number of rows (or observations)</p></li>
+<li><p><span class="math inline">\(m\)</span> refers to the number of columns (or variables)</p></li>
+</ul>
+<p>By formatting a series of sets into a data frame, we get</p>
+<ul class="incremental">
+<li><p><span class="math inline">\(n\)</span> rows (each row containing data on a single observation)</p></li>
+<li><p><span class="math inline">\(m\)</span> columns (which contain elements over a variable’s values)</p></li>
+</ul>
+</div>
+<hr>
+<p>Data frame containing <span class="math inline">\(n\)</span> observations for <span class="math inline">\(2\)</span> variables (<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>)</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>EXAMPLE – A data frame containing two variables (or sets)</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_1\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_2\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_3\)</span></td>
+<td><span class="math inline">\(y_3\)</span></td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_n\)</span></td>
+<td><span class="math inline">\(y_n\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<p>Take, for example, two sets with the following ordered values:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Let <span class="math inline">\(X\)</span> contain the <u>odd</u> values 1, 3, 5, and 7.</p>
+<ul class="incremental">
+<li>We have <span class="math inline">\(X = \{1, 3, 5, 7 \}\)</span></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(Y\)</span> contain the <u>even</u> values 2, 4, 6, and 8.</p>
+<ul class="incremental">
+<li>We have <span class="math inline">\(Y = \{2, 4, 6, 8 \}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<hr>
+<p>We set the following to be true:</p>
+<ul>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 3\)</span>, <span class="math inline">\(x_3 = 5\)</span>, <span class="math inline">\(x_4 = 7\)</span></p></li>
+<li><p><span class="math inline">\(y_1 = 2\)</span>, <span class="math inline">\(y_2 = 4\)</span>, <span class="math inline">\(y_3 = 6\)</span>, <span class="math inline">\(y_4 = 8\)</span></p></li>
+</ul>
+<p>By combining the sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, we create the following data frame:</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>EXAMPLE – A data frame containing a few odd and even numbers</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<p>We list the index of each element of each set using a new column – ID (for index).</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>EXAMPLE – A data frame containing a few odd and even numbers</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>This <span class="math inline">\(n \times m\)</span> data frame contains</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p><span class="math inline">\(n = 4\)</span> observations</p></li>
+<li><p><span class="math inline">\(3\)</span> variables</p>
+<ul class="incremental">
+<li>ID</li>
+<li><span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(Y\)</span></li>
+</ul></li>
+</ul>
+</div>
+<hr>
+<p>We can consider this structure more generally as noted below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-e-4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Structure of a data set from <em>R for Data Science</em> by Wickham &amp; Grolemund (2022)</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="population-and-sample" class="level2">
+<h2 class="anchored" data-anchor-id="population-and-sample">Population and sample</h2>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" data-incremental="true">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Population and sample
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>population</strong> is representative of every member of a group of interest or collection of objects.</p>
+<p>A <strong>sample</strong> is a sub-collection of members or objects from a selected population.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-f-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Population and sample. Image from SimplyPsychology.org</figcaption>
+</figure>
+</div>
+<hr>
+<section id="the-difference-between-big-n-a-population-and-little-n-a-sample" class="level4">
+<h4 class="anchored" data-anchor-id="the-difference-between-big-n-a-population-and-little-n-a-sample">The difference between big <span class="math inline">\(N\)</span> (a population) and little <span class="math inline">\(n\)</span> (a sample)</h4>
+<div class="callout callout-style-simple callout-note callout-titled" data-apperance="simple" data-incremental="true">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Note</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When referring to the size of a <strong>population</strong>, use a capital <span class="math inline">\(N\)</span>.</p></li>
+<li><p>When referring to the size of a <strong>sample</strong>, use a lowercase <span class="math inline">\(n\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="population-parameter-vs.-sample-statistic" class="level4">
+<h4 class="anchored" data-anchor-id="population-parameter-vs.-sample-statistic">Population parameter vs.&nbsp;Sample statistic</h4>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Parameter versus statistic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>parameter</strong> is a numerical measurement describing some characteristic of a <strong>population</strong>.</p>
+<ul>
+<li>Think of a “population parameter” to remember this relationship.</li>
+</ul>
+<p>A <strong>statistic</strong> is a numerical measure describing some characteristic of a <strong>sample</strong>.</p>
+<ul>
+<li>Think of a “sample statistic” to remember this relationship.</li>
+</ul>
+</div>
+</div>
+<hr>
+<p>Statistics vs.&nbsp;A statistic</p>
+<div class="callout callout-style-simple callout-caution callout-titled" data-apperance="simple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Note – Statistics (plural) versus a statistic (singular)</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is a difference between the term <em>statistics</em> (plural) and a <em>statistic</em> (singular).</p>
+<ul>
+<li><p>We previously defined statistics (with an ‘s’ at the end) as <em>the science of collecting, organizing, analyzing, interpreting, communicating, and visualizing data and information</em>.</p></li>
+<li><p>A statistic (no ‘s’ at the end) refers to a measurement or value from a test on a sample.</p></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="census" class="level4">
+<h4 class="anchored" data-anchor-id="census">Census</h4>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITION</strong>: Census
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>census</strong> is the collection of data from <em>every</em> member of a population.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-f-2.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Population census. Image from CasaNC.org</figcaption>
+</figure>
+</div>
+<hr>
+<p>There are many sites with free and publicly available data that can help us make better sense of how others have collected data on populations and samples.</p>
+<p>– <strong>Sampling of websites with freely accessible data</strong> (no downloads required)</p>
+<ul>
+<li><p><a href="https://coloredconventions.org/">Colored Conventions Project</a></p></li>
+<li><p><a href="https://datahub.io/search">The DataHub</a></p></li>
+<li><p><a href="https://data.gov/">Data.gov</a></p></li>
+<li><p><a href="https://www.kaggle.com/datasets">Kaggle</a></p></li>
+</ul>
+<p>In our course, we will focus on integrating how we structure and analyze data by using various mathematical concepts to frame the process of conducting a statistical study.</p>
+</section>
+</section>
+<section id="what-is-a-variable" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-variable">What is a variable?</h2>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>variable</strong> is any characteristic or quantity that can be measured or counted.</p>
+</div>
+</div>
+<div class="incremental">
+<p>There are many types of data and variables used in statistics.</p>
+<ul class="incremental">
+<li><p>The <strong>type</strong> of variable helps determine the appropriate methods for analysis.</p>
+<p>– Categorical or Quantitative</p></li>
+<li><p>The <strong>level of measurement</strong> helps determine how we measure variables.</p>
+<p>– Nominal, Ordinal, Interval, Ratio</p></li>
+</ul>
+</div>
+<hr>
+<section id="variable-types" class="level3">
+<h3 class="anchored" data-anchor-id="variable-types">Variable types</h3>
+<p>There are two main <u>variable types</u>: <em>categorical</em> and <em>quantitative</em> variables.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Variable type] --&gt; B(Categorical)
+  A[Variable type] --&gt; C(Quantitative)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Variable types
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>categorical</strong> variable consists of qualitative values such as names or labels.</p>
+<p>A <strong>quantitative</strong> variable consists of numbers representing counts or measurements.</p>
+</div>
+</div>
+<ul>
+<li><p>Data that are <strong>categorical</strong> in nature are <em>non-numeric</em>.</p>
+<p>– Categorical values are labels used to represent categories or data values.</p></li>
+<li><p>Data that are <strong>quantitative</strong> in nature are <em>numeric</em>.</p>
+<p>– Quantitative values make use of the <em>sets of numbers</em> to represent counts or measures.</p></li>
+</ul>
+<hr>
+<p>We can further distinguish between these categories using the following definitions:</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Nominal, Ordinal, Discrete, Continuous
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Nominal data</strong> are categorical data that <em>cannot</em> be arranged in some order (such as low to high). Some examples are eye color and pet names.</p>
+<p><strong>Ordinal data</strong> can be arranged in some order but differences between the values are meaningless. Consider letter grades: A is higher than B but A minus B does not make sense.</p>
+<p><strong>Discrete data</strong> are data where the number of values is finite or “countable.” Some examples include number of students or days spent in the library.</p>
+<p><strong>Continuous data</strong> can take on infinitely many values where the collection of values is not countable. Some examples include height or weight.</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Variable type] --&gt; B(Qualitative)
+  A[Variable type] --&gt; C(Quantitative)
+  C --&gt; D(Discrete)
+  C --&gt; E(Continuous)
+  B --&gt; F(Nominal)
+  B --&gt; G(Ordinal)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="levels-of-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="levels-of-measurement">Levels of measurement</h3>
+<p><u>Levels of measurement</u> are used to describe variable types.</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 52%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level of measurement</th>
+<th>Brief description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nominal</strong></td>
+<td>Data cannot be arranged in some order. Only categories are used.</td>
+<td>Eye color, city</td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>Data can be arranged in some order but differences cannot be found or are meaningless.</td>
+<td>Rankings, likert scale</td>
+</tr>
+<tr class="odd">
+<td><strong>Interval</strong></td>
+<td>There is not a natural zero starting point and rations are meaningless.</td>
+<td>Temperatures, years</td>
+</tr>
+<tr class="even">
+<td><strong>Ratio</strong></td>
+<td>There is a natural zero starting point and ratios are meaningful.</td>
+<td>Heights, distances</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-f-3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The four levels of measurement. Image from Scribbr</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-iii-code" class="level1">
+<h1>Part III: Code</h1>
+<section id="task-0-understanding-the-rstudio-ide" class="level2">
+<h2 class="anchored" data-anchor-id="task-0-understanding-the-rstudio-ide">Task 0: Understanding the RStudio IDE</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-g-0.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">RStudio IDE</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="task-1-create-an-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="task-1-create-an-r-script">Task 1: Create an R Script</h2>
+<p>We will conduct most of our work using what is called an <em>RScript</em>.</p>
+<p>The <em>RScript</em> allows us to save and annotate our code for future use.</p>
+<p>When you run code from an <em>RScript</em>, it will show up in the Console (bottom left pane in <em>RStudio</em>).</p>
+<p>In the RStudio IDE, open an RScript by using the following navigation:</p>
+<ul>
+<li>File &gt; New File &gt; R Script</li>
+</ul>
+<hr>
+<section id="using-the-rscript" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-rscript">Using the RScript</h3>
+</section>
+</section>
+<section id="rstudio-ide-with-an-rscript" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-ide-with-an-rscript"><img src="img/wk3-g-1.png" class="img-fluid" alt="RStudio IDE with an RScript"></h2>
+<section id="inserting-code-into-an-rscript" class="level3">
+<h3 class="anchored" data-anchor-id="inserting-code-into-an-rscript">Inserting code into an RScript</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use the `#` symbol to leave notes above your code.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># You can use the `#` symbol to leave notes in-line with your code.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We just defined an object <em>y</em>. We can see its value by running this syntax and typing <em>y</em> into the Console.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>The output on your screen should match the last line above - with the hashtags.</p>
+<ul>
+<li><p>[ 1 ] indicates a single line of results.</p></li>
+<li><p>The output tells us that <em>y</em> has a value of 4, so we say that <em>y</em> is numeric or that it has a numeric value.</p></li>
+</ul>
+<p>You can run code by clicking ‘Run’ at the top of the Source window, or by typing CMD+Enter</p>
+<hr>
+</section>
+</section>
+<section id="task-2-explore-different-object-types" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-explore-different-object-types">Task 2: Explore different object types</h2>
+<p>For this task, we will explore three object types: <em>numeric</em>, <em>character</em>, and <em>logic</em> values.</p>
+<section id="task-2-a-compute-a-mathematical-statement-and-create-a-numeric-variable" class="level4">
+<h4 class="anchored" data-anchor-id="task-2-a-compute-a-mathematical-statement-and-create-a-numeric-variable">Task 2-a: Compute a mathematical statement and create a numeric variable</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>We can assign a variable to this statement by using an assignment operator: &lt;-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also use an equal sign to assign values: <span class="math inline">\(=\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Type “a” to show the value of the variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<hr>
+<p>Create a numeric variable “b” that is the product of “a” and “y”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> a<span class="sc">*</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Type “b” in your console to show the product of the two variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+<p>Divide b by 4</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">/</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Take the square root of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.464102</code></pre>
+</div>
+</div>
+<p>Compute the natural log of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.484907</code></pre>
+</div>
+</div>
+<p>Compute the common log of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.079181</code></pre>
+</div>
+</div>
+<p>Find 1 minus the square root of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.464102</code></pre>
+</div>
+</div>
+<hr>
+<p>Attempt to find the square root of “1 minus the square root of b” - which is a negative value</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in sqrt(1 - b): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+<p>NaN stands for “Not a number”. This occurs because there is currently no defined value to recognize the square root of negative numbers in R. But we can compute the square root on the absolute value of this difference, if needed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="dv">1</span><span class="sc">-</span>b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.316625</code></pre>
+</div>
+</div>
+<hr>
+<p>We can insert longer or more complex mathematical statements too. For example, we can find the absolute value of the sum of -1 and the square root of b cubed and then subtract from that the value of 3 times the square root of b.</p>
+<p>Notice the use of parentheses.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">3</span>)) <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>(<span class="fu">sqrt</span>(b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.17691</code></pre>
+</div>
+</div>
+<p>We can override the original value of y to match the mathematical statement we generated above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">3</span>)) <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>(<span class="fu">sqrt</span>(b))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.17691</code></pre>
+</div>
+</div>
+<p>We consider all of the previous objects to be numeric.</p>
+<hr>
+</section>
+<section id="task-2-b-create-a-non-numeric-value" class="level4">
+<h4 class="anchored" data-anchor-id="task-2-b-create-a-non-numeric-value">Task 2-b: Create a non-numeric value</h4>
+<p>We can also create objects to hold non-numeric values.</p>
+<p>There are two types of non-numeric values: <em>character</em> values and <em>logic</em> values.</p>
+<section id="character-values" class="level5">
+<h5 class="anchored" data-anchor-id="character-values">Character values</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>character <span class="ot">&lt;-</span> <span class="st">'some label'</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "some label"</code></pre>
+</div>
+</div>
+<p>We can create a character value using the ‘,’ or “,” quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>character <span class="ot">&lt;-</span> <span class="st">"some label"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "some label"</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="logic-values" class="level5">
+<h5 class="anchored" data-anchor-id="logic-values">Logic values</h5>
+<p>Logic values can either be TRUE or FALSE</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>logic_true <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>logic_false <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>logic_true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>logic_false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>We can also use T for TRUE and F for FALSE.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>logic_true <span class="ot">&lt;-</span> T</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>logic_false <span class="ot">&lt;-</span> F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>logic_true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>logic_false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="task-3-creating-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="task-3-creating-vectors">Task 3: Creating vectors</h2>
+<p>When we want to list multiple objects or values, we use R’s available data types, such as <em>vectors</em> and <em>factors</em>.</p>
+<ul>
+<li><p>We <em>concatenate</em> values in these data types using the operator c( ) to place our values in the order we desire.</p></li>
+<li><p><em>Concatenate</em> means to place things together one after the other.</p></li>
+</ul>
+<section id="vectors" class="level5">
+<h5 class="anchored" data-anchor-id="vectors">Vectors</h5>
+<p>Vectors are a data type we use to order values (i.e., numeric, character, logic) or mix different values.</p>
+<p>For example, we can store all of the numbers from 1 to 9 in a vector by using a colon.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>my.vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 7 8 9</code></pre>
+</div>
+</div>
+<hr>
+<p>When creating vectors, we use the assignment operator and the <em>concatenate</em> option to generate our object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"WEB Du Bois"</span>, <span class="dv">1868</span>, <span class="st">"17th"</span>, <span class="st">"MA"</span>, <span class="st">"civil rights activist"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>vec1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "WEB Du Bois"           "1868"                  "17th"                 
+[4] "MA"                    "civil rights activist"</code></pre>
+</div>
+</div>
+<p>Notice that my numeric and logic values do not use quotations, but a character value uses quotations ““.</p>
+<hr>
+</section>
+<section id="factors" class="level5">
+<h5 class="anchored" data-anchor-id="factors">Factors</h5>
+<p><em>Factors</em> are a data type we use to store categorical variables for analyses and data plots. We will explore these later.</p>
+</section>
+</section>
+<section id="task-4-creating-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="task-4-creating-data-frames">Task 4: Creating data frames</h2>
+<p>For this final task, we will create a list. Lists can contain anything: functions, vectors, other lists, and data frames.</p>
+<p>To start, let’s create a series of vectors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ida B. Wells"</span>, <span class="st">"W.E.B Du Bois"</span>,<span class="st">"Mary G. Ross"</span>, <span class="st">"Jaime Escalante"</span>,<span class="st">"Etta Z. Falconer"</span>, <span class="st">"Bob Moses"</span>, <span class="st">"Ruth Gonzales"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>vec2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1862</span>, <span class="dv">1868</span>, <span class="dv">1908</span>, <span class="dv">1930</span>, <span class="dv">1933</span>, <span class="dv">1935</span>, <span class="dv">1970</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>vec3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"MS"</span>, <span class="st">"MA"</span>, <span class="st">"OK"</span>, <span class="st">"Bolivia"</span>, <span class="st">"MS"</span>, <span class="st">"NYC"</span>, <span class="st">"NJ"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>vec4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, T, T, T)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>vec5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"African American"</span>, <span class="st">"Ghanaian American"</span>, <span class="st">"Native American"</span>, <span class="st">"Bolivian American"</span>, <span class="st">"African American"</span>, <span class="st">"African American"</span>, <span class="st">"Mexican American"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>vec6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Journalist"</span>, <span class="st">"Sociologist"</span>, <span class="st">"Engineer"</span>, <span class="st">"Educator"</span>, <span class="st">"Mathematician"</span>, <span class="st">"Educator"</span>, <span class="st">"Engineer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p>Our objects vec1, vec3, and vec5 are made of character values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>vec1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Ida B. Wells"     "W.E.B Du Bois"    "Mary G. Ross"     "Jaime Escalante" 
+[5] "Etta Z. Falconer" "Bob Moses"        "Ruth Gonzales"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>vec3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "MS"      "MA"      "OK"      "Bolivia" "MS"      "NYC"     "NJ"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>vec5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "African American"  "Ghanaian American" "Native American"  
+[4] "Bolivian American" "African American"  "African American" 
+[7] "Mexican American" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>vec6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Journalist"    "Sociologist"   "Engineer"      "Educator"     
+[5] "Mathematician" "Educator"      "Engineer"     </code></pre>
+</div>
+</div>
+<p>Our object vec2 is made of numeric values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>vec2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1862 1868 1908 1930 1933 1935 1970</code></pre>
+</div>
+</div>
+<p>Our object vec4 is a made of logic values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>vec4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<hr>
+<section id="lists" class="level3">
+<h3 class="anchored" data-anchor-id="lists">Lists</h3>
+<p><em>Lists</em> allow us to do what the name implies - create a list of items.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>my.list <span class="ot">&lt;-</span> <span class="fu">list</span>(vec1, vec2, vec3, vec4, vec5, vec6)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>my.list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "Ida B. Wells"     "W.E.B Du Bois"    "Mary G. Ross"     "Jaime Escalante" 
+[5] "Etta Z. Falconer" "Bob Moses"        "Ruth Gonzales"   
+
+[[2]]
+[1] 1862 1868 1908 1930 1933 1935 1970
+
+[[3]]
+[1] "MS"      "MA"      "OK"      "Bolivia" "MS"      "NYC"     "NJ"     
+
+[[4]]
+[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+
+[[5]]
+[1] "African American"  "Ghanaian American" "Native American"  
+[4] "Bolivian American" "African American"  "African American" 
+[7] "Mexican American" 
+
+[[6]]
+[1] "Journalist"    "Sociologist"   "Engineer"      "Educator"     
+[5] "Mathematician" "Educator"      "Engineer"     </code></pre>
+</div>
+</div>
+<p>In this form, lists can be hard to read.</p>
+<hr>
+</section>
+<section id="data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="data-frames">Data frames</h3>
+<p>To solve the issue with the list, we will use our vectors to generate a specific type of <em>list</em> known as a <em>data.frame</em>.</p>
+<p><em>Data frames</em> are a subtype of lists made of vectors of <em>equal</em> lenght.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(vec1, vec2, vec3, vec4, vec5, vec6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              vec1 vec2    vec3  vec4              vec5          vec6
+1     Ida B. Wells 1862      MS  TRUE  African American    Journalist
+2    W.E.B Du Bois 1868      MA  TRUE Ghanaian American   Sociologist
+3     Mary G. Ross 1908      OK  TRUE   Native American      Engineer
+4  Jaime Escalante 1930 Bolivia FALSE Bolivian American      Educator
+5 Etta Z. Falconer 1933      MS  TRUE  African American Mathematician
+6        Bob Moses 1935     NYC  TRUE  African American      Educator
+7    Ruth Gonzales 1970      NJ  TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+<p>Notice the difference in how the information is arranged when <em>data.frame</em>.</p>
+<hr>
+<p>Let’s label this data frame and put labels at the top of the list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span>vec1, <span class="at">b=</span>vec2, <span class="at">c=</span>vec3, <span class="at">d=</span>vec4, <span class="at">e=</span>vec5, <span class="at">f=</span>vec6)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 a    b       c     d                 e             f
+1     Ida B. Wells 1862      MS  TRUE  African American    Journalist
+2    W.E.B Du Bois 1868      MA  TRUE Ghanaian American   Sociologist
+3     Mary G. Ross 1908      OK  TRUE   Native American      Engineer
+4  Jaime Escalante 1930 Bolivia FALSE Bolivian American      Educator
+5 Etta Z. Falconer 1933      MS  TRUE  African American Mathematician
+6        Bob Moses 1935     NYC  TRUE  African American      Educator
+7    Ruth Gonzales 1970      NJ  TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+<p>Notice that when I add labels using the equal sign operator, the vec labels dissapear and are replaced by the categorical labels that we insert. Let’s create more appropriate labels for the data we have generated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name=</span>vec1, </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">birthyear=</span>vec2, </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">birthplace=</span>vec3, </span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">USborn=</span>vec4, </span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">nationality=</span>vec5, </span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">occupation=</span>vec6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p>For future use, we can view our data frame by just typing its name into our console or typing View(df).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              name birthyear birthplace USborn       nationality    occupation
+1     Ida B. Wells      1862         MS   TRUE  African American    Journalist
+2    W.E.B Du Bois      1868         MA   TRUE Ghanaian American   Sociologist
+3     Mary G. Ross      1908         OK   TRUE   Native American      Engineer
+4  Jaime Escalante      1930    Bolivia  FALSE Bolivian American      Educator
+5 Etta Z. Falconer      1933         MS   TRUE  African American Mathematician
+6        Bob Moses      1935        NYC   TRUE  African American      Educator
+7    Ruth Gonzales      1970         NJ   TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="next-up-week-4" class="level3">
+<h3 class="anchored" data-anchor-id="next-up-week-4"><strong>Next up</strong>: Week 4</h3>
+<p>We will explore databases, details of statistical procedures, and begin to explore univariate analyses.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week04.html" class="pagination-link">
+        <span class="nav-page-text">Week 4</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2024, Nathan Alexander</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page was built by Nathan Alexander, PhD in <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nathan Alexander, PhD">
+
+<title>DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week06.html" rel="next">
+<link href="./week04.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 5">
+<meta property="og:description" content="Univariate analysis">
+<meta property="og:image" content="https://github.com/data-202/img/wk5-a-2.jpg">
+<meta property="og:site-name" content="DATA 202: Statistically Measuring and Modeling Social Justice">
+<meta name="twitter:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 5">
+<meta name="twitter:description" content="Univariate analysis">
+<meta name="twitter:image" content="https://github.com/data-202/img/wk5-a-2.jpg">
+<meta name="twitter:creator" content="@professornaite">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="./week05.html">Week 5</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./img/dubois-loc.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://data-202.github.io/sp24" rel="" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://canvas.howard.edu/courses/46792" rel="" title="Canvas site" class="quarto-navigation-tool px-1" aria-label="Canvas site"><i class="bi bi-code-square"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course landing page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./course-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weekly materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Papers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions for each paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-more-info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">More information for papers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">HW</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-i-context" id="toc-part-i-context" class="nav-link active" data-scroll-target="#part-i-context">Part I: Context</a>
+  <ul class="collapse">
+  <li><a href="#types-of-studies-and-sampling-strategies" id="toc-types-of-studies-and-sampling-strategies" class="nav-link" data-scroll-target="#types-of-studies-and-sampling-strategies">Types of studies and sampling strategies</a></li>
+  </ul></li>
+  <li><a href="#image-from-the-w.e.b.-dubois-collection.-httpscredo.library.umass.edu" id="toc-image-from-the-w.e.b.-dubois-collection.-httpscredo.library.umass.edu" class="nav-link" data-scroll-target="#image-from-the-w.e.b.-dubois-collection.-httpscredo.library.umass.edu"><img src="img/wk5-a-2.jpg" class="img-fluid" alt="Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu"></a></li>
+  <li><a href="#part-ii-content" id="toc-part-ii-content" class="nav-link" data-scroll-target="#part-ii-content">Part II: Content</a>
+  <ul class="collapse">
+  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
+  </ul></li>
+  <li><a href="#part-iii-code" id="toc-part-iii-code" class="nav-link" data-scroll-target="#part-iii-code">Part III: Code</a>
+  <ul class="collapse">
+  <li><a href="#task-0-start-a-new-project" id="toc-task-0-start-a-new-project" class="nav-link" data-scroll-target="#task-0-start-a-new-project">Task 0: Start a new project</a></li>
+  <li><a href="#task-1-open-a-new-rscript" id="toc-task-1-open-a-new-rscript" class="nav-link" data-scroll-target="#task-1-open-a-new-rscript">Task 1: Open a new RScript</a></li>
+  <li><a href="#task-2-write-a-preamble" id="toc-task-2-write-a-preamble" class="nav-link" data-scroll-target="#task-2-write-a-preamble">Task 2: Write a preamble</a></li>
+  <li><a href="#task-3-check-your-working-directory" id="toc-task-3-check-your-working-directory" class="nav-link" data-scroll-target="#task-3-check-your-working-directory">Task 3: Check your working directory</a></li>
+  <li><a href="#task-4-install-your-packages" id="toc-task-4-install-your-packages" class="nav-link" data-scroll-target="#task-4-install-your-packages">Task 4: Install your packages</a></li>
+  <li><a href="#task-5-load-your-libraries" id="toc-task-5-load-your-libraries" class="nav-link" data-scroll-target="#task-5-load-your-libraries">Task 5: Load your libraries</a></li>
+  <li><a href="#task-6-call-in-the-critstats-data-package" id="toc-task-6-call-in-the-critstats-data-package" class="nav-link" data-scroll-target="#task-6-call-in-the-critstats-data-package">Task 6: Call in the <code>critstats</code> data package</a></li>
+  <li><a href="#task-7-view-datasets-in-the-current-r-session" id="toc-task-7-view-datasets-in-the-current-r-session" class="nav-link" data-scroll-target="#task-7-view-datasets-in-the-current-r-session">Task 7: View datasets in the current R session</a></li>
+  <li><a href="#task-8-view-datasets-only-in-the-critstats-data-package" id="toc-task-8-view-datasets-only-in-the-critstats-data-package" class="nav-link" data-scroll-target="#task-8-view-datasets-only-in-the-critstats-data-package">Task 8: View datasets only in the <code>critstats</code> data package</a></li>
+  <li><a href="#task-9-view-documentation-for-another-data-package-called-datasets" id="toc-task-9-view-documentation-for-another-data-package-called-datasets" class="nav-link" data-scroll-target="#task-9-view-documentation-for-another-data-package-called-datasets">Task 9: View documentation for another data package called <code>datasets</code></a></li>
+  <li><a href="#task-10-view-documentation-for-the-entire-critstats-data-package" id="toc-task-10-view-documentation-for-the-entire-critstats-data-package" class="nav-link" data-scroll-target="#task-10-view-documentation-for-the-entire-critstats-data-package">Task 10: View documentation for the entire <code>critstats</code> data package</a></li>
+  <li><a href="#task-11-view-documentation-for-a-specific-data-set" id="toc-task-11-view-documentation-for-a-specific-data-set" class="nav-link" data-scroll-target="#task-11-view-documentation-for-a-specific-data-set">Task 11: View documentation for a specific data set</a></li>
+  <li><a href="#task-12-assign-a-dataset-to-an-object-for-efficiency" id="toc-task-12-assign-a-dataset-to-an-object-for-efficiency" class="nav-link" data-scroll-target="#task-12-assign-a-dataset-to-an-object-for-efficiency">Task 12: Assign a dataset to an object for efficiency</a></li>
+  <li><a href="#task-13-run-a-simple-command" id="toc-task-13-run-a-simple-command" class="nav-link" data-scroll-target="#task-13-run-a-simple-command">Task 13: Run a simple command</a></li>
+  <li><a href="#task-14-view-your-data" id="toc-task-14-view-your-data" class="nav-link" data-scroll-target="#task-14-view-your-data">Task 14: View your data</a></li>
+  <li><a href="#task-15-make-and-save-a-plot" id="toc-task-15-make-and-save-a-plot" class="nav-link" data-scroll-target="#task-15-make-and-save-a-plot">Task 15: Make and save a plot</a></li>
+  </ul></li>
+  <li><a href="#see-the-bottom-right-of-the-screen." id="toc-see-the-bottom-right-of-the-screen." class="nav-link" data-scroll-target="#see-the-bottom-right-of-the-screen."><img src="img/wk3-g-1.png" class="img-fluid" alt="See the bottom right of the screen."></a>
+  <ul class="collapse">
+  <li><a href="#task-16-run-univariate-statistics-in-r" id="toc-task-16-run-univariate-statistics-in-r" class="nav-link" data-scroll-target="#task-16-run-univariate-statistics-in-r">Task 16: Run univariate statistics in R</a></li>
+  <li><a href="#next-up-week-6" id="toc-next-up-week-6" class="nav-link" data-scroll-target="#next-up-week-6"><strong>Next up</strong>: Week 6</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week05-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DATA 202 - Week 5</h1>
+<p class="subtitle lead">Univariate analysis</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nathan Alexander, PhD </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Center for Applied Data Science and Analytics
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="part-i-context" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-context">Part I: Context</h2>
+<hr>
+<section id="types-of-studies-and-sampling-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-studies-and-sampling-strategies">Types of studies and sampling strategies</h3>
+<p>The methods used to collect sample data for statistical analysis is extremely important.</p>
+<p>If sample data are not collected appropriately, resulting statistical analyses will be futile.</p>
+<p>As a result, planning a study by identifying <em>research questions</em>, the <em>population</em> and <em>sample</em> of interest, and selecting the appropriate <em>research method(s)</em> that will be used to <em>analyze data</em> that is collected are all essential parts in the statistical data analysis process.</p>
+<hr>
+<section id="understanding-experimental-and-observational-study-designs" class="level4">
+<h4 class="anchored" data-anchor-id="understanding-experimental-and-observational-study-designs">Understanding experimental and observational study designs</h4>
+<p>There are many different types of research studies.</p>
+<p>Some studies use non-traditional methods (such as oral traditions) to collect data, while others focus on more traditional methods (such as surveys) to analyze data on a sample or a population.</p>
+<p>These data collection methods produce a set of observations upon which statistical analyses can be applied. We consider two core study designs in statistical data analysis: <em>experimental</em> studies and <em>observational</em> studies.</p>
+<hr>
+<div class="callout-DEFINITIONS">
+<p><strong>Experimental study</strong>: In an experimental study, a <em>treatment</em> is applied to a sample of interest to observe its effects. There is generally a control group and a treatment group used to understand the effects of the treatment. Individual observations are referred to as experimental units whereas studies involving humans are generally defined as study subjects.</p>
+<p><strong>Observational study</strong>: In an observational study, specific characteristics of a sample or population are observed and measured but individual observations or subjects of study are not influenced or modified in any way.</p>
+</div>
+<hr>
+<section id="three-types-of-observational-studies" class="level5">
+<h5 class="anchored" data-anchor-id="three-types-of-observational-studies">Three types of observational studies</h5>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>DEFINITIONS</strong>: Types of studies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Retrospective study</strong>: In a retrospective study, we go back in time to collect data over some past period.</p>
+<p><strong>Cross-sectional study</strong>: In a cross-sectional study, data are collected and measured at one point in time.</p>
+<p><strong>Prospective study</strong>: In a prospective study, we set up a study to go forward in time and observe groups sharing common factors.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="identify-and-describe-the-different-sampling-methods" class="level5">
+<h5 class="anchored" data-anchor-id="identify-and-describe-the-different-sampling-methods">Identify and describe the different sampling methods</h5>
+<p>There are two broad categories of selecting members of a population to generate sample data:</p>
+<ul>
+<li><p>Probability sampling</p></li>
+<li><p>Non-probability sampling</p></li>
+</ul>
+<p>Within these two broad categories are other methods based on the needs of the study. Each methods is used to support statistical data analysis with some methods providing stronger evidence than others.</p>
+<hr>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definitions</strong>: Sampling methods
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Probability sampling</strong>: Involves the random selection of subjects in such a way that every member of a sample has the sample probability of being selected.</p>
+<p><strong>Non-probability sampling</strong>: Involves the use of criteria to select data that is not based on an equal likelihood of selection.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="example-5.1-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.1-the-atlanta-university-studies">Example 5.1: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-0.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.2-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.2-the-atlanta-university-studies">Example 5.2: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.3-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.3-the-atlanta-university-studies">Example 5.3: The Atlanta University Studies</h4>
+</section>
+</section>
+</section>
+<section id="image-from-the-w.e.b.-dubois-collection.-httpscredo.library.umass.edu" class="level2">
+<h2 class="anchored" data-anchor-id="image-from-the-w.e.b.-dubois-collection.-httpscredo.library.umass.edu"><img src="img/wk5-a-2.jpg" class="img-fluid" alt="Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu"></h2>
+<section id="example-5.4-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.4-the-atlanta-university-studies">Example 5.4: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-3.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.5-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.5-the-atlanta-university-studies">Example 5.5: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-4.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.6-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.6-the-atlanta-university-studies">Example 5.6: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-5.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.7-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.7-the-atlanta-university-studies">Example 5.7: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-6.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.8-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.8-the-atlanta-university-studies">Example 5.8: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-7.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.9-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.9-the-atlanta-university-studies">Example 5.9: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-8.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.10-the-atlanta-university-studies" class="level4">
+<h4 class="anchored" data-anchor-id="example-5.10-the-atlanta-university-studies">Example 5.10: The Atlanta University Studies</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-9.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The W.E.B. DuBois Collection. https://credo.library.umass.edu</figcaption>
+</figure>
+</div>
+<hr>
+<section id="example-5.11-the-black-census" class="level5">
+<h5 class="anchored" data-anchor-id="example-5.11-the-black-census">Example 5.11: The Black Census</h5>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-10.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The Black Futures Lab. Blackcensus.org</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="example-5.12-the-black-census-reports" class="level5">
+<h5 class="anchored" data-anchor-id="example-5.12-the-black-census-reports">Example 5.12: The Black Census reports</h5>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-a-11.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from The Black Futures Lab. Blackcensus.org</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-ii-content" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-content">Part II: Content</h2>
+<hr>
+<section id="the-big-picture" class="level3">
+<h3 class="anchored" data-anchor-id="the-big-picture">The Big Picture</h3>
+<p>Prior to jumping into more details about univariate data examples in the next section, it will be important to gather a “big picture” view of the field. This big picture view will provide us with a high-level description of the various topics we will cover in the course.</p>
+<hr>
+<section id="population-parameter" class="level4">
+<h4 class="anchored" data-anchor-id="population-parameter">Population parameter</h4>
+<p>A number which summarizes the entire group.</p>
+</section>
+<section id="sample-statistic" class="level4">
+<h4 class="anchored" data-anchor-id="sample-statistic">Sample statistic</h4>
+<p>A single number that summarizes a subset of data, or the sample.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-b-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption class="figure-caption">Population vs.&nbsp;Sample. Image from Scribbr.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="confidence-interval-ci" class="level4">
+<h4 class="anchored" data-anchor-id="confidence-interval-ci">Confidence interval (CI)</h4>
+<ul>
+<li><p>Range of likely or plausible values for a population parameter.</p></li>
+<li><p>Based on a sample and statistics from that sample.</p></li>
+<li><p><em>Margin of error</em> represents the number of standard deviations on a statistic.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-b-2.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Plausible values for a variable via the CI. Image from Psychologicalscience.org</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="hypothesis-test" class="level4">
+<h4 class="anchored" data-anchor-id="hypothesis-test">Hypothesis test</h4>
+<p>Statistical procedure used to test an existing claim about a population.</p>
+<ul>
+<li><p>Test is based on data; most ideally data collected via probability sampling.</p></li>
+<li><p><span class="math inline">\(H_0\)</span> - Null hypothesis: If data supports the claim, fail to reject <span class="math inline">\(H_0\)</span></p></li>
+<li><p><span class="math inline">\(H_a\)</span> - Alternative hypothesis: If data does not support claim, reject <span class="math inline">\(H_0\)</span></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-b-3.jpg" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Hypothesis testing. Image from Towards Data Science.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="analysis-of-variance-anova" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-of-variance-anova">Analysis of variance (ANOVA)</h4>
+<p>Comparing means of more than two populations.</p>
+<p><em>F-statistic</em> is a ratio that is used to compare variability between sets.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-b-4.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Within and between group variation. Image from QCBS R Workshop Series.</figcaption>
+</figure>
+</div>
+<section id="multiple-comparison-procedures" class="level5">
+<h5 class="anchored" data-anchor-id="multiple-comparison-procedures">Multiple comparison procedures</h5>
+<p>Set of statistical tests that compare means to each other.</p>
+<ul>
+<li><p>Examples include Turkey’s test, Least significant difference (LSD), pairwise t-test</p></li>
+<li><p>These tests are only conducted if you analysis of variance identifies differences</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="interaction-effects" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-effects">Interaction effects</h4>
+<p>Interaction effects are relevant to statistical models that use two or more variables.</p>
+</section>
+<section id="correlation" class="level4">
+<h4 class="anchored" data-anchor-id="correlation">Correlation</h4>
+<p>Measures the strength and direction of a linear relationship between two variables.</p>
+</section>
+<section id="linear-regression" class="level4">
+<h4 class="anchored" data-anchor-id="linear-regression">Linear regression</h4>
+<p>Helps make predictions for one variable based on the values of another.</p>
+<ul>
+<li><p>There are many types of regression:</p>
+<ul>
+<li><p>Simple linear regression</p></li>
+<li><p>Multiple linear regression</p></li>
+<li><p>Logistic regression</p></li>
+<li><p>Non-linear regression</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="chi-square-test" class="level4">
+<h4 class="anchored" data-anchor-id="chi-square-test">Chi-square test</h4>
+<p>When using correlation and regression analyses, one core assumption is that the variables are quantitative in nature.</p>
+<p>We use a chi-square test to study categorical variables.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-b-6.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Example research question for a chi-square test. Image from Datatab.net.</figcaption>
+</figure>
+</div>
+<p>In the example above, the <em>null hypothesis</em> is that there is no relationship between gender and highest level of education; the <em>alternative hypothesis</em> is that there is a relationship between gender and highest level of education.</p>
+</section>
+</section>
+</section>
+<section id="part-iii-code" class="level2">
+<h2 class="anchored" data-anchor-id="part-iii-code">Part III: Code</h2>
+<p>Our coding tasks this week will provide an overview of <code>Lab 1</code>.</p>
+<p><code>Lab 1</code> focused on univariate statistics.</p>
+<p>Univariate statistics refer to analyses that describe a single variable or attribute.</p>
+<hr>
+<p>Open RStudio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Open RStudio.</figcaption>
+</figure>
+</div>
+<hr>
+<section id="task-0-start-a-new-project" class="level3">
+<h3 class="anchored" data-anchor-id="task-0-start-a-new-project">Task 0: Start a new project</h3>
+<p>First, you will need to navigate to: <code>File &gt; New Project</code></p>
+<p>Select the first option: <em>New Directory</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Select New Directory.</figcaption>
+</figure>
+</div>
+<hr>
+<p>Then you will want to select the <em>New Project</em> option.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Select New Project</figcaption>
+</figure>
+</div>
+<hr>
+<p>Select the directory where you wish to store your project.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Select New Directory.</figcaption>
+</figure>
+</div>
+<hr>
+<p>Then, name your project to an appropriate title. Consider <code>stats-pt2</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-5.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Name your project.</figcaption>
+</figure>
+</div>
+<hr>
+<p>Be sure to place the project in your preferred directory.</p>
+<p>One good option is to make a sub-folder in your <code>Documents</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-6.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Place your project in an appropriate directory.</figcaption>
+</figure>
+</div>
+<hr>
+<p>Click the box at the bottom right of the pop-up window.</p>
+<p>We generally want to start a new project in a <em>new</em> RStudio session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk5-c-7.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Check the box in the bottom right of the popup box.</figcaption>
+</figure>
+</div>
+<p>Then click <code>Create Project</code>.</p>
+<hr>
+</section>
+<section id="task-1-open-a-new-rscript" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-open-a-new-rscript">Task 1: Open a new RScript</h3>
+<p>Now we will open a new RScript.</p>
+<p>Navigate to <code>File &gt; New File &gt; RScript</code>.</p>
+<p>This RScript file is what you will use to outline your analysis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-g-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Open a new RScript.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="task-2-write-a-preamble" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-write-a-preamble">Task 2: Write a preamble</h3>
+<p>A preamble is similar to the heading of a paper.</p>
+<p>The preamble contains information that will be useful for you and your collaborators.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the `#` symbol to tell R to ignore the text</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Name: &lt;include your full name&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Date: &lt;sometimes you may want to add a date&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Purpose: &lt;insert the goals or purpose of the RScript&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remember to use the <code>#</code> symbol to write your preamble.</p>
+<hr>
+</section>
+<section id="task-3-check-your-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-check-your-working-directory">Task 3: Check your working directory</h3>
+<p>Prior to inserting any code, it is generally helpful to check your working directory.</p>
+<p>This will ensure that you are in the right location to call and save files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the working directory</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If, for any reason, the working directory is different from where you saved your R-project, check in the top right of your screen. Here, you should be able to select <code>stats-pt2</code> or open the project using the menu options.</p>
+<hr>
+</section>
+<section id="task-4-install-your-packages" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-install-your-packages">Task 4: Install your packages</h3>
+<p>We will use the <code>install.packages</code> function to complete a few tasks.</p>
+<p>Any required packages are generally placed at the very top of our code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="task-5-load-your-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-load-your-libraries">Task 5: Load your libraries</h3>
+<p>After using the <code>install.packages</code> function, we need to load specific libraries.</p>
+<p>Similar to installing packages, we generally load libraries at the very top of our code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="task-6-call-in-the-critstats-data-package" class="level3">
+<h3 class="anchored" data-anchor-id="task-6-call-in-the-critstats-data-package">Task 6: Call in the <code>critstats</code> data package</h3>
+<p>We will use the <code>remotes::install_github()</code> command to install packages to call in data that I have prepared in a package for our course. The <code>remotes::install_github()</code> command communicates with GitHub to access files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"professornaite/critstats"</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<section id="task-6-a-load-the-critstats-library" class="level4">
+<h4 class="anchored" data-anchor-id="task-6-a-load-the-critstats-library">Task 6-a: Load the <code>critstats</code> library</h4>
+<p>Next, we load the <code>critstats</code> library which will give us access to the package’s contents.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(critstats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="task-7-view-datasets-in-the-current-r-session" class="level3">
+<h3 class="anchored" data-anchor-id="task-7-view-datasets-in-the-current-r-session">Task 7: View datasets in the current R session</h3>
+<p>RStudio has a lot of pre-loaded data sets that we can view or use to practice on different types of variables. We use the <code>data()</code> function to view all of the data sets loaded in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A new window should open in your RStudio session.</p>
+<hr>
+</section>
+<section id="task-8-view-datasets-only-in-the-critstats-data-package" class="level3">
+<h3 class="anchored" data-anchor-id="task-8-view-datasets-only-in-the-critstats-data-package">Task 8: View datasets only in the <code>critstats</code> data package</h3>
+<p>We can also view only the data sets loaded into the <code>critstats</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">"critstats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A new window containing only the <code>critstats</code> data should open in your RStudio session.</p>
+<hr>
+</section>
+<section id="task-9-view-documentation-for-another-data-package-called-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="task-9-view-documentation-for-another-data-package-called-datasets">Task 9: View documentation for another data package called <code>datasets</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">"datasets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="task-10-view-documentation-for-the-entire-critstats-data-package" class="level3">
+<h3 class="anchored" data-anchor-id="task-10-view-documentation-for-the-entire-critstats-data-package">Task 10: View documentation for the entire <code>critstats</code> data package</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>??critstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="task-11-view-documentation-for-a-specific-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="task-11-view-documentation-for-a-specific-data-set">Task 11: View documentation for a specific data set</h3>
+<p>We will select the <code>africa_data_all</code> data set and view its documentation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>??africa_data_all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This documentation is the <code>codebook</code> for the data. It contains more specific information about the data frame, each of the variables, and any sourcing information.</p>
+<hr>
+</section>
+<section id="task-12-assign-a-dataset-to-an-object-for-efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="task-12-assign-a-dataset-to-an-object-for-efficiency">Task 12: Assign a dataset to an object for efficiency</h3>
+<p>If we want to call a data set more efficiently, we can assign it to an object.</p>
+<p>The <code>df</code> object is a short name for data frame.</p>
+<p>We will assign <code>df1</code> using our assignment operator to the data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> africa_data_all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="task-13-run-a-simple-command" class="level3">
+<h3 class="anchored" data-anchor-id="task-13-run-a-simple-command">Task 13: Run a simple command</h3>
+<p>We can run simple commands on a data frame using the shorthand object we assigned to it.</p>
+<p>Let’s use the <code>glimpse()</code> function to explore the <code>africa_data_all</code> data frame that we assigned to the object <code>df1</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 116
+Columns: 13
+$ country           &lt;chr&gt; "Nigeria", "Ethiopia", "Egypt", "DR Congo", "South A…
+$ pop               &lt;dbl&gt; 206139589, 114963588, 102334404, 89561403, 59308690,…
+$ pop.yearly.change &lt;dbl&gt; 2.58, 2.57, 1.94, 3.19, 1.28, 2.98, 2.28, 3.32, 1.85…
+$ pop.net.change    &lt;dbl&gt; 5175990, 2884858, 1946331, 2770836, 750420, 1728755,…
+$ density           &lt;dbl&gt; 226, 115, 103, 40, 49, 67, 94, 229, 18, 25, 83, 26, …
+$ area              &lt;dbl&gt; 910770, 1000000, 995450, 2267050, 1213090, 885800, 5…
+$ migrants          &lt;dbl&gt; -60000, 30000, -38033, 23861, 145405, -40076, -10000…
+$ fertility.rate    &lt;dbl&gt; 5.4, 4.3, 3.3, 6.0, 2.4, 4.9, 3.5, 5.0, 3.1, 4.4, 2.…
+$ med.age           &lt;dbl&gt; 18, 19, 25, 17, 28, 18, 20, 17, 29, 20, 30, 17, 22, …
+$ urban.pop         &lt;dbl&gt; 52, 21, 43, 46, 67, 37, 28, 26, 73, 35, 64, 67, 57, …
+$ world.share       &lt;dbl&gt; 2.64, 1.47, 1.31, 1.15, 0.76, 0.77, 0.69, 0.59, 0.56…
+$ pop_in_mill       &lt;dbl&gt; 206.13959, 114.96359, 102.33440, 89.56140, 59.30869,…
+$ year              &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020…</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="task-14-view-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-14-view-your-data">Task 14: View your data</h3>
+<p>We can use the <code>view()</code> function to see our entire data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You may have noticed that a new window opened so that you can <code>view()</code> the entire data set. Sometimes, it is inefficient to use this command. Let’s look at two other options.</p>
+<hr>
+<section id="task-14-a-view-the-head-of-your-data" class="level4">
+<h4 class="anchored" data-anchor-id="task-14-a-view-the-head-of-your-data">Task 14-a: View the <code>head</code> of your data</h4>
+<p>We use the <code>head</code> function to get a closer look at the first few observations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the `head` function to view the top of the data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  country           pop pop.yearly.change pop.net.change density   area migrants
+  &lt;chr&gt;           &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1 Nigeria        2.06e8              2.58        5175990     226 9.11e5   -60000
+2 Ethiopia       1.15e8              2.57        2884858     115 1   e6    30000
+3 Egypt          1.02e8              1.94        1946331     103 9.95e5   -38033
+4 DR Congo       8.96e7              3.19        2770836      40 2.27e6    23861
+5 South Africa   5.93e7              1.28         750420      49 1.21e6   145405
+6 Tanzania       5.97e7              2.98        1728755      67 8.86e5   -40076
+# ℹ 6 more variables: fertility.rate &lt;dbl&gt;, med.age &lt;dbl&gt;, urban.pop &lt;dbl&gt;,
+#   world.share &lt;dbl&gt;, pop_in_mill &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Change the number of observations that you want to view in the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the `head` function to view ten (10) observations at the top of the data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df1, <span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 13
+   country          pop pop.yearly.change pop.net.change density   area migrants
+   &lt;chr&gt;          &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Nigeria       2.06e8              2.58        5175990     226 9.11e5   -60000
+ 2 Ethiopia      1.15e8              2.57        2884858     115 1   e6    30000
+ 3 Egypt         1.02e8              1.94        1946331     103 9.95e5   -38033
+ 4 DR Congo      8.96e7              3.19        2770836      40 2.27e6    23861
+ 5 South Africa  5.93e7              1.28         750420      49 1.21e6   145405
+ 6 Tanzania      5.97e7              2.98        1728755      67 8.86e5   -40076
+ 7 Kenya         5.38e7              2.28        1197323      94 5.69e5   -10000
+ 8 Uganda        4.57e7              3.32        1471413     229 2.00e5   168694
+ 9 Algeria       4.39e7              1.85         797990      18 2.38e6   -10000
+10 Sudan         4.38e7              2.42        1036022      25 1.77e6   -50000
+# ℹ 6 more variables: fertility.rate &lt;dbl&gt;, med.age &lt;dbl&gt;, urban.pop &lt;dbl&gt;,
+#   world.share &lt;dbl&gt;, pop_in_mill &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="task-14-b-view-the-tail-of-your-data" class="level4">
+<h4 class="anchored" data-anchor-id="task-14-b-view-the-tail-of-your-data">Task 14-b: View the <code>tail</code> of your data</h4>
+<p>We use the <code>tail</code> function to get a closer look at the last few observations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the `tail` function to view the top of the data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  country           pop pop.yearly.change pop.net.change density   area migrants
+  &lt;chr&gt;           &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1 Cabo Verde     598682              0.93           5533     149   4030    -1227
+2 Western Sahara 587259              1.96          11273       2 266000     5600
+3 Mayotte        335995              3.03           9894     896    375        0
+4 Sao Tome &amp; Pr… 231856              1.97           4476     242    960     -600
+5 Seychelles     107660              0.51            542     234    460     -200
+6 Saint Helena     5314             -1.12            -60      14    390        0
+# ℹ 6 more variables: fertility.rate &lt;dbl&gt;, med.age &lt;dbl&gt;, urban.pop &lt;dbl&gt;,
+#   world.share &lt;dbl&gt;, pop_in_mill &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Change the number of observations that you want to view in the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the `tail` function to view ten (10) observations at the top of the data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df1, <span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 13
+   country          pop pop.yearly.change pop.net.change density   area migrants
+   &lt;chr&gt;          &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Eswatini      1.21e6              0.76           9152      70  17200    -5268
+ 2 Djibouti      1.14e6              1.39          15606      49  23180      900
+ 3 Réunion       9.82e5              0.8            7744     393   2500     -630
+ 4 Comoros       8.52e5              1.83          15301     458   1861    -2000
+ 5 Cabo Verde    5.99e5              0.93           5533     149   4030    -1227
+ 6 Western Saha… 5.87e5              1.96          11273       2 266000     5600
+ 7 Mayotte       3.36e5              3.03           9894     896    375        0
+ 8 Sao Tome &amp; P… 2.32e5              1.97           4476     242    960     -600
+ 9 Seychelles    1.08e5              0.51            542     234    460     -200
+10 Saint Helena  5.31e3             -1.12            -60      14    390        0
+# ℹ 6 more variables: fertility.rate &lt;dbl&gt;, med.age &lt;dbl&gt;, urban.pop &lt;dbl&gt;,
+#   world.share &lt;dbl&gt;, pop_in_mill &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="task-15-make-and-save-a-plot" class="level3">
+<h3 class="anchored" data-anchor-id="task-15-make-and-save-a-plot">Task 15: Make and save a plot</h3>
+<p>The goal of this last task is to learn how to save a plot.</p>
+<p>On the bottom left of your RStudio session, you should notice a few tabs.</p>
+<p>The second tab is the <code>Plots</code> tab.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk3-g-0.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Find the <code>Plots</code> tab.</figcaption>
+</figure>
+</div>
+<hr>
+<section id="task-15-a-make-a-plot" class="level4">
+<h4 class="anchored" data-anchor-id="task-15-a-make-a-plot">Task 15-a: Make a plot</h4>
+<p>We will make a random plot using the <code>plot</code> command (the plot itself is not important for now).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df1<span class="sc">$</span>pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Whenever you make a plot, you can save it in your working directory.</p>
+<p>Be sure to check your working directory using the <code>getwd</code> command prior to saving.</p>
+<hr>
+</section>
+<section id="task-15-b-save-a-plot" class="level4">
+<h4 class="anchored" data-anchor-id="task-15-b-save-a-plot">Task 15-b: Save a plot</h4>
+<p>Whenever you want to save a plot, you can do so manually in directory portion of your RStudio session.</p>
+<ul>
+<li><p>Navigate to the bottom right portion of your RStudio session.</p></li>
+<li><p>Got to the <em>Plots</em> tab.</p>
+<ul>
+<li>Run the code for your plot, or navigate to your plot using the arrows.</li>
+</ul></li>
+<li><p>Click <em>Export</em></p>
+<ul>
+<li>You can save your file as a <code>.pdf</code> or as an image.</li>
+</ul></li>
+</ul>
+<p>Later, we will learn to customize plots and insert them into reports and papers.</p>
+</section>
+</section>
+</section>
+<section id="see-the-bottom-right-of-the-screen." class="level2">
+<h2 class="anchored" data-anchor-id="see-the-bottom-right-of-the-screen."><img src="img/wk3-g-1.png" class="img-fluid" alt="See the bottom right of the screen."></h2>
+<section id="task-16-run-univariate-statistics-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="task-16-run-univariate-statistics-in-r">Task 16: Run univariate statistics in R</h3>
+<p>We will generate some code to examine univariate statistics in R. This will help you with HW 2.</p>
+<p>Take the plot of data for two variables, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-correlation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="week05_files/figure-html/fig-correlation-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Correlation plot of two variables, x and y</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Noticing that there is a relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, a first step is to run <em>univariate functions</em> on each variable individually.</p>
+<hr>
+<section id="task-16-a-measures-of-center" class="level4">
+<h4 class="anchored" data-anchor-id="task-16-a-measures-of-center">Task 16-a: Measures of center</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean of x</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03163502</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean of y</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.95324</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median of x</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.09398661</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median of y</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.070926</code></pre>
+</div>
+</div>
+<p>Note: the median of a continuous variable constitutes the point at which the function of the distribution has the value 0.5</p>
+<p>Given the nature of the variables, we will not compute the mode. Take note, howevever, that a table can be used to find the mode in a discrete variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let some variable V contain a set of values</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>The output is not what we desire. We can create a table to get the values we’d like.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let some variable z be a set of values</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>table.v <span class="ot">&lt;-</span> <span class="fu">table</span>(v)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>table.v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>v
+1 2 3 4 5 6 7 8 9 
+2 1 1 1 2 1 3 4 1 </code></pre>
+</div>
+</div>
+<p>The table shows us the mode of the variable.</p>
+<hr>
+</section>
+<section id="task-16-b-measures-of-variation" class="level4">
+<h4 class="anchored" data-anchor-id="task-16-b-measures-of-variation">Task 16-b: Measures of variation</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range of x</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.387233</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.183967</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an object for the range</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>range.x <span class="ot">=</span> <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>range.x <span class="co"># recall that we only stored the value in the last line, we must call it separately</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.571199</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range of y</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.831654</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6718717</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an object for the range</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>range.y <span class="ot">=</span> <span class="fu">max</span>(y) <span class="sc">-</span> <span class="fu">min</span>(y)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>range.y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.50353</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation of x</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9452844</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation of y</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.04768</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="task-16-c-measures-of-relative-standing" class="level4">
+<h4 class="anchored" data-anchor-id="task-16-c-measures-of-relative-standing">Task 16-c: Measures of relative standing</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interquartile range of x</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x) <span class="co"># IQR computes the spread of the middle 50 percent of the values in X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.362935</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interquartile range of y</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(y) <span class="co"># IQR computes the spread of the middle 50 percent of the values in Y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.333997</code></pre>
+</div>
+</div>
+</section>
+<section id="task-16-d-plots" class="level4">
+<h4 class="anchored" data-anchor-id="task-16-d-plots">Task 16-d: Plots</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-34-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-35-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># density curve</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week05_files/figure-html/unnamed-chunk-36-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="next-up-week-6" class="level3">
+<h3 class="anchored" data-anchor-id="next-up-week-6"><strong>Next up</strong>: Week 6</h3>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>We are in part two of our course, so I have chosen <code>stats-pt2</code> for this project’s title. We’ll be starting other projects in parts three and four of our course. Note: there will be no project for part one of our course.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week04.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 4</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week06.html" class="pagination-link">
+        <span class="nav-page-text">Week 6</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2024, Nathan Alexander</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page was built by Nathan Alexander, PhD in <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

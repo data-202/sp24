@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
+
+  <meta name="author" content="Nathan Alexander, PhD">
+  <title>DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<meta property="og:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3">
+<meta property="og:description" content="Theory Construction">
+<meta property="og:site-name" content="DATA 202: Statistically Measuring and Modeling Social Justice">
+<meta name="twitter:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 3">
+<meta name="twitter:description" content="Theory Construction">
+<meta name="twitter:creator" content="@professornaite">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">DATA 202 - Week 3</h1>
+  <p class="subtitle">Theory Construction</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Nathan Alexander, PhD 
+</div>
+        <p class="quarto-title-affiliation">
+            Center for Applied Data Science and Analytics
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="part-i-context" class="title-slide slide level1 center">
+<h1>Part I: Context</h1>
+
+</section>
+<section id="case-study" class="slide level2 smaller">
+<h2>Case Study</h2>
+<p><strong>Tuskegee Study of Untreated Syphilis in the Negro Male</strong></p>
+<p>We begin by exploring a critical historical issue in statistics: understanding the ethics of a medical intervention or study.</p>
+
+<img data-src="img/wk3-a.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"><p class="caption">Uninformed participants of the Tuskegee Study of Untreated Syphilis in the Negro Male</p><p><em>“In 1932, the USPHS, working with the Tuskegee Institute, began a study to record the natural history of syphilis. It was originally called the”Tuskegee Study of Untreated Syphilis in the Negro Male” (now referred to as the “USPHS Syphilis Study at Tuskegee”). The study initially involved 600 Black men – 399 with syphilis, 201 who did not have the disease. Participants’ informed consent was not collected.”</em> (Office of Science, Centers for Disease Control and Prevention, 2022)</p>
+</section>
+<section class="slide level2">
+
+<p>All images are from <a href="http://www.examiningtuskegee.com/"><strong>Examining Tuskegee</strong></a> by Susan Reverby.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wk3-c-1.gif"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wk3-c-2.gif"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-3.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-4.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wk3-c-5.gif"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wk3-c-6.gif"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-7.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-8.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-9.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-c-10.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-1.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-2.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-3.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-4.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-5.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-6.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-7.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-8.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-10a.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-10b.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-10c.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-10d.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-d-10e.gif" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+
+<h5 id="ethics-and-statistics">Ethics and statistics</h5>
+<p>This case study will help frame our understanding between ethics and statistics. The study will allow us to explore longstanding injustices, consider ethical practices in historical contexts, and explore the sociology of statistics. More specifically, we will use this case to understand the history of the Institutional Review Board (IRB) and discuss concepts related to scientific racism. These explorations will help in two key ways: first, we will come to understand what it can mean to be <em>critical</em> in the context of statistics and, second, we will be prepared to respond to problems focused on main concepts in the first few weeks of our course. We will then formalize a few terms.</p>
+</section>
+<section class="slide level2">
+
+<p><em>Framing a relationship between ethics and statistics</em></p>
+<p>The “Tuskegee Study of Untreated Syphilis in the Negro Male” (now referred to as the “USPHS Syphilis Study at Tuskegee”) took place in Macon County, Alabama, in an area known as the “Black Belt” because of its rich soil and vast number of Black sharecroppers who were the economic backbone of the region. The research took place at the Tuskegee Institute.</p>
+</section>
+<section class="slide level2">
+
+<p><em>Purpose of the study</em></p>
+<p>The intent of the study was to record the natural progression of syphilis in Black men. The study was related to a 1928 retrospective study, the “Oslo Study of Untreated Syphilis,” which reported on the pathological manifestations of untreated syphilis in several hundred white males. However, this original study used secondary data to piece together findings. When the study was initiated in the U.S., there were no proven treatments for the disease. Researchers told the men participating in the study that they were to be treated for “bad blood.” This term had been used by local community members to describe a host of ailments that could be diagnosed including things like anemia, fatigue, and syphilis.</p>
+</section>
+<section class="slide level2">
+
+<p><em>Study participants</em></p>
+<p>A total of 600 men were enrolled in the study.</p>
+<ul>
+<li>Of this group 399, who had syphilis were a part of the experimental group, and 201 were control subjects.</li>
+<li>Most of the men were poor and illiterate sharecroppers from the county.</li>
+<li>The participants were offered medical care and insurance.</li>
+<li>They were enrolled in the study with incentives as well, including medical exams, rides to and from the clinics, meals on examination days, free treatment for minor ailments and guarantees that provisions would be made after their deaths in terms of burial stipends paid to their survivors.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><em>Ethical issues</em></p>
+<div>
+<ul>
+<li class="fragment">There were no proven treatments for syphilis when the study began in 1932.</li>
+<li class="fragment">When penicillin became the standard treatment for the disease in 1947 the medicine was withheld as a part of the treatment for both the experimental group and control group.</li>
+<li class="fragment">On July 25, 1972, Jean Heller of the Associated Press broke the story that appeared in both New York and Washington, that there had been a 40-year non-therapeutic experiment called “a study” on the effects of untreated syphilis on Black men in the rural South.</li>
+<li class="fragment">Between the start of the study in 1932 and 1947, the date when penicillin was determined as a cure for the disease, dozens of men had died and their wives, children and untold number of others had been infected.</li>
+<li class="fragment">There was evidence that scientific research protocol routinely applied to human subjects was either ignored or deeply flawed to ensure the safety and well-being of the men involved. Specifically, the men were never told about or offered the research procedure called informed consent.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Researchers had not informed the men of the actual name of the study, its purpose, and potential consequences of the treatment or non-treatment that they would receive during the study. The men never knew of the debilitating and life-threatening consequences of the treatments they were to receive, the impact on their partners and children they may have conceived once involved in the research. The panel also concluded that there were no choices given to the participants to quit the study when penicillin became available as a treatment and cure for syphilis. Reviewing the results of the research the panel concluded that the study was “ethically unjustified.” The panel articulated all the above findings in October of 1972 and then one month later the Assistant Secretary for Health and Scientific Affairs officially declared the end of the Tuskegee Study.</p>
+</section>
+<section class="slide level2">
+
+<p><em>Class-Action Suit</em></p>
+<p>In the summer of 1973, Attorney Fred Gray filed a class-action suit on behalf of the men in the study, recognized partners, children, and families. It ended a settlement giving more than $9 million to the study participants. Despite these reparative measures, the effects remain.</p>
+
+<img data-src="img/wk3-b.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="institutional-review-board-irb" class="slide level2">
+<h2>Institutional Review Board (IRB)</h2>
+<p>The Tuskegee Syphilis Study conducted by the U.S Public Health Service was only one of many other past abuses that included unethical experimentation on marginalized groups. As a result of these injustices, a set of mandates were instituted and policies are governed under the IRB, which define the rules and regulations for the approval of research activities. Other countries have equivalent measures focused on ethics.</p>
+<p>Additional details about can be found online.</p>
+<p>Learn more at <a href="https://www.cdc.gov/tuskegee/timeline.htm">https://www.cdc.gov/tuskegee/timeline</a>.</p>
+<p>Learn more about the Howard University IRB at the <a href="https://www.orrchoward.com/humanresearchmain.html">Office of Regulatory Research Compliance</a>.</p>
+<h3 id="group-work">Group work</h3>
+<h5 id="problem-1">Problem #1:</h5>
+<p>Was the Syphilis Study at Tuskegee an <em>experimental or an observational</em> study? Explain.</p>
+<h5 id="problem-2">Problem #2:</h5>
+<p>Was data collected for this study using <em>probability or non-probability sampling</em> methods?</p>
+<h5 id="problem-3">Problem #3:</h5>
+<p>Based on your knowledge of the researchers for the USPHS Syphilis Study at Tuskegee, what was the most likely <em>sampling method</em> used to gather data? Explain.</p>
+<h5 id="problem-4">Problem #4:</h5>
+<p>Based on your knowledge of the study and the data tables below, list five variables that were collected during the study and explain their <em>variable types</em> in detail.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="part-ii-content" class="title-slide slide level1 center">
+<h1>Part II: Content</h1>
+<p>One main goal this week will be to understand theory and theory construction.</p>
+</section>
+<section id="theory" class="slide level2">
+<h2>Theory</h2>
+<p>Some definitions:</p>
+<ul>
+<li><p>Per the Oxford Languages dictionary, a theory is a supposition or a system of ideas intended to explain something, especially one based on general principles independent of the thing to be explained.</p></li>
+<li><p>Per Britannica, a theory is an idea or set of ideas that is intended to explain facts or events.</p></li>
+</ul>
+<p>We will need to think more acutely about theory development as we progress through the term.</p>
+<ul>
+<li>For now, how might you define a theory?</li>
+</ul>
+</section>
+<section id="theory-construction.-image-from-saylordotorg.github.io" class="slide level2">
+<h2><img data-src="img/wk3-e-0.jpg" style="width:40.0%" alt="Theory construction. Image from saylordotorg.github.io"></h2>
+</section>
+<section id="theory-construction" class="slide level2">
+<h2>Theory construction</h2>
+<p>Per Markovsky &amp; Webster (2015), theory construction is the process of formulating components of a theory into a logical whole.</p>
+<p>We may consider some of the following elements as we prepare theoretical statements.</p>
+<div>
+<ul>
+<li class="fragment"><p>Research inquiry</p></li>
+<li class="fragment"><p>Hypotheses</p></li>
+<li class="fragment"><p>Analysis</p></li>
+<li class="fragment"><p>Evaluation</p></li>
+<li class="fragment"><p>Revision</p></li>
+</ul>
+</div>
+<h4 id="framing-data-and-information">Framing data and information</h4>
+<p>There are many different ways to conceptualize data and information.</p>
+<div>
+<ul>
+<li class="fragment"><p>Depending on our specific context, statistical needs, or research purposes, we can frame information <em>as</em> data, or data <em>as</em> information, or even place an equivalence statement between the two terms such that we have: <span class="math display">\[\text{information} = \text{data}\]</span></p></li>
+<li class="fragment"><p>As we continue to explore what it should mean to be critical in the context of statistics, we will need some common language and base definitions to understand the processes involved in a statistical study.</p></li>
+<li class="fragment"><p>We defined <strong>statistics</strong> as the <em>science</em> of collecting, organizing, analyzing, interpreting, communicating, and visualizing data and information. “Collecting” and “organizing” – the first two steps of this process – requires that we define what we mean by data and information.</p></li>
+</ul>
+</div>
+</section>
+<section id="data-and-information" class="slide level2">
+<h2>Data and information</h2>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITION</strong>: Data</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Data</strong> are collections of information or observations.</p>
+<p>The term <em>data</em> is plural, so we should say “data <em>are</em>…” not “data <em>is</em>…”.</p>
+<p>A single data value is referred to as a <em>datum</em> but this term is very rarely used.</p>
+</div>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment"><p>The term “information” is a universal concept that is highly useful but it also lacks precision.</p></li>
+<li class="fragment"><p>In every day terms, information is defined rather loosely.</p></li>
+<li class="fragment"><p>In statistics, however, we might contend that information becomes data when it is collected and organized in some form or fashion.</p></li>
+<li class="fragment"><p>Thus, it takes some structure to turn information into usable data.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>One method of organizing collections of data or information is in a Microsoft Excel sheet.</p>
+
+<img data-src="img/wk3-e-1.png" class="r-stretch quarto-figure-center"><p class="caption">Excel spreadsheet</p></section>
+<section class="slide level2">
+
+<p>A spreadsheet in a traditional format contains important features that will support data analysis.</p>
+<div>
+<ul>
+<li class="fragment"><p><strong>Columns</strong> are <em>vertical arrangements</em> of sets.</p>
+<p>– Columns are represented by capital letters: <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and so on.</p>
+<p>– We relate columns to <em>sets</em>, which we defined as collections of elements or items.</p></li>
+<li class="fragment"><p><strong>Rows</strong> are <em>horizontal arrangements</em> of elements.</p>
+<p>– Rows are represented by numbers and relate to the <em>index</em> of a set.</p>
+<p>– The subscript <span class="math inline">\(i \in \mathbb{N}\)</span> such that <span class="math inline">\(i = 1, 2, 3, ...\)</span>, indicates an element’s position.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-e-2.png" class="r-stretch quarto-figure-center"><p class="caption">Excel spreadsheet with data on US states</p></section>
+<section class="slide level2">
+
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITION</strong>: Filename extension</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>file extension</strong> (or file name extension) is a suffix at the end of a digital file name:</p>
+<div>
+<ul>
+<li class="fragment"><p>.doc</p></li>
+<li class="fragment"><p>.docx</p></li>
+<li class="fragment"><p>.txt</p></li>
+</ul>
+<p>The extension indicates the file’s format and the organization of information.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p>There are many different file extensions.</p>
+<ul>
+<li class="fragment"><p>For example, the file extension for an MS Excel document can be <em>.xlxs</em>, <em>.csv</em>, or <em>.htm</em>.</p></li>
+<li class="fragment"><p>CSV (.csv) files remove all formatting.</p>
+<p>– The removal of formatting helps to reduce errors when transferring data between computers or software programs.</p></li>
+<li class="fragment"><p>“CSV” stands for <strong>c</strong>omma-<strong>s</strong>eparated <strong>v</strong>alues.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-e-3.png" class="r-stretch quarto-figure-center"><p class="caption">CSV file with data on US states</p></section>
+<section class="slide level2">
+
+<h4 id="formatting-data-into-a-data-frame">Formatting data into a data frame</h4>
+<ul>
+<li><p>Although the CSV format removes formatting, the file is not yet in a structure that we can use to conduct efficient statistical analyses.</p></li>
+<li><p>The CSV format supports a user with <em>collecting</em> and <em>organizing</em> information into a usable data structure.</p></li>
+<li><p>However, the data needs to be sent to a computer program to undergo the next step in our statistical process: <em>analyzing</em> data. Specifically, we re-format the CSV file to a <strong>data frame</strong> to conduct analyses.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITION</strong>: Data frame</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>data frame</strong> (or dataframe) is a two-dimensional table of rows and columns.</p>
+</div>
+</div>
+</div>
+<p>Data frames are a common and popular way to structure, store, and share data.</p>
+<ul>
+<li><p>Data frames allow analysts to store <em>sets</em> of observations that vary in size and content.</p></li>
+<li><p>Each <strong>row</strong> describes a single observation.</p></li>
+<li><p>Each <strong>column</strong> stores information for one set, or variable.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Recall that a set is a collection of elements.</p>
+<ul>
+<li>We extend this definition to say that a set is a collection of <span class="math inline">\(n \in \mathbb{N}\)</span> elements, where <span class="math inline">\(n\)</span> refers to the number of elements in the set.</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Note – Sets with</strong> <span class="math inline">\(n\)</span> elements</strong></p>
+</div>
+<div class="callout-content">
+<p>If <span class="math inline">\(X\)</span> is a set with <span class="math inline">\(n\)</span> elements, then <span class="math inline">\(X\)</span> can be represented as <span class="math inline">\(X = \{x_1, x_2, x_3, ..., x_n \}\)</span>.</p>
+<p>If <span class="math inline">\(Y\)</span> is a set with <span class="math inline">\(n\)</span> elements, then <span class="math inline">\(Y\)</span> can be represented as <span class="math inline">\(Y = \{y_1, y_2, y_3, ..., y_n \}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The value of <span class="math inline">\(n\)</span> can be used to represent the “size” of a set.</p>
+<ul>
+<li>A set with no elements is referred to as the <strong>empty set</strong> and can be represented as <span class="math inline">\(\{ \emptyset \}\)</span>.</li>
+</ul>
+<p>We will need to make sense of the various <em>objects</em> that a set can contain.</p>
+</section>
+<section class="slide level2">
+
+<p>First, we think more mathematically about sets and data frames.</p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITION</strong>: Matrix</strong></p>
+</div>
+<div class="callout-content">
+<p>In mathematics, a <strong>matrix</strong> is a rectangular table of entries arranged in rows and columns.</p>
+</div>
+</div>
+</div>
+<div>
+<p>A data frame containing only numbers is an <span class="math inline">\(n \times m\)</span> matrix:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(n\)</span> refers to the number of rows (or observations)</p></li>
+<li class="fragment"><p><span class="math inline">\(m\)</span> refers to the number of columns (or variables)</p></li>
+</ul>
+<p>By formatting a series of sets into a data frame, we get</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(n\)</span> rows (each row containing data on a single observation)</p></li>
+<li class="fragment"><p><span class="math inline">\(m\)</span> columns (which contain elements over a variable’s values)</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Data frame containing <span class="math inline">\(n\)</span> observations for <span class="math inline">\(2\)</span> variables (<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>)</p>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>EXAMPLE – A data frame containing two variables (or sets)</strong></strong></p>
+</div>
+<div class="callout-content">
+<table>
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_1\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_2\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_3\)</span></td>
+<td><span class="math inline">\(y_3\)</span></td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_n\)</span></td>
+<td><span class="math inline">\(y_n\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Take, for example, two sets with the following ordered values:</p>
+<div>
+<ul>
+<li class="fragment"><p>Let <span class="math inline">\(X\)</span> contain the <u>odd</u> values 1, 3, 5, and 7.</p>
+<ul>
+<li class="fragment">We have <span class="math inline">\(X = \{1, 3, 5, 7 \}\)</span></li>
+</ul></li>
+<li class="fragment"><p>Let <span class="math inline">\(Y\)</span> contain the <u>even</u> values 2, 4, 6, and 8.</p>
+<ul>
+<li class="fragment">We have <span class="math inline">\(Y = \{2, 4, 6, 8 \}\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>We set the following to be true:</p>
+<ul>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 3\)</span>, <span class="math inline">\(x_3 = 5\)</span>, <span class="math inline">\(x_4 = 7\)</span></p></li>
+<li><p><span class="math inline">\(y_1 = 2\)</span>, <span class="math inline">\(y_2 = 4\)</span>, <span class="math inline">\(y_3 = 6\)</span>, <span class="math inline">\(y_4 = 8\)</span></p></li>
+</ul>
+<p>By combining the sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, we create the following data frame:</p>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>EXAMPLE – A data frame containing a few odd and even numbers</strong></strong></p>
+</div>
+<div class="callout-content">
+<table>
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>We list the index of each element of each set using a new column – ID (for index).</p>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>EXAMPLE – A data frame containing a few odd and even numbers</strong></strong></p>
+</div>
+<div class="callout-content">
+<table>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>This <span class="math inline">\(n \times m\)</span> data frame contains</p>
+<div>
+<ul>
+<li class="fragment"><p><span class="math inline">\(n = 4\)</span> observations</p></li>
+<li class="fragment"><p><span class="math inline">\(3\)</span> variables</p>
+<ul>
+<li class="fragment">ID</li>
+<li class="fragment"><span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(Y\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>We can consider this structure more generally as noted below.</p>
+
+<img data-src="img/wk3-e-4.png" class="r-stretch quarto-figure-center"><p class="caption">Structure of a data set from <em>R for Data Science</em> by Wickham &amp; Grolemund (2022)</p></section>
+<section id="population-and-sample" class="slide level2">
+<h2>Population and sample</h2>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITIONS</strong>: Population and sample</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>population</strong> is representative of every member of a group of interest or collection of objects.</p>
+<p>A <strong>sample</strong> is a sub-collection of members or objects from a selected population.</p>
+</div>
+</div>
+</div>
+
+<img data-src="img/wk3-f-1.png" class="r-stretch quarto-figure-center"><p class="caption">Population and sample. Image from SimplyPsychology.org</p></section>
+<section class="slide level2">
+
+<h4 id="the-difference-between-big-n-a-population-and-little-n-a-sample">The difference between big <span class="math inline">\(N\)</span> (a population) and little <span class="math inline">\(n\)</span> (a sample)</h4>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Note</strong></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>When referring to the size of a <strong>population</strong>, use a capital <span class="math inline">\(N\)</span>.</p></li>
+<li><p>When referring to the size of a <strong>sample</strong>, use a lowercase <span class="math inline">\(n\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h4 id="population-parameter-vs.-sample-statistic">Population parameter vs.&nbsp;Sample statistic</h4>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITIONS</strong>: Parameter versus statistic</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>parameter</strong> is a numerical measurement describing some characteristic of a <strong>population</strong>.</p>
+<ul>
+<li>Think of a “population parameter” to remember this relationship.</li>
+</ul>
+<p>A <strong>statistic</strong> is a numerical measure describing some characteristic of a <strong>sample</strong>.</p>
+<ul>
+<li>Think of a “sample statistic” to remember this relationship.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Statistics vs.&nbsp;A statistic</p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Note – Statistics (plural) versus a statistic (singular)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>There is a difference between the term <em>statistics</em> (plural) and a <em>statistic</em> (singular).</p>
+<ul>
+<li><p>We previously defined statistics (with an ‘s’ at the end) as <em>the science of collecting, organizing, analyzing, interpreting, communicating, and visualizing data and information</em>.</p></li>
+<li><p>A statistic (no ‘s’ at the end) refers to a measurement or value from a test on a sample.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h4 id="census">Census</h4>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITION</strong>: Census</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>census</strong> is the collection of data from <em>every</em> member of a population.</p>
+</div>
+</div>
+</div>
+
+<img data-src="img/wk3-f-2.jpg" class="r-stretch quarto-figure-center"><p class="caption">Population census. Image from CasaNC.org</p></section>
+<section class="slide level2">
+
+<p>There are many sites with free and publicly available data that can help us make better sense of how others have collected data on populations and samples.</p>
+<p>– <strong>Sampling of websites with freely accessible data</strong> (no downloads required)</p>
+<ul>
+<li><p><a href="https://coloredconventions.org/">Colored Conventions Project</a></p></li>
+<li><p><a href="https://datahub.io/search">The DataHub</a></p></li>
+<li><p><a href="https://data.gov/">Data.gov</a></p></li>
+<li><p><a href="https://www.kaggle.com/datasets">Kaggle</a></p></li>
+</ul>
+<p>In our course, we will focus on integrating how we structure and analyze data by using various mathematical concepts to frame the process of conducting a statistical study.</p>
+</section>
+<section id="what-is-a-variable" class="slide level2">
+<h2>What is a variable?</h2>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITIONS</strong>: Variable</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>variable</strong> is any characteristic or quantity that can be measured or counted.</p>
+</div>
+</div>
+</div>
+<div>
+<p>There are many types of data and variables used in statistics.</p>
+<ul>
+<li class="fragment"><p>The <strong>type</strong> of variable helps determine the appropriate methods for analysis.</p>
+<p>– Categorical or Quantitative</p></li>
+<li class="fragment"><p>The <strong>level of measurement</strong> helps determine how we measure variables.</p>
+<p>– Nominal, Ordinal, Interval, Ratio</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="variable-types">Variable types</h3>
+<p>There are two main <u>variable types</u>: <em>categorical</em> and <em>quantitative</em> variables.</p>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Variable type] --&gt; B(Categorical)
+  A[Variable type] --&gt; C(Quantitative)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITIONS</strong>: Variable types</strong></p>
+</div>
+<div class="callout-content">
+<p>A <strong>categorical</strong> variable consists of qualitative values such as names or labels.</p>
+<p>A <strong>quantitative</strong> variable consists of numbers representing counts or measurements.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Data that are <strong>categorical</strong> in nature are <em>non-numeric</em>.</p>
+<p>– Categorical values are labels used to represent categories or data values.</p></li>
+<li><p>Data that are <strong>quantitative</strong> in nature are <em>numeric</em>.</p>
+<p>– Quantitative values make use of the <em>sets of numbers</em> to represent counts or measures.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>We can further distinguish between these categories using the following definitions:</p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>DEFINITIONS</strong>: Nominal, Ordinal, Discrete, Continuous</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Nominal data</strong> are categorical data that <em>cannot</em> be arranged in some order (such as low to high). Some examples are eye color and pet names.</p>
+<p><strong>Ordinal data</strong> can be arranged in some order but differences between the values are meaningless. Consider letter grades: A is higher than B but A minus B does not make sense.</p>
+<p><strong>Discrete data</strong> are data where the number of values is finite or “countable.” Some examples include number of students or days spent in the library.</p>
+<p><strong>Continuous data</strong> can take on infinitely many values where the collection of values is not countable. Some examples include height or weight.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Variable type] --&gt; B(Qualitative)
+  A[Variable type] --&gt; C(Quantitative)
+  C --&gt; D(Discrete)
+  C --&gt; E(Continuous)
+  B --&gt; F(Nominal)
+  B --&gt; G(Ordinal)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="levels-of-measurement">Levels of measurement</h3>
+<p><u>Levels of measurement</u> are used to describe variable types.</p>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 52%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level of measurement</th>
+<th>Brief description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nominal</strong></td>
+<td>Data cannot be arranged in some order. Only categories are used.</td>
+<td>Eye color, city</td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>Data can be arranged in some order but differences cannot be found or are meaningless.</td>
+<td>Rankings, likert scale</td>
+</tr>
+<tr class="odd">
+<td><strong>Interval</strong></td>
+<td>There is not a natural zero starting point and rations are meaningless.</td>
+<td>Temperatures, years</td>
+</tr>
+<tr class="even">
+<td><strong>Ratio</strong></td>
+<td>There is a natural zero starting point and ratios are meaningful.</td>
+<td>Heights, distances</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/wk3-f-3.png" class="r-stretch quarto-figure-center"><p class="caption">The four levels of measurement. Image from Scribbr</p></section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="part-iii-code" class="title-slide slide level1 center">
+<h1>Part III: Code</h1>
+
+</section>
+<section id="task-0-understanding-the-rstudio-ide" class="slide level2">
+<h2>Task 0: Understanding the RStudio IDE</h2>
+
+<img data-src="img/wk3-g-0.png" class="r-stretch quarto-figure-center"><p class="caption">RStudio IDE</p></section>
+<section id="task-1-create-an-r-script" class="slide level2">
+<h2>Task 1: Create an R Script</h2>
+<p>We will conduct most of our work using what is called an <em>RScript</em>.</p>
+<p>The <em>RScript</em> allows us to save and annotate our code for future use.</p>
+<p>When you run code from an <em>RScript</em>, it will show up in the Console (bottom left pane in <em>RStudio</em>).</p>
+<p>In the RStudio IDE, open an RScript by using the following navigation:</p>
+<ul>
+<li>File &gt; New File &gt; R Script</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="using-the-rscript">Using the RScript</h3>
+</section>
+<section id="rstudio-ide-with-an-rscript" class="slide level2">
+<h2><img data-src="img/wk3-g-1.png" alt="RStudio IDE with an RScript"></h2>
+<h3 id="inserting-code-into-an-rscript">Inserting code into an RScript</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># You can use the `#` symbol to leave notes above your code.</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># You can use the `#` symbol to leave notes in-line with your code.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We just defined an object <em>y</em>. We can see its value by running this syntax and typing <em>y</em> into the Console.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>The output on your screen should match the last line above - with the hashtags.</p>
+<ul>
+<li><p>[ 1 ] indicates a single line of results.</p></li>
+<li><p>The output tells us that <em>y</em> has a value of 4, so we say that <em>y</em> is numeric or that it has a numeric value.</p></li>
+</ul>
+<p>You can run code by clicking ‘Run’ at the top of the Source window, or by typing CMD+Enter</p>
+</section>
+<section id="task-2-explore-different-object-types" class="slide level2">
+<h2>Task 2: Explore different object types</h2>
+<p>For this task, we will explore three object types: <em>numeric</em>, <em>character</em>, and <em>logic</em> values.</p>
+<h4 id="task-2-a-compute-a-mathematical-statement-and-create-a-numeric-variable">Task 2-a: Compute a mathematical statement and create a numeric variable</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>We can assign a variable to this statement by using an assignment operator: &lt;-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also use an equal sign to assign values: <span class="math inline">\(=\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>a <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Type “a” to show the value of the variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Create a numeric variable “b” that is the product of “a” and “y”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>b <span class="ot">=</span> a<span class="sc">*</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Type “b” in your console to show the product of the two variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+<p>Divide b by 4</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>b <span class="sc">/</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Take the square root of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">sqrt</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.464102</code></pre>
+</div>
+</div>
+<p>Compute the natural log of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">log</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.484907</code></pre>
+</div>
+</div>
+<p>Compute the common log of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">log10</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.079181</code></pre>
+</div>
+</div>
+<p>Find 1 minus the square root of b</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.464102</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Attempt to find the square root of “1 minus the square root of b” - which is a negative value</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in sqrt(1 - b): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+<p>NaN stands for “Not a number”. This occurs because there is currently no defined value to recognize the square root of negative numbers in R. But we can compute the square root on the absolute value of this difference, if needed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="dv">1</span><span class="sc">-</span>b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.316625</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>We can insert longer or more complex mathematical statements too. For example, we can find the absolute value of the sum of -1 and the square root of b cubed and then subtract from that the value of 3 times the square root of b.</p>
+<p>Notice the use of parentheses.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">3</span>)) <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>(<span class="fu">sqrt</span>(b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.17691</code></pre>
+</div>
+</div>
+<p>We can override the original value of y to match the mathematical statement we generated above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>y <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">3</span>)) <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>(<span class="fu">sqrt</span>(b))</span>
+<span id="cb31-2"><a href="#cb31-2"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.17691</code></pre>
+</div>
+</div>
+<p>We consider all of the previous objects to be numeric.</p>
+</section>
+<section class="slide level2">
+
+<h4 id="task-2-b-create-a-non-numeric-value">Task 2-b: Create a non-numeric value</h4>
+<p>We can also create objects to hold non-numeric values.</p>
+<p>There are two types of non-numeric values: <em>character</em> values and <em>logic</em> values.</p>
+<h5 id="character-values">Character values</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>character <span class="ot">&lt;-</span> <span class="st">'some label'</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "some label"</code></pre>
+</div>
+</div>
+<p>We can create a character value using the ‘,’ or “,” quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>character <span class="ot">&lt;-</span> <span class="st">"some label"</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "some label"</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h5 id="logic-values">Logic values</h5>
+<p>Logic values can either be TRUE or FALSE</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>logic_true <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>logic_false <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>logic_true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>logic_false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>We can also use T for TRUE and F for FALSE.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>logic_true <span class="ot">&lt;-</span> T</span>
+<span id="cb42-2"><a href="#cb42-2"></a>logic_false <span class="ot">&lt;-</span> F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>logic_true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>logic_false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="task-3-creating-vectors" class="slide level2">
+<h2>Task 3: Creating vectors</h2>
+<p>When we want to list multiple objects or values, we use R’s available data types, such as <em>vectors</em> and <em>factors</em>.</p>
+<ul>
+<li><p>We <em>concatenate</em> values in these data types using the operator c( ) to place our values in the order we desire.</p></li>
+<li><p><em>Concatenate</em> means to place things together one after the other.</p></li>
+</ul>
+<h5 id="vectors">Vectors</h5>
+<p>Vectors are a data type we use to order values (i.e., numeric, character, logic) or mix different values.</p>
+<p>For example, we can store all of the numbers from 1 to 9 in a vector by using a colon.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a>my.vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 7 8 9</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>When creating vectors, we use the assignment operator and the <em>concatenate</em> option to generate our object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"WEB Du Bois"</span>, <span class="dv">1868</span>, <span class="st">"17th"</span>, <span class="st">"MA"</span>, <span class="st">"civil rights activist"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2"></a>vec1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "WEB Du Bois"           "1868"                  "17th"                 
+[4] "MA"                    "civil rights activist"</code></pre>
+</div>
+</div>
+<p>Notice that my numeric and logic values do not use quotations, but a character value uses quotations ““.</p>
+</section>
+<section class="slide level2">
+
+<h5 id="factors">Factors</h5>
+<p><em>Factors</em> are a data type we use to store categorical variables for analyses and data plots. We will explore these later.</p>
+</section>
+<section id="task-4-creating-data-frames" class="slide level2">
+<h2>Task 4: Creating data frames</h2>
+<p>For this final task, we will create a list. Lists can contain anything: functions, vectors, other lists, and data frames.</p>
+<p>To start, let’s create a series of vectors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ida B. Wells"</span>, <span class="st">"W.E.B Du Bois"</span>,<span class="st">"Mary G. Ross"</span>, <span class="st">"Jaime Escalante"</span>,<span class="st">"Etta Z. Falconer"</span>, <span class="st">"Bob Moses"</span>, <span class="st">"Ruth Gonzales"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2"></a>vec2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1862</span>, <span class="dv">1868</span>, <span class="dv">1908</span>, <span class="dv">1930</span>, <span class="dv">1933</span>, <span class="dv">1935</span>, <span class="dv">1970</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a>vec3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"MS"</span>, <span class="st">"MA"</span>, <span class="st">"OK"</span>, <span class="st">"Bolivia"</span>, <span class="st">"MS"</span>, <span class="st">"NYC"</span>, <span class="st">"NJ"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4"></a>vec4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, T, T, T)</span>
+<span id="cb51-5"><a href="#cb51-5"></a>vec5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"African American"</span>, <span class="st">"Ghanaian American"</span>, <span class="st">"Native American"</span>, <span class="st">"Bolivian American"</span>, <span class="st">"African American"</span>, <span class="st">"African American"</span>, <span class="st">"Mexican American"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6"></a>vec6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Journalist"</span>, <span class="st">"Sociologist"</span>, <span class="st">"Engineer"</span>, <span class="st">"Educator"</span>, <span class="st">"Mathematician"</span>, <span class="st">"Educator"</span>, <span class="st">"Engineer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Our objects vec1, vec3, and vec5 are made of character values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>vec1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Ida B. Wells"     "W.E.B Du Bois"    "Mary G. Ross"     "Jaime Escalante" 
+[5] "Etta Z. Falconer" "Bob Moses"        "Ruth Gonzales"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>vec3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "MS"      "MA"      "OK"      "Bolivia" "MS"      "NYC"     "NJ"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>vec5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "African American"  "Ghanaian American" "Native American"  
+[4] "Bolivian American" "African American"  "African American" 
+[7] "Mexican American" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>vec6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Journalist"    "Sociologist"   "Engineer"      "Educator"     
+[5] "Mathematician" "Educator"      "Engineer"     </code></pre>
+</div>
+</div>
+<p>Our object vec2 is made of numeric values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>vec2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1862 1868 1908 1930 1933 1935 1970</code></pre>
+</div>
+</div>
+<p>Our object vec4 is a made of logic values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>vec4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="lists">Lists</h3>
+<p><em>Lists</em> allow us to do what the name implies - create a list of items.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>my.list <span class="ot">&lt;-</span> <span class="fu">list</span>(vec1, vec2, vec3, vec4, vec5, vec6)</span>
+<span id="cb64-2"><a href="#cb64-2"></a>my.list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "Ida B. Wells"     "W.E.B Du Bois"    "Mary G. Ross"     "Jaime Escalante" 
+[5] "Etta Z. Falconer" "Bob Moses"        "Ruth Gonzales"   
+
+[[2]]
+[1] 1862 1868 1908 1930 1933 1935 1970
+
+[[3]]
+[1] "MS"      "MA"      "OK"      "Bolivia" "MS"      "NYC"     "NJ"     
+
+[[4]]
+[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+
+[[5]]
+[1] "African American"  "Ghanaian American" "Native American"  
+[4] "Bolivian American" "African American"  "African American" 
+[7] "Mexican American" 
+
+[[6]]
+[1] "Journalist"    "Sociologist"   "Engineer"      "Educator"     
+[5] "Mathematician" "Educator"      "Engineer"     </code></pre>
+</div>
+</div>
+<p>In this form, lists can be hard to read.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="data-frames">Data frames</h3>
+<p>To solve the issue with the list, we will use our vectors to generate a specific type of <em>list</em> known as a <em>data.frame</em>.</p>
+<p><em>Data frames</em> are a subtype of lists made of vectors of <em>equal</em> lenght.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">data.frame</span>(vec1, vec2, vec3, vec4, vec5, vec6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              vec1 vec2    vec3  vec4              vec5          vec6
+1     Ida B. Wells 1862      MS  TRUE  African American    Journalist
+2    W.E.B Du Bois 1868      MA  TRUE Ghanaian American   Sociologist
+3     Mary G. Ross 1908      OK  TRUE   Native American      Engineer
+4  Jaime Escalante 1930 Bolivia FALSE Bolivian American      Educator
+5 Etta Z. Falconer 1933      MS  TRUE  African American Mathematician
+6        Bob Moses 1935     NYC  TRUE  African American      Educator
+7    Ruth Gonzales 1970      NJ  TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+<p>Notice the difference in how the information is arranged when <em>data.frame</em>.</p>
+</section>
+<section class="slide level2">
+
+<p>Let’s label this data frame and put labels at the top of the list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span>vec1, <span class="at">b=</span>vec2, <span class="at">c=</span>vec3, <span class="at">d=</span>vec4, <span class="at">e=</span>vec5, <span class="at">f=</span>vec6)</span>
+<span id="cb68-2"><a href="#cb68-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 a    b       c     d                 e             f
+1     Ida B. Wells 1862      MS  TRUE  African American    Journalist
+2    W.E.B Du Bois 1868      MA  TRUE Ghanaian American   Sociologist
+3     Mary G. Ross 1908      OK  TRUE   Native American      Engineer
+4  Jaime Escalante 1930 Bolivia FALSE Bolivian American      Educator
+5 Etta Z. Falconer 1933      MS  TRUE  African American Mathematician
+6        Bob Moses 1935     NYC  TRUE  African American      Educator
+7    Ruth Gonzales 1970      NJ  TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+<p>Notice that when I add labels using the equal sign operator, the vec labels dissapear and are replaced by the categorical labels that we insert. Let’s create more appropriate labels for the data we have generated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name=</span>vec1, </span>
+<span id="cb70-2"><a href="#cb70-2"></a>                 <span class="at">birthyear=</span>vec2, </span>
+<span id="cb70-3"><a href="#cb70-3"></a>                 <span class="at">birthplace=</span>vec3, </span>
+<span id="cb70-4"><a href="#cb70-4"></a>                 <span class="at">USborn=</span>vec4, </span>
+<span id="cb70-5"><a href="#cb70-5"></a>                 <span class="at">nationality=</span>vec5, </span>
+<span id="cb70-6"><a href="#cb70-6"></a>                 <span class="at">occupation=</span>vec6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>For future use, we can view our data frame by just typing its name into our console or typing View(df).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              name birthyear birthplace USborn       nationality    occupation
+1     Ida B. Wells      1862         MS   TRUE  African American    Journalist
+2    W.E.B Du Bois      1868         MA   TRUE Ghanaian American   Sociologist
+3     Mary G. Ross      1908         OK   TRUE   Native American      Engineer
+4  Jaime Escalante      1930    Bolivia  FALSE Bolivian American      Educator
+5 Etta Z. Falconer      1933         MS   TRUE  African American Mathematician
+6        Bob Moses      1935        NYC   TRUE  African American      Educator
+7    Ruth Gonzales      1970         NJ   TRUE  Mexican American      Engineer</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="next-up-week-4"><strong>Next up</strong>: Week 4</h3>
+<p>We will explore databases, details of statistical procedures, and begin to explore univariate analyses.</p>
+
+
+<img src="img/howard-logo.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://github.com/data-202">Course Data GitHub</a></p>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

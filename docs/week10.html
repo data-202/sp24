@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nathan Alexander, PhD">
+
+<title>DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 10</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week11.html" rel="next">
+<link href="./week09.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 10">
+<meta property="og:description" content="Notes on causal theories">
+<meta property="og:image" content="https://github.com/data-202/img/wk8-a-3.jpg">
+<meta property="og:site-name" content="DATA 202: Statistically Measuring and Modeling Social Justice">
+<meta name="twitter:title" content="DATA 202: Statistically Measuring and Modeling Social Justice - DATA 202 - Week 10">
+<meta name="twitter:description" content="Notes on causal theories">
+<meta name="twitter:image" content="https://github.com/data-202/img/wk8-a-3.jpg">
+<meta name="twitter:creator" content="@professornaite">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="./week10.html">Week 10</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./img/dubois-loc.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://data-202.github.io/sp24" rel="" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://canvas.howard.edu/courses/46792" rel="" title="Canvas site" class="quarto-navigation-tool px-1" aria-label="Canvas site"><i class="bi bi-code-square"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course landing page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./course-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weekly materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Papers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/paper3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paper 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions for each paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./papers/papers-more-info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">More information for papers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">HW</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw/hw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-i-context" id="toc-part-i-context" class="nav-link active" data-scroll-target="#part-i-context">Part I: Context</a>
+  <ul class="collapse">
+  <li><a href="#history-cause-and-effect" id="toc-history-cause-and-effect" class="nav-link" data-scroll-target="#history-cause-and-effect">History, cause, and effect</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
+  <li><a href="#causation" id="toc-causation" class="nav-link" data-scroll-target="#causation">Causation</a></li>
+  <li><a href="#associating-x-and-y" id="toc-associating-x-and-y" class="nav-link" data-scroll-target="#associating-x-and-y">Associating X and Y</a></li>
+  <li><a href="#framing-spurious-relationships" id="toc-framing-spurious-relationships" class="nav-link" data-scroll-target="#framing-spurious-relationships">Framing spurious relationships</a></li>
+  <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables">Confounding variables</a></li>
+  <li><a href="#mediating-variables" id="toc-mediating-variables" class="nav-link" data-scroll-target="#mediating-variables">Mediating variables</a></li>
+  <li><a href="#moderating-variables" id="toc-moderating-variables" class="nav-link" data-scroll-target="#moderating-variables">Moderating variables</a></li>
+  </ul></li>
+  <li><a href="#part-ii-content" id="toc-part-ii-content" class="nav-link" data-scroll-target="#part-ii-content">Part II: Content</a></li>
+  <li><a href="#part-iii-code" id="toc-part-iii-code" class="nav-link" data-scroll-target="#part-iii-code">Part III: Code</a>
+  <ul class="collapse">
+  <li><a href="#crime-statistics" id="toc-crime-statistics" class="nav-link" data-scroll-target="#crime-statistics">Crime statistics</a></li>
+  <li><a href="#education-data" id="toc-education-data" class="nav-link" data-scroll-target="#education-data">Education data</a></li>
+  <li><a href="#u.s.-general-social-survey-gss" id="toc-u.s.-general-social-survey-gss" class="nav-link" data-scroll-target="#u.s.-general-social-survey-gss">U.S. General Social Survey (GSS)</a></li>
+  <li><a href="#next-up-week-11" id="toc-next-up-week-11" class="nav-link" data-scroll-target="#next-up-week-11"><strong>Next up</strong>: Week 11</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week10-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DATA 202 - Week 10</h1>
+<p class="subtitle lead">Notes on causal theories</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nathan Alexander, PhD </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Center for Applied Data Science and Analytics
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="part-i-context" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-context">Part I: Context</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk8-a-3.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Illustration by Yuko Shimizu from <a href="https://www.cigionline.org/articles/as-geopolitical-blocs-vie-for-primacy-in-space-the-history-of-colonization-looms-large/" target="_blank">cigionline.org</a>.</figcaption>
+</figure>
+</div>
+<p>This week launches part 3 of our course: data and policy, as in public policies.</p>
+<p>Our goals this week will be to consider variations of justice for your particular area(s) of interest and study, and to cite references that allow us to understand the meaning of social justice in your specific intellectual domains.</p>
+<hr>
+<section id="history-cause-and-effect" class="level3">
+<h3 class="anchored" data-anchor-id="history-cause-and-effect">History, cause, and effect</h3>
+<p>Theory is often understood through an investigation of both the literature and the historical contexts surrounding a given issue. Take, for example, the legacies of colonization. As data and scientific developments expand into new fields, new questions arise as to what we can associate and how we understand these associations. For example, how does one theoretically relate a series of events from 150 years ago to a present set of conditions? What are the possibilities? What are the limitations? What are the cautionary tales?</p>
+<p>Statistics was situated as a vehicle to understand and measure observations. As it becomes an ever popular vehicle to inform social justice discourses, the many real-world associations identified in society bring to mind the well-known and readily available cautionary tale:</p>
+<blockquote class="blockquote">
+<p>Correlation does not imply causation.</p>
+</blockquote>
+<p>This popular statement relates to the ability (or inability) to deduce cause-and-effect relationships.</p>
+<hr>
+</section>
+<section id="correlation" class="level3">
+<h3 class="anchored" data-anchor-id="correlation">Correlation</h3>
+<p>In the traditional setting, correlation is framed as a statistical measure that relays the size and direction of the relationship between two or more variables. From a more critical framework, however, the idea of associations between variables and the attribution of relationships between variables must be both examined and interrogated.</p>
+<p>Associations should be understood and initiated from the root of a theoretical framework.</p>
+<p>If two variables are related, in a statistical context, we assume that their values <em>change</em> in some ordered fashion. These measures are often represented on an axis depicting the strength of the association.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/wk8-a-2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Image from statlect.com</figcaption>
+</figure>
+</div>
+<p>As one value of a first variable increases the other variable’s values may also increase (positive relationship). Alternatively, as the value of one variable increases the other variable’s values may decrease (negative relationship). Key questions to consider focus on how context and other factors shape any seeming bivariate relationship.</p>
+<hr>
+<section id="spurious-correlation" class="level4">
+<h4 class="anchored" data-anchor-id="spurious-correlation">Spurious correlation</h4>
+<p>At the intersection of mathematics and statistics is the concept of the <a href="https://www.jstor.org/stable/42001453" target="_blank"><em>spurious correlation</em></a> (Ward, 2013). A few examples:</p>
+<ul>
+<li><p><a href="https://blogs.ams.org/blogonmathblogs/2017/04/10/divorce-and-margarine/" target="_blank">Divorce rate has been found to correlate with margarine use</a>.</p></li>
+<li><p>Ice cream sales have been correlated with:</p>
+<ul>
+<li><p>Swimming deaths</p></li>
+<li><p>Shark attacks</p></li>
+<li><p>Crime rates</p></li>
+</ul></li>
+<li><p>The use of the popular site <a href="https://academic.oup.com/jcmc/article/21/4/265/4161784" target="_blank">Facebook has been correlated with diminished well-being</a>.</p></li>
+</ul>
+<p>These association help us see the need to investigate relationships further. What are possible unexplained relationships in these associations? We identify potential spurious variables when developing theoretical ideas about associations.</p>
+<hr>
+</section>
+</section>
+<section id="causation" class="level3">
+<h3 class="anchored" data-anchor-id="causation">Causation</h3>
+<p>Causality (<a href="https://www.annualreviews.org/doi/full/10.1146/annurev-psych-010814-015135">See Sloman and Acnado (2015)</a>) is a representation and principle of cause and effect. There are many different viewpoints of causation across disciplines and fields of study. Terminology matters in how one frames cause and effect.</p>
+<p>There are four possible relationships between two variables:</p>
+<ul>
+<li><p>X causes Y</p></li>
+<li><p>Y causes X</p></li>
+<li><p>X and Y are both caused by Z</p></li>
+<li><p>X is not related to Y</p></li>
+</ul>
+<p>While these relationships may exist in some combination, it is important to frame their differences.</p>
+<hr>
+</section>
+<section id="associating-x-and-y" class="level3">
+<h3 class="anchored" data-anchor-id="associating-x-and-y">Associating X and Y</h3>
+<p>Our initial framing might directly link the variables <code>X</code> and <code>Y</code>.</p>
+<p>First, we have the association X causes Y.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[X] --&gt; B[Y]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>Next, we have the association Y causes X.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[Y] --&gt; B[X]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>Finally, we have the association X causes Y and Y causes X.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[X] &lt;--&gt; B[Y]
+  B --&gt; A
+</pre>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="framing-spurious-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="framing-spurious-relationships">Framing spurious relationships</h3>
+<p>However, after further reading, we may find that we need to integrate a third factor Z.</p>
+<p>In this context, a third factor (the “third-cause fallacy”) represents a spurious relationship.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[X]
+  B[Y]
+  C[Z]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>Spurious relationships denote an observed or hypothesized association.</p>
+<p>There are important differences in how we depict and deal with third factor associations.</p>
+<hr>
+</section>
+<section id="confounding-variables" class="level3">
+<h3 class="anchored" data-anchor-id="confounding-variables">Confounding variables</h3>
+<p>Confounding is a causal concept that focuses on spurious or distorted associations.</p>
+<p>Below, Z is considered a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4017459/" target="_blank">confounding variable</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+  A[Z] --&gt; B[X]
+  A --&gt; C[Y]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Z is related to both the independent, <span class="math inline">\(X\)</span>, and dependent, <span class="math inline">\(Y\)</span>, variables in the causal sense.</p></li>
+<li><p>Your analysis should examine if the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> holds.</p></li>
+<li><p>These interactions are described as <em>spurious associations</em>.</p></li>
+</ul>
+<hr>
+</section>
+<section id="mediating-variables" class="level3">
+<h3 class="anchored" data-anchor-id="mediating-variables">Mediating variables</h3>
+<p>A <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4165346/" target="_blank">mediating variable</a> explains the process by which two variables are related.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[X] --&gt; B[Z]
+  B --&gt; C[Y]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Z provides the <em>mechanism</em> to relate the independent, <span class="math inline">\(X\)</span>, and dependent, <span class="math inline">\(Y\)</span>, variables.</li>
+</ul>
+<hr>
+</section>
+<section id="moderating-variables" class="level3">
+<h3 class="anchored" data-anchor-id="moderating-variables">Moderating variables</h3>
+<p>A <a href="https://www.researchgate.net/profile/Hugh-Arnold/publication/240438039_Moderator_Variables_A_Clarification_of_Conceptual_Analytic_and_Psychometric_Issues/links/5ee391fb92851ce9e7dce2ae/Moderator-Variables-A-Clarification-of-Conceptual-Analytic-and-Psychometric-Issues.pdf" target="_blank">moderating variable</a> explains the strength by which two variables are related.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+  A[X] --&gt; B[Z]
+  A --&gt; C[Y]
+  B --&gt; C
+</pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Z explains the <em>strength of association</em> between the independent, <span class="math inline">\(X\)</span>, and dependent, <span class="math inline">\(Y\)</span>, variables.</li>
+</ul>
+<p>Let us look at a concrete example.</p>
+<hr>
+</section>
+</section>
+<section id="part-ii-content" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-content">Part II: Content</h2>
+<p>The methods used to collect sample data is extremely important.</p>
+<p>If sample data are not collected in an appropriately, any resulting statistical analyses will be futile. As a result, planning a study by identifying research questions, the population and sample of interest, and considering the types of methods that will be used to analyze data that is collected are all essential parts in the statistical data analysis process.</p>
+<hr>
+<section id="more-on-sampling-methods" class="level4">
+<h4 class="anchored" data-anchor-id="more-on-sampling-methods">More on sampling methods</h4>
+<p>First, let’s revisit and describe the different sampling methods:</p>
+<p>There are two broad categories of selecting members of a population to generate sample data: probability sampling and non-probability sampling.</p>
+<p>Within these two broad categories are other methods based on the needs of the study. Each of these methods is used to support statistical data analysis with some methods providing stronger evidence than others.</p>
+<div class="callout-DEFINITIONS">
+<dl>
+<dt>Probability sampling</dt>
+<dd>
+<p>involves the random selection of subjects in such a way that every member of a sample has the sample probability of being selected.</p>
+</dd>
+<dt>Non-probability sampling</dt>
+<dd>
+<p>involves the use of criteria to select data that is not based on an equal likelihood of selection.</p>
+</dd>
+</dl>
+</div>
+<hr>
+<section id="probability-sampling-methods" class="level5">
+<h5 class="anchored" data-anchor-id="probability-sampling-methods">Probability sampling methods</h5>
+<ul>
+<li><p><strong>Simple random sample</strong> of <span class="math inline">\(n\)</span> subjects ensures that every possible sample of the same size <span class="math inline">\(n\)</span> has the same chance or likelihood of being chosen.</p></li>
+<li><p><strong>Systematic sample</strong> of <span class="math inline">\(n\)</span> subjects involves selecting every <span class="math inline">\(k\)</span>th subject on some regular interval.</p></li>
+<li><p><strong>Stratified sample</strong> involves dividing the population up into strata (groups) with the same characteristics and then randomly sampling within those strata.</p></li>
+<li><p><strong>Cluster sample</strong> involves partitioning the population into clusters (groups), randomly selecting some clusters, and then selecting all members of the selected clusters.</p></li>
+</ul>
+<hr>
+</section>
+<section id="non-prbability-sampling-methods" class="level5">
+<h5 class="anchored" data-anchor-id="non-prbability-sampling-methods">Non-prbability sampling methods</h5>
+<ul>
+<li><p><strong>Convenience sample</strong> is data gathered from the most accessible or convenient source. Although this is easy and efficient, the data cannot produce generalizable results.</p></li>
+<li><p><strong>Purposive sample</strong> is data gathered based on the purposes of the research or the specific research question. This strategy includes clear criteria and rationale for inclusion.</p></li>
+<li><p><strong>Snowball sample</strong> is data gathered via recruitment by the other participants of a study. The number of subjects included “snowballs” as more contacts are generated.</p></li>
+</ul>
+<hr>
+<section id="multistage-sampling" class="level6">
+<h6 class="anchored" data-anchor-id="multistage-sampling">Multistage sampling</h6>
+<p>In larger studies, sometimes multistage sampling procedures are used to generate data. In this design, different samples are selected in different stages, and each stage might use a different sampling method. The end result may represent a complicated sampling design but it is often simpler and faster than some designs, such as a simple random sample.</p>
+<hr>
+<p><strong>Missing Data</strong></p>
+<p>Data can be missing from a set, and the total number of elements can differ between two or more sets.</p>
+<p>The differences in the number of elements can be due to a host of reasons, but often it is missing data. A data value can be <em>missing at random</em> or <em>not missing at random</em>. The amount of information missing from a data set can have a minimal impact or a major impact on a statistical analysis.</p>
+<div class="callout callout-style-simple callout-note callout-titled" data-apperance="simple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Note – Missing data</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A data value is <em>missing completely at random</em> if the likelihood of it being missing is independent of its value or any other values in the data set is just as likely to be missing.</p>
+<p>A data value is <em>not missing at random</em> if the missing value is related to the reason it is missing.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="part-iii-code" class="level2">
+<h2 class="anchored" data-anchor-id="part-iii-code">Part III: Code</h2>
+<section id="crime-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="crime-statistics">Crime statistics</h3>
+<p>Data from 1973 on violent crime rates by US State in the <code>USArrests</code> data set.</p>
+<p>Values are per 100,000 residents for assault, murder, and rape.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(USArrests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Murder Assault UrbanPop Rape
+Alabama      13.2     236       58 21.2
+Alaska       10.0     263       48 44.5
+Arizona       8.1     294       80 31.0
+Arkansas      8.8     190       50 19.5
+California    9.0     276       91 40.6
+Colorado      7.9     204       78 38.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(USArrests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Murder Assault UrbanPop Rape
+Vermont          2.2      48       32 11.2
+Virginia         8.5     156       63 20.7
+Washington       4.0     145       73 26.2
+West Virginia    5.7      81       39  9.3
+Wisconsin        2.6      53       66 10.8
+Wyoming          6.8     161       60 15.6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(USArrests<span class="sc">$</span>UrbanPop, USArrests<span class="sc">$</span>Murder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06957262</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(USArrests<span class="sc">$</span>UrbanPop, USArrests<span class="sc">$</span>Murder,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Percent living in urban areas"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Murders per 100,000 residents"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week10_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>What are some initial takeaways from this plot?</p>
+<p>Without a guiding theory, where might our analyses take us?</p>
+</section>
+<section id="education-data" class="level3">
+<h3 class="anchored" data-anchor-id="education-data">Education data</h3>
+<p>This data is borrowed from the folks at UCLA’s Statistical Methods and Data Analytics office.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(foreign)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MASS)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(<span class="st">"https://stats.idre.ucla.edu/stat/stata/dae/nb_data.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(educ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id gender math daysabs prog
+1 1001   male   63       4    2
+2 1002   male   27       4    2
+3 1003 female   20       2    2
+4 1004 female   16       3    2
+5 1005 female    2       3    2
+6 1006 female   71      13    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(educ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id gender math daysabs prog
+309 2152 female   46       1    3
+310 2153   male   26       1    2
+311 2154 female   79       3    3
+312 2155 female   59       0    2
+313 2156 female   90       0    3
+314 2157 female   77       2    3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">within</span>(educ, {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  prog <span class="ot">&lt;-</span> <span class="fu">factor</span>(prog, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"General"</span>, <span class="st">"Academic"</span>, <span class="st">"Vocational"</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  id <span class="ot">&lt;-</span> <span class="fu">factor</span>(id)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(educ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       id         gender         math          daysabs               prog    
+ 1001   :  1   female:160   Min.   : 1.00   Min.   : 0.000   General   : 40  
+ 1002   :  1   male  :154   1st Qu.:28.00   1st Qu.: 1.000   Academic  :167  
+ 1003   :  1                Median :48.00   Median : 4.000   Vocational:107  
+ 1004   :  1                Mean   :48.27   Mean   : 5.955                   
+ 1005   :  1                3rd Qu.:70.00   3rd Qu.: 8.000                   
+ 1006   :  1                Max.   :99.00   Max.   :35.000                   
+ (Other):308                                                                 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(educ, <span class="fu">aes</span>(daysabs, <span class="at">fill =</span> prog)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">facet_grid</span>(prog <span class="sc">~</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                                                                                     ., <span class="at">margins =</span> <span class="cn">TRUE</span>, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week10_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>What are some initial takeaways from this plot?</p>
+<p>Without a guiding theory, where might our analyses take us?</p>
+</section>
+<section id="u.s.-general-social-survey-gss" class="level3">
+<h3 class="anchored" data-anchor-id="u.s.-general-social-survey-gss">U.S. General Social Survey (GSS)</h3>
+<p>We will introduce the full version of the <a href="https://gss.norc.org/" target="_blank">General Social Survey, or GSS</a>.</p>
+<p>This survey is an ongoing assessment of attitudes and beliefs of Americans.</p>
+<p>Please read more online about the survey for next week.</p>
+</section>
+<section id="next-up-week-11" class="level3">
+<h3 class="anchored" data-anchor-id="next-up-week-11"><strong>Next up</strong>: Week 11</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week09.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 9</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week11.html" class="pagination-link">
+        <span class="nav-page-text">Week 11</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2024, Nathan Alexander</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page was built by Nathan Alexander, PhD in <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
