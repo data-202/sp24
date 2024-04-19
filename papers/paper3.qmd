@@ -1,0 +1,29 @@
+---
+title: "Paper 3"
+format: 
+  html: default
+---
+
+For review, you may also refer to *more information for course papers* in two additional documents:
+
+-   [Instructions for papers](papers-instructions.qmd)
+
+-   [More information for course papers](papers-more-info.qmd)
+
+# Step 1: Theory and logic diagram
+
+For paper #3, we are interested in exploring theories pertaining to the relationship between two variables. Specifically, we are interested in understanding the association of characteristics. Your paper 3 assignment should align with your lab 3 submissions, although updates may be made.
+
+*Note: For your paper, please remember to address the theoretical relationship that the literature has identified between the conceptual variables selected. That is, before describing the measures and the survey you will be using, explain your theory and why you think that your independent variable is having an effect on your dependent variable.*
+
+# Step 2: Variables, Measurement, Hypothesis
+
+All variables and analyses should be described in detail.
+
+# Step 3: Statistical Analysis
+
+Please be sure to utilize analyses on the interactions between multiple variables.
+
+# Step 4: Conclusion
+
+For this paper, please be sure to focus on a solid conclusion based on your statistical analysis.

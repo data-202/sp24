@@ -1,0 +1,25 @@
+---
+title: "Schedule"
+subtitle: "DATA 202: Statistically Measuring and Modeling Social Justice"
+---
+
+::: column-screen-inset-right
+| Part |       Week        | Day         | Topics                                                                                                   | HWs                      |          Labs           |            Papers             |     |     |
+|:------:|:------:|--------|--------|--------|:------:|:------:|:------:|:------:|
+|  I   | [1](week01.html)  | Wed, Jan 10 | [Introduction to the course](week01-slides.html)                                                         | [HW 0](assignments.html) | [Lab 0](computing.html) |                               |     |     |
+|      | [2](week02.html)  | Wed, Jan 17 | [Foundations](week02-slides.html)                                                                        |                          |                         | [Paper 1](papers/paper1.html) |     |     |
+|      | [3](week03.html)  | Wed, Jan 24 | [Theory construction](week03-slides.html)                                                                |                          |                         |                               |     |     |
+|      | [4](week04.html)  | Wed, Jan 31 | [More on theory construction](week04-slides.html)                                                        | [HW 1](hw/hw1.html)      |                         |                               |     |     |
+|  II  | [5](week05.html)  | Wed, Feb 7  | [Univariate analysis](week05-slides.html)                                                                |                          |        [Lab 1]()        |                               |     |     |
+|      | [6](week06.html)  | Wed, Feb 14 | [Bivariate analysis](week06-slides.html)                                                                 | [HW 2](hw/hw2.html)      |                         |                               |     |     |
+|      | [7](week07.html)  | Wed, Feb 21 | [Exploratory data analysis](week07-slides.html)                                                          |                          | [Lab 2](labs/lab2.html) |                               |     |     |
+|      |       [8]()       | Wed, Feb 28 | [Midterm examination](https://canvas.howard.edu/courses/46792/assignments/363734?module_item_id=1537064) |                          |                         | [Paper 2](papers/paper2.html) |     |     |
+|      |         9         | Wed, Mar 6  | Spring break                                                                                             |                          |                         |                               |     |     |
+| III  | [10](week10.html) | Wed, Mar 13 | [Notes on causal theories](week10-slides.html)                                                           |                          |                         |      [Paper 1 updates]()      |     |     |
+|      | [11](week11.html) | Wed, Mar 20 | [Modeling social in/justice](week11-slides.html)                                                         | [HW 3](hw/hw3.html)      |                         |                               |     |     |
+|      |      [12](week12.html)       | Wed, Mar 27 | [Bivariate regression analysis](week12-slides.html)                                                                        |                          | [Lab 3](labs/lab3.html) |                               |     |     |
+|      |      [13]()       | Wed, Apr 3  | []()                                                                        |                          |                         | [Paper 3](papers/paper3.html) |     |     |
+|  IV  |      [14](week14.html)       | Wed, Apr 10 | [Multivariate analysis](week14-slides.html)                                                                        |      |                         |                               |     |     |
+|      |      [15]()       | Wed, Apr 17 | [Overview of additional models]()                                                                        |     [HW 4](hw/hw4.html)     | [Lab 4](labs/lab4.html) |                               |     |     |
+|      |        16         | Wed, Apr 24 | Wrap-up                                                                                                  |                          |                         | [Paper 4](papers/paper4.html) |     |     |
+:::

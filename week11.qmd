@@ -1,0 +1,430 @@
+---
+title: "DATA 202 - Week 11"
+subtitle: "Modeling social in/justice"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week11-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+## Part I: Context
+
+Over the next several weeks, our goals will relate to the various ways we can integrate social and theoretical concepts (the context) into decisions around measurement (the content) and analysis (the code). Importantly, we will examine various historical contexts to make sense of what has been done. In doing so, we will make sense on how to build on theory using context.
+
+------------------------------------------------------------------------
+
+::: {#fig-theorists layout-ncol="2"}
+![DuBois](img/dubois.jpg){#fig-surus}
+
+![Wells-Barnett](img/wells.jpg){#fig-hanno}
+
+W. E. B. Du Bois and Ida B. Wells-Barnett
+:::
+
+Following in line from our discussions of W.E.B. Du Bois and his infamous infographics, our next example will be based on the work of [Ida B. Wells-Barnett](https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett) (1862-1931), a late 19th century and early 20th century activist and research journalist.
+
+------------------------------------------------------------------------
+
+![A Red Record. Tabulated Statistics and Alleged Causes of Lynchings in the US.](img/wk11-a-1.png){width="50%"}
+
+The below summary of *The Red Record* is from the [New York Public Library](https://www.nypl.org/events/exhibitions/galleries/beginnings/item/3548):
+
+> The investigative journalist and activist Ida B. Wells, later Wells-Barnett, spearheaded the anti-lynching movement in the United States. Expanding on her groundbreaking exposé Southern Horrors: Lynch Law in All Its Phases (1892), A Red Record used mainstream white newspapers to document a resurgence of white mob violence, finding that more than 10,000 African Americans had been killed by lynching in the South between 1864 and 1894. Wells compiled statistics on alleged offenses and the geographic distribution and extent of lynching, and tied whites' increased brutality and violence to their fear of African Americans' increased political power. Her conclusion exhorts anti-lynching advocates to "\[t\]ell the world the facts," for "When the Christian world knows the alarming growth and extent of outlawry in our land, some means will be found to stop it."
+
+The *Red Record* is an important historical text worth reading. Further investigation of the data and content found in Wells-Barnett's *The Red Record* will reveal a relationship by individual incidents of lynching and broader systemic issues of racism.
+
+------------------------------------------------------------------------
+
+In connecting the contexts of the United States in the late 1800s to the modern issues of racism at the systems level, we can consider the conceptual link between *lynching* then and *fatal police shootings* now.
+
+Some important questions to consider:
+
+-   What terms need to be defined?
+
+-   What historical evidence may be needed to frame this conceptual link?
+
+-   What data and data sources might help to inform this conceptual link?
+
+Consider this article [Shooting death of Ahmaud Arbery shows 'culture of complicity' akin to lynchings, says activist](https://www.cbc.ca/radio/thecurrent/the-current-for-may-8-2020-1.5561204/shooting-death-of-ahmaud-arbery-shows-culture-of-complicity-akin-to-lynchings-says-activist-1.5561771) that connects the shooting of Ahmaud Arbery to lynching.
+
+Consider the song `Strange Fruit` by Billie Holiday.
+
+![Record Cover of Strange Fruit by Billie Holiday](img/wk11-a-3.jpg){width="50%"}
+
+------------------------------------------------------------------------
+
+To further explore the connections between theory, method, and analysis, we will explore the use of a more recent data set at the individual level in @sec-code. The data we will use is the Fatal Force data set from the Washington Post.
+
+Since 2015, the *Washington Post* has collected a [record of every fatal encounter](https://www.washingtonpost.com/graphics/investigations/police-shootings-database/) with police in the United States.
+
+This database is one resource that we'll explore and connect to the *Red Record*.
+
+What are some theoretical conceptions between Ida B. Wells-Barnett's *Red Record* and the data collected by the *Washington Post*? How might these relationships inform our analysis? What is a theoretical construction that can be developed in relation to these connections?
+
+------------------------------------------------------------------------
+
+## Part II: Content {#sec-content}
+
+This week, we will discuss a series of data sources that can be used for your papers.
+
+### General Social Survey (GSS)
+
+The main site for the GSS can be found [here](https://gssdataexplorer.norc.org/).
+
+> Problem: There was no high quality, accessible data set documenting societal change in America.
+
+> Solution: National Opinion Research Council (NORC) launched the General Social Survey (GSS)—our longest-running, most respected project.
+
+## ![Regions of the United States included in the GSS](img/wk11-b-1.png){width="40%"}
+
+### Inter-university Consortium for Political and Social Research (ICPSR)
+
+The main site for the ICPSR data can be found [here](https://www.icpsr.umich.edu/web/pages/).
+
+> ICPSR is research science data and resources on topics like social media, politics, economics, social sciences, government, GIS, & more. It was established in 1962. An integral part of the infrastructure of social science research, ICPSR maintains and provides access to a vast archive of social science data for research and instruction
+
+![ICPSR logo](img/wk11-b-2.jpg){width="40%"}
+
+------------------------------------------------------------------------
+
+### Pew Research Center
+
+The main site for the Pew Research Center can be found [here](https://www.pewresearch.org/).
+
+> The Pew Research Center (also simply known as Pew) is a nonpartisan American think tank based in Washington, D.C. It provides information on social issues, public opinion, and demographic trends shaping the United States and the world.
+
+![Pew Research Center logo](img/wk11-b-3.jpg){width="40%"}
+
+------------------------------------------------------------------------
+
+### American National Election Studies (ANES)
+
+The main site for the ANES can be found [here](https://electionstudies.org/).
+
+> The American National Election Studies are academically-run national surveys of voters in the United States, conducted before and after every presidential election.
+
+![ANES logo](img/wk11-b-4.png){width="40%"}
+
+------------------------------------------------------------------------
+
+### Census data and resources linked directly to R/RStudio
+
+-   [`tidycensus` Package](https://walker-data.com/tidycensus/index.html)
+
+-   [IPUMS USA](https://usa.ipums.org/usa/index.shtml): "IPUMS provides census and survey data from around the world integrated across time and space. IPUMS integration and documentation makes it easy to study change, conduct comparative research, merge information across data types, and analyze individuals within family and community context. Data and services available free of charge." (From IPUMS site)
+
+## Part III: Code {#sec-code}
+
+### Washington Post Fatal Force data
+
+The main site for the Fatal Force data can be found [here](https://www.washingtonpost.com/graphics/investigations/police-shootings-database/).
+
+The *Washington Post* makes the `fatal force` data publicly accessible on their website and they provide a direct link to their GitHub repository (or repo). To access the data, we will pull it directly into R from Github.
+
+#### Load the data
+
+We will need to install packages and/or load libraries to import and explore the data.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# install packages
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+
+# load libraries
+library(tidyverse) # collection of essential packages for data science
+library(dplyr) # the dplyr package makes data manipulation easier
+```
+
+We then load the data directly into R from GitHub.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+fatal <- read.csv("https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/v2/fatal-police-shootings-data.csv")
+```
+
+------------------------------------------------------------------------
+
+#### Understand the data
+
+We will first turn the file into a `tibble` using the `as_tibble` function.
+
+From there, we will use the `glimpse()`, `names()`, and `str()` functions to understand the data.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# examine fatal force data
+fatal <- as_tibble(fatal) # turn data into a tibble
+```
+
+Let us take note of the variables and variable types.
+
+------------------------------------------------------------------------
+
+Get a glimpse of the data.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# examine fatal force data
+glimpse(fatal)
+```
+
+------------------------------------------------------------------------
+
+View the variable names.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# examine fatal force data
+names(fatal)
+```
+
+------------------------------------------------------------------------
+
+Understand the structure of the tibble.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# examine fatal force data
+str(fatal)
+```
+
+------------------------------------------------------------------------
+
+We should also view the `head()` and `tail()` of the data.
+
+```{r}
+head(fatal)
+tail(fatal)
+```
+
+What do you notice? What do you wonder?
+
+------------------------------------------------------------------------
+
+There are many ways to use R to understand and explore our data.
+
+We will use a mixture of base `R` and `tidyverse` commands to clean up our data.
+
+We can also use the [*R for Data Science, 2nd Edition*](https://r4ds.hadley.nz/) text as a guide.
+
+![R for Data Science, 2nd Edition](img/wk11-a-2.jpg){width="50%"}
+
+------------------------------------------------------------------------
+
+#### Codebook
+
+Prior to beginning any cleaning and analysis, we need to know our data...
+
+...before loading our data, we *should* have become more familiar with the codebook.
+
+The code book will allow us to understand how data was collected and input into the data set. This often includes the levels of measurement for each variable and other related details.
+
+The codebook for the `Fatal Force` data can be found online. We will need to navigate the GitHub site.
+
+-   Main landing page: <https://github.com/washingtonpost/data-police-shootings>
+
+-   Fatal Force Database (version 2): <https://github.com/washingtonpost/data-police-shootings/tree/master/v2>
+
+A codebook for the data we have uploaded can be found at the bottom of the database page.
+
+------------------------------------------------------------------------
+
+Let's first remind ourselves of the variables and variable types.
+
+```{r}
+str(fatal)
+```
+
+What do you notice? What do you wonder?
+
+The use of `#` in line with your code is one valuable way to leave notes for yourself and any readers of your code. This also helps to support if others would like to reproduce your analysis.
+
+Here, you may want to take note of some of the issues you see that could cause potential issues later as you begin your analysis. For example, a few things noteworthy observations will inform some initial changes.
+
+------------------------------------------------------------------------
+
+#### Clean up the data
+
+Let's fix a few variables based on our previous observations and the codebook.
+
+-   The `date` variable is listed as a character variable, however, we want to transform this into a more appropriate variable for the variable type. We can use the command `as.date()` to do so.
+
+-   The `age` variable is listed as an integer, which is correct. However, we but want to change the variable type to numeric to conduct some specific analyses in the `tidyverse`.
+
+-   The `latitude` and `longitude` variables are listed as numeric variables. However, they contain some different information where values such as the `mean` or other measures of center do not make sense.
+
+-   The `was_mental_illness_related` variable is also listed as a character variable when, in fact, it should be a logical variable based on both the codebook and contents of the cells.
+
+-   The `body_camera` variable is also listed as a character variable when it should be a logical variable given the contents of the cells.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# fix vars
+
+  # change vars to appropriate formats
+  fatal$date <- as.Date(fatal$date) # check/change to date format
+  fatal$age <- as.numeric(fatal$age)
+  fatal$was_mental_illness_related <- as.logical(fatal$was_mental_illness_related)
+  fatal$body_camera <- as.logical(fatal$body_camera)
+  
+  # format to 20YY
+  fatal.year <- format(fatal$date, format="20%y") 
+  fatal$year <- fatal.year # add a year column to the df
+  fatal %>% relocate(state, year) -> fatal
+  fatal
+```
+
+------------------------------------------------------------------------
+
+##### Ancillary explorations
+
+Sometimes when analyzing data, you may want to gather quick information.
+
+For example, let's say I also want to get a count of fatal shootings by year.
+
+```{r}
+# get counts by year
+fatal %>% count(year)
+```
+
+I was able to do this when I added the `year` variable to the dataframe.
+
+What do you notice? What do you wonder?
+
+------------------------------------------------------------------------
+
+#### Transform the data
+
+We should check the structure of our data again.
+
+```{r}
+str(fatal)
+```
+
+While our initial changes are noted, observe the `chr` (character) variable type.
+
+------------------------------------------------------------------------
+
+We may want to change these into `fct` (factor) variables types.
+
+```{r}
+fatal_factor <- fatal %>% 
+  mutate_if(is.character, as.factor)
+str(fatal_factor)
+```
+
+Take note of the changes. It seems that this method was not the best solution.
+
+Which variables should be changed or reverted?
+
+The answers can be found in the Fatal Force [codebook](https://github.com/washingtonpost/data-police-shootings/tree/master/v2).
+
+------------------------------------------------------------------------
+
+##### Drop missing values
+
+For efficiency, we will make changes to variables of interest and drop all missing values.
+
+```{r}
+fatal %>% 
+  mutate_at(c('threat_type', 'flee_status', 'armed_with', 'city', 'county', 'gender', 'race'), as.factor) %>%
+  drop_na() -> fatal_clean # generate a new `clean` dataframe
+str(fatal_clean)
+```
+
+However, with more time, we should inspect the data further and change all variables.
+
+------------------------------------------------------------------------
+
+#### Check the data
+
+One more check to make sure that we have dropped any missing observations.
+
+I will use the `sapply()` function from `Lab 1` to check for missing values.
+
+First, we'll check our original data.
+
+```{r}
+sapply(fatal, function(x) sum(is.na(x)))
+```
+
+------------------------------------------------------------------------
+
+Then we'll examine our cleaned data.
+
+```{r}
+sapply(fatal_clean, function(x) sum(is.na(x)))
+```
+
+------------------------------------------------------------------------
+
+#### Explore the data
+
+We will begin to explore with a summary of our cleaned data.
+
+```{r}
+summary(fatal_clean)
+```
+
+------------------------------------------------------------------------
+
+##### Ancillary explorations.
+
+With the clean data, I may be interested in getting counts by `state` and then `year` as we explore.
+
+```{r}
+# get counts by state then year
+fatal_clean %>% 
+  count(state, year)
+
+```
+
+How might this output support our model development?
+
+------------------------------------------------------------------------
+
+### Theory
+
+Based on our explorations up to this point, what data and relationships might you examine?
+
+Consider a basic path diagram to start and then build on your diagram using your theoretical constructions. Recall from previous lectures our discussions about variable types and their relationships in path diagrams (e.g., moderating vs. mediating).
+
+```{mermaid}
+%%| echo: false
+graph LR
+  A[X] --> B[Y]
+```
+
+#### Research questions
+
+With our conceptual framing and backing theoretical work, we can proceed to examine exploratory analyses on the data. During the exploratory phase of analysis, a nice opportunity is presented that will allow you to examine the data is to generate a series of discrete research questions that help you make associations between various components of your data.
+
+### **Next up**: Week 12

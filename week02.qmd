@@ -1,0 +1,417 @@
+---
+title: "DATA 202 - Week 2"
+subtitle: "Foundations"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week02-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+# Part I: Context
+
+## What is statistics?
+
+Statistics is a science. As a result, it follows a set of well-defined steps or methods. As we explore new terms and definitions, we will gain a better understanding of what statistics encompasses.
+
+::: {.callout-caution icon="false"}
+## **DEFINITION**: Statistics
+
+**Statistics** is the science of collecting, organizing, analyzing, interpreting, communicating, and visualizing data and information.
+:::
+
+There are a multitude of ways to describe the steps, terms, and various processes undertaken in a statistical study. Importantly, statistics calls for questions where we explore difference or change. We use variation to understand differences within or between a set (or sets) of measurements.
+
+------------------------------------------------------------------------
+
+### Notes from *Pelham (2013)* reading
+
+"Statistics are a set of mathematical procedures for summarizing and interpreting observations" (p.5).
+
+**Descriptive statistics** vs. **Inferential statistics**
+
+Pelham describes *descriptive* statistics as "statistics used to summarize or describe a set of observations", whereas *inferential* statistics are defined as "statistics used to draw inferences about a set of observations" (p. 5).
+
+------------------------------------------------------------------------
+
+#### Descritpve measures
+
+-   Central tendency: the "average" of a set of observations (i.e., mean, median, mode)
+
+-   Dispersion: how data vary (i.e., range, variance, standard deviation)
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+#| 
+## Sample outline of a bivariate regression analysis
+
+# Generate sample data
+set.seed(2)
+x <- c(2, 2, 4, 4)
+```
+
+##### **EXAMPLE -- entering values in R**
+
+Assume we have a small set of data: 2, 2, 4, 4. We can input and compute this data in *R* using the following code:
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+
+# Generate sample data
+x <- c(2, 2, 4, 4)
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+
+# compute the mean
+m = sum(x)/4
+
+# compute the median
+median(x)
+
+# compute the mode
+mode(x)
+table.x <- table(x)
+table.x
+
+# create a histogram
+hist(x)
+```
+
+------------------------------------------------------------------------
+
+You also may recall the standard deviation, $S$, of a set of values calculated using:
+
+## $$ S = \sqrt{\dfrac{\Sigma (x - m)^2}{n}}$$
+
+##### **EXAMPLE -- Standard deviation of a set**
+
+Assume we have a small set of data: 2, 2, 4, 4. Using the formula for standard deviation above, where $x$ is the score, $m$ is the mean (sometimes referred to as $\bar{x}$), and $n$ is the sample size, we get the following:
+
+$$\dfrac{(2-3)^2 + (2-3)^2 + (4-3)^2 + (4-3)^2}{4} = \dfrac{1 + 1 + 1 + 1}{4} = 1 $$ Most formulas of this nature are programmed into *R/RStudio*, but for more advanced modeling, we learn how to input raw data and formula into the software.
+
+------------------------------------------------------------------------
+
+#### Inferential measures
+
+Pelham notes that "the basic idea behind inferential statistical testing is that decisions about what to conclude from a set of research findings need to be made in a logical, unbiased fashoion" (p. 13). However, with a more critical lens on the development of statistics and some of the assumptions made in the mathematical models, we need to consider more concretely about the role of **theory** and **context** in making inferences about data.
+
+------------------------------------------------------------------------
+
+## What should it mean to be critical in the context of statistics?
+
+### Notes from *Duncan (n.d.)* reading.
+
+On Canvas, in the Week 2 folder, there is a document titled "Critical Thinking" by Jennifer Duncan. This document is one example of how we can frame what it could or should mean to be critical in statistics. Please review this document.
+
+------------------------------------------------------------------------
+
+-   **Using a higher order of thinking**. Duncan emphasizes that *critical thinking is a higher order of thinking* with different advanced thinking skills, and offers a few suggestions.
+
+    -   We base our thinking on logic and not on feelings.
+
+    -   We should look deeper into inferences for hidden assumptions or values.
+
+    -   Ask complex questions that help build a critical inquiry.
+
+------------------------------------------------------------------------
+
+-   **Asking complex questions**. Duncan breaks down the process into a few sub-questions.
+
+    -   Who is the implied audience?
+
+    -   What are the strengths and weaknesses of the argument?
+
+    -   What are the underlying assumptions and values?
+
+------------------------------------------------------------------------
+
+-   **Using a variety of thinking processes**. Duncan defines a process around *analyzing*, *synthesizing*, *interpreting*, and *evaluating* information that helps with our thinking.
+
+------------------------------------------------------------------------
+
+-   **Reflecting on how we answer a question**. Duncan ends with a set of questions that help us think about different points of view, if we have clarity, and if more details are needed.
+
+------------------------------------------------------------------------
+
+# Part II: Content
+
+------------------------------------------------------------------------
+
+The quantification of information can help us understand and represent important situations.
+
+![](img/wk2-quant.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+We'll begin by exploring the concept of a set, and how it is defined in mathematics and used to frame various situations.
+
+::: {.callout-caution icon="false"}
+## **DEFINITION**: Set
+
+A **set** is a well-defined collection of elements or items.
+:::
+
+A set is characterized by its contents, or what is generally referred to as a set's *elements*. If we are given two sets, the sets are considered equal if and only if they have exactly the same elements. The basic relation for sets is that of membership in a particular set.
+
+-   We write $x \in X$ to indicate that the object $x$ is an element (or member) of the set $X$.
+
+------------------------------------------------------------------------
+
+**A FEW IMPORTANT NOTES**:
+
+**Note 1**: We tend to *label sets using capital letters*.
+
+-   For example, we may label two different sets as $X$ and $Y$ or as $A$ and $B$.
+
+**Note 2**: We *use curly brackets* { and } *to enclose the elements of a set*.
+
+-   Parentheses ( and ) are often used to indicate a point like $(x, f(x))$ or an open interval
+-   Square brackets \[ and \] are often used to separate sets or to indicate a closed interval.
+
+**Note 3**: We tend to *list the elements of a set using lower case letters* with subscripts, $x_i$.
+
+-   The $i$ in $x_i$ is a subscript that is used as a "position indicator," with $i = 1, 2, 3, ...$
+-   We use subscripts to index the elements of a set: $X = \{x_1, x_2, ..., x_n\}$ and $A = \{a_1, a_2, ..., a_n\}$.
+
+------------------------------------------------------------------------
+
+::: {.callout-tip icon="false"}
+## **EXAMPLES -- Sets as a collection of elements or items**
+
+Sets can be defined in many different ways.
+
+i.  Consider a set of electronics $E$ = {laptop, phone, tablet, watch} = $\{e_1, e_2, e_3, e_4\}$
+
+ii. Consider a set of friends $F$ = {Akeah, Brandon, Cris, Daveon, Evelyn}
+
+iii. Consider a set of numbers $N = \{1, 2, 3, ...\}$ = $\{n_1, n_2, n_3, ...\}$, so $n_1 = 1$, $n_2 = 2$, ...
+
+iv. Consider a set of sets $S$ = {{laptop, phone, tablet, watch}, {1, 2, 3, ...}, ...}
+:::
+
+------------------------------------------------------------------------
+
+Quantifying elements of a set allows us to perform mathematical *operations* on those elements.
+
+Together, the elements and operations combine to create *equations*, *functions*, and *models* that help us understand and communicate details about the elements of a set -- which is a form of data.
+
+We will need a host of math concepts. The different sets of numbers can be a fun starting point.
+
+------------------------------------------------------------------------
+
+## Sets and numbers
+
+::: {.callout-caution icon="false"}
+## **DEFINITIONS**: Sets of numbers
+
+-- Natural numbers: $\mathbb{N} = \{1, 2, 3, ...\}$
+
+\vspace{.3cm}
+
+-- Whole numbers: $\mathbb{N_0} = \{0, 1, 2, 3, ...\}$
+
+\vspace{.3cm}
+
+-- Integers: $\mathbb{Z} = \{..., -3, -2, -1, 0, 1, 2, 3, ...\}$
+
+\vspace{.3cm}
+
+-- Rational numbers: $\mathbb{Q} = \Big\{\dfrac{p}{q}, p \in \mathbb{Z}, q \in \mathbb{Z}, q \neq 0 \Big\}$
+:::
+
+------------------------------------------------------------------------
+
+::: {.callout-caution icon="false"}
+## **DEFINITIONS**: Sets of numbers, continued...
+
+-   Irrational numbers
+
+    -   any number that is not a rational number; irrational means *not* rational (no ratio)
+    -   e.g., you may know some irrational numbers such as $\pi$, $\sqrt{2}$, $\sqrt{3}$, $e$ (Euler's number)
+
+-   Real numbers: $\mathbb{R}$
+
+    -   The set of numbers on the real number line
+    -   This set is constructed by combining the *rational* and *irrational* numbers
+
+-   Imaginary numbers: $\mathbb{I}$
+
+    -   a number that has a negative value when it is squared
+    -   $i$ is the unit imaginary number, $\sqrt{-1} = i$ by definition
+    -   so $i$ is a complex number since $i^2 = -1$
+
+-   Complex numbers: $\mathbb{C}$
+
+    -   a number in the form $a + bi$ where $a \in \mathbb{R}$, $b \in \mathbb{R}$, and $i$ is an imaginary number
+:::
+
+------------------------------------------------------------------------
+
+# Part III: Code
+
+------------------------------------------------------------------------
+
+## Getting started in RStudio
+
+In [Lab 0](computing.html), you downloaded and installed base R and RStudio. In this section, we will learn more about R and RStudio.
+
+Let's start with a little fun!
+
+------------------------------------------------------------------------
+
+First, install the 'praise' package.
+
+```{r}
+#| warning: false
+#| output: false
+# install the package
+install.packages("praise", repos = "http://cran.us.r-project.org")
+```
+
+------------------------------------------------------------------------
+
+Next, load the library for the 'praise' package.
+
+```{r}
+#| warning: false
+#| output: false
+# load library
+library(praise)
+```
+
+------------------------------------------------------------------------
+
+Now, get some praise!
+
+```{r}
+#| warning: false
+#| output: false
+# get some praise
+praise()
+```
+
+You can keep inserting the code above to get praise when you need it!
+
+------------------------------------------------------------------------
+
+## Arithmetic in R
+
+We will learn how to calculate values in R.
+
+------------------------------------------------------------------------
+
+```{r}
+1 + 2  # the 'plus sign' computes the sum
+```
+
+------------------------------------------------------------------------
+
+```{r}
+2 - 3  # the 'minus sign' computes the difference
+```
+
+------------------------------------------------------------------------
+
+```{r}
+3 * 4  # the 'asterisk' computes the product
+```
+
+------------------------------------------------------------------------
+
+```{r}
+4 / 5 # the 'forward slash' computes the quotient
+```
+
+------------------------------------------------------------------------
+
+```{r}
+# from hw exercise 0.2, we can compute the sum of the first 100 positive integers
+sum(1:100) 
+```
+
+------------------------------------------------------------------------
+
+## Variables in R
+
+We will learn to give a variable (or character) a value.
+
+------------------------------------------------------------------------
+
+Use the different assignment operators
+
+```{r}
+y = 2 # the equal sign can be used as an assignment operator
+
+y <-2 # a "less than" sign and dash can also be used as an assignment operator
+
+y # R stores all values you assign, so you must "call" any variables to see their values
+```
+
+------------------------------------------------------------------------
+
+Set x equal to two added to three
+
+```{r}
+x = 2 + 3
+x
+```
+
+------------------------------------------------------------------------
+
+Set y equal to two minus three
+
+```{r}
+y = 2 - 3
+y
+```
+
+------------------------------------------------------------------------
+
+Set z equal to two times three
+
+```{r}
+z = 2 * 3
+z
+```
+
+------------------------------------------------------------------------
+
+Overwrite the value of y by setting y equal to x divided by z
+
+```{r}
+y = x / z
+y
+```
+
+------------------------------------------------------------------------
+
+::: callout-important
+Paper 1 is due on Sunday January 28 at 11:59pm ET
+:::
+
+Please see a sample paper #1 [here](https://docs.google.com/document/d/1yOsQlGJEDNxQOy7bjV1HgZ3FM-yMtBXQwXcStvUdgAE/edit?usp=sharing).
+
+------------------------------------------------------------------------
+
+### **Next up**: Week 3
+
+We will consider the role of evaluation in using data for evidence. Specifically, we continue our explorations in R by learning how to load data sets into our data frame, and perform some basic operations using some additional packages. These packages will allow us to consider how we can construct original data sets to develop unique questions for our analysis.

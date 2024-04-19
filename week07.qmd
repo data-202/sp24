@@ -1,0 +1,748 @@
+---
+title: "DATA 202 - Week 7"
+subtitle: "Exploratory Data Analysis"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week07-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+## Part I: Context
+
+This week we will outline exploratory data analysis through a set of case studies. Each case study provides one example of the various decision making processes needed in a critical quantitative research framework. The included cases focus on more heavily on theories and frameworks and the related practices around modeling and statistical inference.
+
+---
+
+### Case Study: The Murder of George Floyd
+
+What do you know about a man named George Floyd and the events that occurred on May 25, 2020?
+
+![[Image from Time.com](https://time.com/5957292/time-cover-ange-hillz-george-floyd-portrait/){target="_blank"}](https://api.time.com/wp-content/uploads/2021/04/TIM210510_Floyd.CoverB.jpg?quality=85&w=2400){width="75%"}
+
+---
+
+George Floyd was murdered by a police officer in broad daylight. His murder resulted in a series of protests and expanded the already longstanding discussions around racism, state violence, and police brutality in the United States. Consider [How George Floyd Was Killed in Police Custody](https://www.nytimes.com/2020/05/31/us/george-floyd-investigation.html){target="_blank"} to get a step-by-step reconstruction of the murder. 
+
+#### Yahoo! News Race and Justice poll results
+
+The Yahoo! News Race and Justice poll was conducted in 2020 after the killing of George Floyd. There is pre-loaded data set located in R. A complete description of the data is as follows:
+
+> Results from a Yahoo! News poll conducted by YouGov on May 29-31, 2020. In total 1060 U.S. adults were asked a series of questions regarding race and justice in the wake of the killing of George Floyd by a police officer. Results in this data set are percentages for the question, "Do you think Blacks and Whites receive equal treatment from the police?" For this particular question there were 1059 respondents.
+
+For efficient access, poll results are stored in a replica of the `yahoo_data` data frame located in the `critstats` package.
+
+------------------------------------------------------------------------
+
+#### Exploratory Data Analysis
+
+The process of exploratory data analysis will vary across projects. It is helpful if your exploratory analysis is directed by a set of clear questions and introductory tasks. The exploring data phase should not be solely used for cleaning data, although the two steps are often intertwined. 
+
+We will structure our exploratory analysis around three steps:
+
+  - *Information*: Gaining a solid understanding of each variable and its observations
+  
+  - *Shape*: Gaining a better feel for the "shape" and distribution of the observations
+  
+  - *Measures*: Checking base assumptions for any forthcoming analysis
+
+These steps can help guide more concrete theory building and modeling.
+
+---
+
+#### Step 0: Load the `critstats` and other useful libraries
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+library(critstats)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+---
+
+#### Step 1: Access data
+
+Load the `yahoo_data` data frame and use the `str()` command.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+yahoo <- critstats::yahoo_data
+```
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+summary(yahoo)
+glimpse(yahoo)
+```
+
+---
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+head(yahoo)
+tail(yahoo)
+```
+
+---
+
+#### Step 2: Outline a series of questions and/or small tasks
+
+As an early start, we can use the output above to start our exploration.
+
+To help focus these explorations, it is helpful to outline a set of questions or tasks. These tasks and questions can help identify some of the key goals of the exploratory data analysis. Wickham, Çetinkaya-Rundel, & Grolemund (2023) talk about this at length in the [Exploratory Data Analysis section](https://r4ds.hadley.nz/eda) of the [*R for Data Science*](https://r4ds.hadley.nz/) text.
+
+For this exploration, our goal is to understand the proportion of observations in each variable. 
+
+To accomplish this goal, we can outline two questions around three tasks.
+
+| Questions | Tasks & Detail |
+|:---|:----|
+| Question 1: How are observations distributed? | Task 1.1: Create a table of variable counts |
+|                                          | Task 1.2: Create a table of variable proportions |
+| Question 2: How can we visualize distributions? | Task 2.1: Create two to three basic visualizations |
+
+---
+
+#### Step 3: Flow through each tasks
+
+Task 1.1: Create a table of variable counts
+
+Task 1.2: Create a table of variable proportions
+
+Task 2.1: Create two to three basic visualizations
+
+---
+
+### Information
+
+Gain a solid understanding of each variable and its observations.
+
+---
+
+#### Task 1.1: Create a table of variable counts
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+table(yahoo$race_eth)
+table(yahoo$response)
+```
+
+---
+
+##### Task 1.2: Create a table of variable proportions
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+prop.table(table(yahoo$race_eth))
+prop.table(table(yahoo$response))
+```
+
+---
+
+##### Counts and proportions
+
+The previous output provides more information than may be immediately noted:
+
+  - Lists the various labels for each variable
+  
+  - Presents the distribution of observations across each label
+  
+  - Specific relations can be pointed to the study framing
+  
+  - Early insight into base assumptions
+
+---
+
+### Shape
+
+Gain a better feel for the "shape" and distribution of the observations.
+
+---
+
+##### Task 2.1: Create three to four basic visualizations
+
+We introduce some basic features of ``ggplot()` here to complete the task.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+
+# start with the plot outline
+ggplot(yahoo)
+```
+
+---
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+
+# add the variable categories to the plot using aes()
+ggplot(yahoo, aes(x = race_eth))
+```
+
+---
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+#| 
+# add the bars to the plot using + geom_bar()
+ggplot(yahoo, aes(x = race_eth)) +
+  geom_bar()
+```
+
+---
+
+::: {.callout-tip icon="false"}
+## **EXERCISE**
+
+Create a bar plot for the `response` variable.
+
+What other plots could you create?
+
+:::
+
+Wickham, Çetinkaya-Rundel, & Grolemund (2023) have a detailed section on [data visualization](https://r4ds.hadley.nz/data-visualize) in the [*R for Data Science*](https://r4ds.hadley.nz/) text.
+
+---
+
+### Measures
+
+Check base assumptions for any forthcoming analysis.
+
+To complete this step, we delve into some of the assumptions and foundations surrounding the use of sample data versus population data. The mathematical foundations allow us to understand how to compute measures and differences. The assumptions provide direction for any further modeling practices. 
+
+We explore this more in part II.
+
+---
+
+## Part II: Content
+
+---
+
+### A guiding example
+
+Let us begin with a summary of responses to a survey sparked by the killing of George Floyd.
+
+| Response | Total |
+|:--:|:---:|
+| No | 700 |
+| Yes | 236 |
+
+: Summary of survey response data[^1] {.striped .hover}
+
+[^1]: Respondents who selected **'Not sure'** on the survey were moved from this analysis.
+
+The study sample $n = 936$. Please take note of the table's footnote.
+
+As of now, we know very little about the survey (i.e., the context has been stripped away).
+
+#### An initial question
+
+Is there a difference in the survey responses?
+
+---
+
+#### Framing proportions
+
+As you learn about hypothesis testing, you want to understand the nature of variable associations. There are many approaches to how we measure associations. One we'll explore extensively is differences in proportions of two dichotomous variables.
+
+First, we add a third column to our table by computing the proportion in each row:
+
+$$ P(No) = \frac{\text{Number of respondents who replied No}}{n} $$
+
+$$ P(Yes) = \frac{\text{Number of respondents who replied Yes}}{n} $$
+
+---
+
+#### Understanding proportions
+
+| Response | Total | Proportion |
+|:--:|:---:|:---:|
+| No | 700 | $0.7478$ |
+| Yes | 236 |$0.2522$ |
+
+: Summary of survey response data with proportion column {.striped .hover}
+
+So we have $P(No) = 0.7478$ and $P(Yes) = 0.2522$. 
+
+This is a sample. Be mindful of the notes about sampling and sampling error.
+
+**What can these proportions tell us about the data?**
+
+---
+
+### A closer look
+
+Let's look at a preview panel of the full data set.
+
+| ID | Race | Response |
+|:--:|---|---|
+| 1 | White | Yes |
+| 2 | White | Yes |
+|.|.|.|
+| 773 | Black | Yes |
+| 774 | Black | Yes |
+|..|..|..|
+| 874 | Hispanic | Yes |
+| 875 | Hispanic | Yes |
+|...|...|...|
+| $1059$ | Other | Not sure |
+
+: Preview of full survey response data set {.striped .hover}
+
+---
+
+When we format the data into tables, there are multiple categories to consider.
+
+In the table below, the `race` variable is listed in rows.
+
+| Race | No | Yes |
+|------|------|------|
+| Black    | Black $\cap$ No    | Black $\cap$ Yes    |
+| Hispanic    | Hispanic $\cap$ No    | Hispanic $\cap$ Yes    |
+| Other    | Other $\cap$ No    | Other $\cap$ Yes    |
+| White | White $\cap$ No | White $\cap$ Yes |
+
+: Race in rows {#tbl-first}
+
+Recall that the $\cap$ represents "and" while the $\cup$ represents "or" in logic.
+
+---
+
+In the table below, the `response` variable is listed in rows.
+
+| Response | Black | Hispanic | Other | White |
+|------|------|------|------|------|
+| No    | No $\cap$ Black    | No $\cap$ Hispanic    | No $\cap$ Other    | No $\cap$ White    |
+| Yes    | Yes $\cap$ Black    | Yes $\cap$ Hispanic    | Yes $\cap$ Other    | Yes $\cap$ White    |
+
+: Response in rows {#tbl-second}
+
+---
+
+We use our understanding of probability to generate a reconstruction for the response 'No'.
+
+$$ P(No) = \dfrac{\text{No} \cap \text{Black}}{n} + \dfrac{\text{No} \cap \text{Hispanic}}{n} + \dfrac{\text{No} \cap \text{Other}}{n} + \dfrac{\text{No} \cap \text{White}}{n} $$
+
+We generate a parallel construction for the response 'Yes'.
+
+$$ P(Yes) = \dfrac{\text{Yes} \cap \text{Black}}{n} + \dfrac{\text{Yes} \cap \text{Hispanic}}{n} + \dfrac{\text{Yes} \cap \text{Other}}{n} + \dfrac{\text{Yes} \cap \text{White}}{n} $$
+---
+
+#### Summary values
+
+Adding values to the table will give us a more complete picture of the data.
+
+| Response | Black | Hispanic | Other | White |
+|:--:|:---:|:---:|:---:|:---:|
+| No | 92 | 75 | 47 | 486 |
+| Yes | 6 | 15 | 14 | 201 |
+
+: Responses to a survey question by race {.striped .hover}
+
+---
+
+Use the table to calculate `Response` probabilities:
+
+| Response | Black | Hispanic | Other | White | Total |
+|:--:|:---:|:---:|:---:|:---:|---:|
+| No | 92 | 75 | 47 | 486 | 700 |
+| Yes | 6 | 15 | 14 | 201 | 236 |
+
+: Responses to a survey question by race {.striped .hover}
+
+Gather response probabilities for `No` by dividing each cell by the sample size.
+
+$$ P(No) = \dfrac{92}{936} + \dfrac{75}{936} + \dfrac{47}{936} + \dfrac{486}{936} = \dfrac{700}{936} = 0.7478 $$
+Gather response probabilities for `Yes` by dividing each cell by the sample size.
+
+$$ P(Yes) = \dfrac{6}{936} + \dfrac{15}{936} + \dfrac{14}{936} + \dfrac{201}{936} = \dfrac{236}{936} = 0.2522 $$
+We will use this framing to compute proportions for each cell but in R.
+
+---
+
+Given that we want to explore the data in more detail and understand any base associations, we need to revisit our framing and consider some additional tasks.
+
+### Returning to the framework
+
+A basic analysis goes a long way in determining our next steps.
+
+With this base analytic exercises, you may want to ask: *What is the research question?*
+
+What are the **main** or **primary** theoretical constructions?
+
+  - First, examine the literature and annotate specific citations.
+  
+  - Next, construct a framework for the various interpretations.
+  
+    - What are the similarities across theoretical constructions?
+    
+    - What are the main differences across theoretical constructions?
+    
+    - How does a nuanced view of the history of the issue improve our understanding?
+
+Based on your background analyses, what is the hypothesis?
+
+---
+
+## Part III: Code
+
+---
+  
+#### Setting things up
+  
+As a general rule, always load the appropriate libraries at the start of your analyses.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# load our libraries
+library(critstats)
+library(tidyverse)
+library(descr)
+library(Hmisc)
+```
+
+In this case:
+  
+  - `critstats` contains the `yahoo_data` that we'd like to analyze.
+  
+  - `tidyverse` contains the set of functions to help us work with our data
+  
+  - `descr` and `Hmisc` contain useful functions to analyze social science data.
+
+If you receive an error, you may need to use the `install.packages()` commands first.
+
+---
+
+#### Load the data
+
+Inspect the data documentation and contents of the data.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# access the yahoo_data
+??yahoo_data
+yahoo_data # "Do you think Blacks and Whites receive equal treatment from the police?"
+```
+
+While the specific wording of the question may not fit our theoretical framing (e.g. `Blacks` and `Whites`), it is useful to consider what information and insights can be gathered from the data. 
+
+Here, theory and the literature become important components to outlining your analytic plan.
+
+---
+
+#### Clean your data
+
+The data in the `yahoo_data` set is already cleaned and prepped. However, when you conduct your own analyses, you will need to follow the series of steps outlined in previous assignments. 
+
+As example, [Lab 1](labs/lab1.html) is a great resource on cleaning.
+
+---
+
+#### Explore your data
+
+Given that we are analyzing categorical data, we will continue from earlier when we created a series of tables. These tables will allow us to gather a sense of the data.
+
+Our first table will be of the variable `race_eth`.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# create a table of the race_eth
+table(yahoo_data$race_eth)
+```
+
+What do you notice? What do you wonder?
+
+---
+
+#### Explore your data
+
+Our second table will be of the variable `response`.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# create a table of the race_eth
+table(yahoo_data$response)
+```
+
+What do you notice? What do you wonder?
+
+---
+
+#### Modify your data
+
+Make the necessary modifications to your data.
+
+Here I set the `yahoo_data` to `df` and rename the `race_eth` variable.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+df <- yahoo_data # set the yahoo_data to df
+df <- df %>% 
+  rename("race" = "race_eth") # rename the race_eth variable to race
+```
+
+---
+
+#### Get the sample size
+
+When looking at the table, it may be useful to get a sense of the *proportions*.
+
+We'll begin with getting the sample size.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+# get a quick count of the sample size
+count(df) # the count function can collect the sample size, n, of a tibble
+```
+
+The tables give us the **frequency** of each category.
+
+The sample size will help us get the **relative frequency** of each category.
+
+---
+  
+#### Relative frequencies by race
+  
+  Get the relative frequencies for the `race` variable.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+df %>% 
+  count(race) %>% 
+  mutate(prop = prop.table(n))
+```
+
+---
+  
+#### Relative frequencies by response
+  
+Get the relative frequencies for the `response` variable.
+
+```{r}
+#| echo: true
+#| output: true
+#| warning: false
+df %>% 
+  count(response) %>% 
+  mutate(prop = prop.table(n))
+```
+
+---
+  
+#### Generate a `crosstab` of `race` and `response`
+  
+```{r}
+crosstab(df$response, df$race, plot=F)
+```
+
+Set `plot=T` if you want to see a visual plot of the data. What do you notice? What do you wonder?
+
+---
+  
+#### Standardize the frequencies
+  
+Raw frequencies can be hard to read in a crosstab, especially since column totals are not equal.
+
+Add `prop.c = T` to get column percentages
+
+```{r}
+crosstab(df$response, df$race, plot=F, prop.c=T)
+```
+
+We also refer to crosstabs as *contingency tables*; the percentages provide *conditional probabilities*. What do you notice? What do you wonder?
+  
+---
+  
+### Hypothesis testing with crosstab
+  
+Develop (or refine) your research question(s).
+
+Examining the relationship between two variables.
+
+```{r}
+#| echo: true
+#| output: false
+#| warning: false
+# research inquiry: is there a relationship between the race and response variables?
+# data: survey results from the Yahoo! News race and justice poll
+# note(s): response contains three levels: Yes, No, and Not sure
+```
+
+Add your research inquiry/question to your preamble.
+
+Notes help you remember import information for writing code. You can also put them in-line.
+
+---
+  
+### Null and alternative hypothesis for a $\chi^2$ test are:
+  
+  - $H_0$: No relationship. The two variables are statistically independent.
+
+  - $H_1$: There is a relationship. The two variables are not statistically independent.
+
+Notice that $H_1$ does not give us information about the direction or strength of the relationships. To test the null hypothesis, we will calculate the $\chi^2$ statistic:
+  
+  $$\chi^2 = \sum \dfrac{(O-E)^2}{E}$$
+
+Where
+
+  - $O$ is the observed frequency for each cell
+
+  - $E$ is the expected frequency for each cell
+
+    - The expected frequency is what we'd expected if there is no relationship ($H_0$ is true)
+    
+---
+
+#### Create a crosstab with raw frequencies
+
+```{r}
+crosstab(df$response, df$race, plot=F)
+```
+
+---
+
+#### Sampling error
+
+*An important note about sampling error*
+
+There appears to be a relationship between the variable `response` and `race`. 
+
+However, the data are from a sample. We do not and should not infer that there is a relationship at the population level, but only for the sample data we are analyzing.
+
+Earlier, we saw the difference in proportions by the column differences for "Yes" and "No". Since we found that the overall population said "No" to the question of fair treatment, we want to take this into consideration when analyzing our data.
+
+---
+
+#### Gather the expected frequencies
+
+```{r}
+crosstab(df$response, df$race,
+         expected=T, #Add expected frequency to each cell
+         plot=F)
+```
+
+---
+
+#### Add the chi-square contributions
+
+```{r}
+crosstab(df$response, df$race,
+         expected=T, #Add expected frequency to each cell
+         prop.chisq = T, #Total contribution of each cell 
+         plot=F)
+```
+
+---
+
+#### Calculate degrees of freedom
+
+We have $$df_{\chi^2} = (r-1)(c-1)$$ 
+
+where r = number of rows in the table and c = number of columns in the table
+
+---
+
+Chi-square critical values
+
+![Chi-square critical values](img/wk8-b-1.png)
+
+---
+
+#### Gather critical value of chi-square
+
+```{r}
+qchisq(.05, 6, lower.tail=F)
+```
+
+---
+
+#### Get the chi-square statistic from R
+
+```{r}
+## get chi-square statistic
+chisq.test(df$response, df$race)
+```
+
+---
+
+Our focus should be on interpreting the output values.
+
+In the output, you want to examine the following:
+
+  - Confirm $\chi^2$ value and degrees of freedom.
+  
+  - Notice more precise information about the p-value
+  
+    - Use this value to make sense of your research inquiry
+    
+  - Does this p-value make sense *statistically* and *substantively*?
+  
+---
+
+#### describe some initial limitations of analysis
+
+Always close out your analyses with a write up of limitations.
+
+```{r}
+
+### limitation 1: sampling error
+
+### limitation 2: category reductions
+
+### limitation 3: cases dropped
+
+### limitation 4: chi-square test
+
+```
+
+---
+
+### **Next up**: Week 8
+
+

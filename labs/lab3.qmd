@@ -1,0 +1,99 @@
+---
+title: "Lab 3"
+subtitle: "DATA 202 - Alexander - Spring 2024"
+format: 
+  html:
+    self-contained: true
+    self-contained-math: true
+editor: visual
+---
+
+For Lab 3, you may submit your work to Canvas as a `.pdf` or an *R Script* or even as a `.txt` file.
+
+Please see the *Preparing Lab Reports* at the bottom of the [lab 1](lab1.qmd) assignment.
+
+## Learning Objectives
+
+The `Lab 3` assignment will provide you with an opportunity to self-direct your analysis to write a substantive argument in Paper 3.
+
+Similar to `Lab 2', this lab focuses on you exploring at least two (or more) variables located in one of the data sets provided for analysis. These data can come from the `critstats`, `gssr`, or a data set of your choice once approved by the instructor (please email me ahead of time with the raw data and a high-level outline of your plan). You will continue to return to some of the functions we have used before to clean variables and manipulate data frames. Your analyses in this lab should focus on an analysis between two or more variables, with an emphasis on your research design and analytic goals.
+
+**Please note: you should not use the same variables from a previous assignment but you may use the same data set.**
+
+------------------------------------------------------------------------
+
+# Part 1:
+
+In this part of the lab, you should complete the following tasks:
+
+-   Locate a data sets for Paper 3.
+
+-   Recall that you can use the `data(package="critstats")` command to see a list of data sets in the \`critstats' package.
+
+-   Develop an original research question on two variables (or more) in your data set.
+
+------------------------------------------------------------------------
+
+# Part 2:
+
+In this part of the lab, you should complete the following tasks:
+
+-   Clean and manipulate your data for analysis.
+
+-   Examine the relationship between your variables.
+
+------------------------------------------------------------------------
+
+# Part 1 Reports
+
+## Report 1.1
+
+What data set have you decided to use?
+
+## Report 1.2
+
+Which two variables from your data set will be analyzed?
+
+## Report 1.3
+
+What is your research question?
+
+## Report 1.4
+
+What is your data analysis plan? Please be descriptive.
+
+## Report 1.5
+
+What are some potential limitations for your analysis?
+
+------------------------------------------------------------------------
+
+# Part 2 Reports
+
+## Report 1.6
+
+Does your data contain missing values? If so, how have you dealt with these values?
+
+## Report 1.7
+
+Please include all code used to clean and manipulate the variables.
+
+## Report 1.8
+
+What relationship, if any, exists between the two variables?
+
+## Report 1.9
+
+How do these findings relate to your research question and theory?
+
+## Report 1.10
+
+What limitations exist as a result of the data analysis?
+
+# Experiencing issues?
+
+If you experience issues executing your code, it is likely that you have made an error in the previous steps.
+
+Remember that R is case sensitive in all instances, and space sensitive in some instances.
+
+Please be sure to go back and carefully check your code.

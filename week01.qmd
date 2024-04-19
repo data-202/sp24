@@ -1,0 +1,63 @@
+---
+title: "DATA 202 - Week 1"
+subtitle: "Introduction to the Course"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week01-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+## Course Learning Objectives
+
+-   Appreciate and understand the role of statistics in your field
+
+-   Evaluate, comprehend, and explain the statistical findings in a data set
+
+-   Explore data in R
+
+-   Apply appropriate application and interpretation of various inferential statistical procedures
+
+-   Write a simple description of methodology and results from analysis
+
+-   Develop an ability to apply appropriate statistical methods to summarize and analyze data
+
+-   Make sense of data and be able to report the results in appropriate tables or statistical terms
+
+## Course companion site
+
+The landing page for our companion site can be found [here](https://data-202.github.io/fa23).
+
+## Paper #1
+
+[<u>**REMINDER: Paper 1 is due Tuesday January 23**</u>]{style="color:red;"}
+
+You can read more about paper #1 [here](/papers/paper1.qmd).
+
+See the instructions for paper assignments [here](/papers/papers-instructions.qmd).
+
+Also, learn more about paper assignments [here](/papers/papers-more-info.qmd).
+
+## Case Study: Tuskegee Experiement of Untreated Syphillis
+
+To help you prepare for our forthcoming discussions and readings, you should explore information about our first case study. One place to start is here: "The Tuskegee Experiment: Crash Course Black American History #29" in the video below:
+
+<center>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/56gqCXlUCoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+</center>
+
+### **Next up**: Week 2

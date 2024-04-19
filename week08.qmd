@@ -1,0 +1,23 @@
+---
+title: "DATA 202 - Week 8"
+subtitle: "Midterm examination"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week08-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+---
+
+The midterm examination can be accessed [here](https://canvas.howard.edu/courses/46792/assignments/363734?module_item_id=1537064).
+

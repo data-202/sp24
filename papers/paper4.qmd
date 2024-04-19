@@ -1,0 +1,29 @@
+---
+title: "Paper 4"
+format: 
+  html: default
+---
+
+For review, you may also refer to *more information for course papers* in two additional documents:
+
+-   [Instructions for papers](papers-instructions.qmd)
+
+-   [More information for course papers](papers-more-info.qmd)
+
+# Step 1: Theory and logic diagram
+
+For paper #4 (similar to paper 3), we are interested in exploring theories pertaining to the relationships and interactions between multiple variables. For this paper, you should pay particular attention to the theory underlying your identified relationships and conduct a focused analysis as it relates to each variable. For example, given three variables: X, Y, and Z, your paper should be sure to take care in discussing and analyzing the relationships between X and Y, X and Z, and Y and Z. Please note: you should not use the same variables from a previous assignment but you may use the same data set.
+
+*Note: For your paper, please remember to address the theoretical relationship that the literature has identified between the conceptual variables selected. That is, before describing the measures and the survey you will be using, explain your theory and why you think that your independent variable is having an effect on your dependent variable.*
+
+# Step 2: Variables, Measurement, Hypothesis
+
+All variables and analyses should be described in detail.
+
+# Step 3: Statistical Analysis
+
+Please be sure to utilize analyses on the interactions between multiple variables.
+
+# Step 4: Conclusion
+
+For your final paper, please be sure to focus on a solid conclusion based on your statistical analysis.

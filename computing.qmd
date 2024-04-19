@@ -1,0 +1,40 @@
+---
+title: "Computing"
+subtitle: "DATA 202: Statistically Measuring and Modeling Social Justice"
+---
+
+### Setting up your computer.
+
+## Lab 0: Downloading R and RStudio.
+
+For Lab #0 you will download two software programs to your computer.
+
+Please watch the below video to help you download R and RStudio.
+
+<center>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pUe_iD7RJvo?si=q0rb1lzb2Ten8_ZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+</center>
+
+Watch [this](https://www.youtube.com/watch?v=pUe_iD7RJvo&t=93s) video to complete the steps below:
+
+#### - Step 1: Navigate to <https://posit.co>
+
+#### - Step 2: Click on the Download RStudio link
+
+#### - Step 3: Install base R (Install R)
+
+#### - Step 4: Install the RStudio IDE (Install RStudio)
+
+Once you have completed your downloads, check to see that you can open RStudio (not R).
+
+We'll pick up here in class next week.
+
+### **Next up**: Schedule and Week 1
+
+<mark>Please see the full course schedule on the next page.</mark>
+
+As a thought exercise, you will write a short paper based on a social justice issue you are familiar with or wish to learn more about. In this paper, you should write about a theory concerning the relationships between and among some dependent variable and particular independent variables (you may have one or more than one independent variables of interest at the outset). After introducing your theory and assuming you had unlimited research funding, propose a research design and measurement plan for a study that would use real-world data and statistical analysis to examine the theory.
