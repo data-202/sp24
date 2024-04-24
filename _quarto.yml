@@ -87,6 +87,8 @@ website:
               text: Paper 2
             - href: papers/paper3.qmd
               text: Paper 3
+            - href: papers/paper4.qmd
+              text: Paper 4
             - href: papers/papers-instructions.qmd
               text: Instructions for each paper
             - href: papers/papers-more-info.qmd
