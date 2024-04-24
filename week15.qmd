@@ -1,0 +1,74 @@
+---
+title: "DATA 202 - Week 15"
+subtitle: "Course wrap-up"
+author: "Nathan Alexander, PhD"
+institute: "Center for Applied Data Science and Analytics"
+format: 
+  html: default
+  revealjs:
+    output-file: week15-slides.html
+    height: 900
+    width: 1600
+    smaller: false
+    scrollable: true
+    slide-number: c/t #< collapsted/total
+    logo: "img/howard-logo.jpg"
+    footer: "[Course Data GitHub](https://github.com/data-202)"
+    toc: false
+    echo: true
+    incremental: false
+    self-contained: true
+---
+
+## Part I: Content
+
+Review [Paper 4](papers/paper4.html) assignment (final assessment).
+
+---
+
+### Rubric
+
+The rubric for the final assessment (paper 4) will be used to assess your growth over the course of the semester. In addition to the requirements outlined in the assignment, the rubric will be used to assess the overall quality of the submission.
+
+| Criteria  | Exemplary  | Good  | Acceptable  |  Incomplete  |
+|--------|--------|--------|--------|--------|
+| Purpose  | The central purpose or argument is readily apparent. | The writing has a clear purpose or argument, but may sometimes digress. | The central purpose or argument is not consistently clear throughout the paper. | The purpose or argument is generally unclear. |
+| Content | The focus of the paper relates to a relevant social issue and includes citations and support from the literature. | The content of the paper provides reasonable support for a social issue but may sometimes be unclear. | The content of the paper is not consistent in its relation to a social issue. | The content of the paper is generally not related to a social issue. |
+| Organization | The ideas are arranged logically and the paper contains the required sections as outlined in the paper assignment. | The ideas are arranged logically for the most part but may not include all required details or sections. | The ideas are arranged in some logical fashion but fail to provide the required details and sections. | The ideas are not arranged logically and fail to attend to the required sections as outlined in the paper assignment. |
+| R Code | All code is original and directly relates to the logic model and theory. | The code is original but may sometimes digress from the logic model and theory. | The code is somewhat original but fails to to relate to the logic model or theory. | The code is not original and does not relate to the logical model and theory. |
+
+: DATA 202 final assessment rubric {.striped .hover}
+
+## Part II: Content
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+
+# Generate sample data
+set.seed(15)
+x <- rnorm(100)
+y <- 5*x*rnorm(100) + 2*x + rnorm(100)
+```
+
+Live coding help as needed.
+
+## Part III: Code
+
+Data analysis examples:
+
+There is a wealth of information on the web to support your future work in R/RStudio. These sources are useful for analyzing data that you find online and want to perform various tests on. Below, I outline some of these sources that can help extend your analysis as you move forward. I will also note that many of these examples are better selections than current AI software and sites (e.g., ChatGPT).
+
+  - [Using R for Multivariate Analysis](https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/src/multivariateanalysis.html)
+  
+  - [An Introduction to Political and Social Data Analysis Using R](https://bookdown.org/tomholbrook12/bookdown-demo/)
+  
+  - [Modern Statistics with R](https://www.modernstatisticswithr.com/)
+  
+  - [R for Graduate Students](https://bookdown.org/yih_huynh/Guide-to-R-Book/)
+  
+  - [R for Social Scientists](https://datacarpentry.org/r-socialsci/)
+  
+  - [Data Analysis Examples](https://stats.oarc.ucla.edu/other/dae/)
+

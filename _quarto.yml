@@ -77,6 +77,8 @@ website:
           text: Week 12
         - href: week14.qmd
           text: Week 14
+        - href: week15.qmd
+          text: Week 15
     - section: "Appendix"
       contents:
         - section: "Papers"

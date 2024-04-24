@@ -522,7 +522,7 @@
     "href": "index.html",
     "title": "Welcome to DATA 202",
     "section": "",
-    "text": "Part\nWeek\nDay\nTopics\nHWs\nLabs\nPapers\n\n\n\n\n\n\nI\n1\nWed, Jan 10\nIntroduction to the course\nHW 0\nLab 0\n\n\n\n\n\n\n2\nWed, Jan 17\nFoundations\n\n\nPaper 1\n\n\n\n\n\n3\nWed, Jan 24\nTheory construction\n\n\n\n\n\n\n\n\n4\nWed, Jan 31\nMore on theory construction\nHW 1\n\n\n\n\n\n\nII\n5\nWed, Feb 7\nUnivariate analysis\n\nLab 1\n\n\n\n\n\n\n6\nWed, Feb 14\nBivariate analysis\nHW 2\n\n\n\n\n\n\n\n7\nWed, Feb 21\nExploratory data analysis\n\nLab 2\n\n\n\n\n\n\n8\nWed, Feb 28\nMidterm examination\n\n\nPaper 2\n\n\n\n\n\n9\nWed, Mar 6\nSpring break\n\n\n\n\n\n\n\nIII\n10\nWed, Mar 13\nNotes on causal theories\n\n\nPaper 1 updates\n\n\n\n\n\n11\nWed, Mar 20\nModeling social in/justice\nHW 3\n\n\n\n\n\n\n\n12\nWed, Mar 27\nBivariate regression analysis\n\nLab 3\n\n\n\n\n\n\n13\nWed, Apr 3\n\n\n\nPaper 3\n\n\n\n\nIV\n14\nWed, Apr 10\nMultivariate analysis\n\n\n\n\n\n\n\n\n15\nWed, Apr 17\nOverview of additional models\nHW 4\nLab 4\n\n\n\n\n\n\n16\nWed, Apr 24\nWrap-up\n\n\nPaper 4"
+    "text": "Part\nWeek\nDay\nTopics\nHWs\nLabs\nPapers\n\n\n\n\n\n\nI\n1\nWed, Jan 10\nIntroduction to the course\nHW 0\nLab 0\n\n\n\n\n\n\n2\nWed, Jan 17\nFoundations\n\n\nPaper 1\n\n\n\n\n\n3\nWed, Jan 24\nTheory construction\n\n\n\n\n\n\n\n\n4\nWed, Jan 31\nMore on theory construction\nHW 1\n\n\n\n\n\n\nII\n5\nWed, Feb 7\nUnivariate analysis\n\nLab 1\n\n\n\n\n\n\n6\nWed, Feb 14\nBivariate analysis\nHW 2\n\n\n\n\n\n\n\n7\nWed, Feb 21\nExploratory data analysis\n\nLab 2\n\n\n\n\n\n\n8\nWed, Feb 28\nMidterm examination\n\n\nPaper 2\n\n\n\n\n\n9\nWed, Mar 6\nSpring break\n\n\n\n\n\n\n\nIII\n10\nWed, Mar 13\nNotes on causal theories\n\n\nPaper 1 updates\n\n\n\n\n\n11\nWed, Mar 20\nModeling social in/justice\nHW 3\n\n\n\n\n\n\n\n12\nWed, Mar 27\nBivariate regression analysis\n\nLab 3\n\n\n\n\n\n\n13\nWed, Apr 3\n\n\n\nPaper 3\n\n\n\n\nIV\n14\nWed, Apr 10\nMultivariate analysis\n\n\n\n\n\n\n\n\n15\nWed, Apr 17\nOverview of additional models\n\nLab 4\n\n\n\n\n\n\n16\nWed, Apr 24\nWrap-up\n\n\nPaper 4"
   },
   {
     "objectID": "index.html#site-description",
@@ -1299,6 +1299,90 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Part\nWeek\nDay\nTopics\nHWs\nLabs\nPapers\n\n\n\n\n\n\nI\n1\nWed, Jan 10\nIntroduction to the course\nHW 0\nLab 0\n\n\n\n\n\n\n2\nWed, Jan 17\nFoundations\n\n\nPaper 1\n\n\n\n\n\n3\nWed, Jan 24\nTheory construction\n\n\n\n\n\n\n\n\n4\nWed, Jan 31\nMore on theory construction\nHW 1\n\n\n\n\n\n\nII\n5\nWed, Feb 7\nUnivariate analysis\n\nLab 1\n\n\n\n\n\n\n6\nWed, Feb 14\nBivariate analysis\nHW 2\n\n\n\n\n\n\n\n7\nWed, Feb 21\nExploratory data analysis\n\nLab 2\n\n\n\n\n\n\n8\nWed, Feb 28\nMidterm examination\n\n\nPaper 2\n\n\n\n\n\n9\nWed, Mar 6\nSpring break\n\n\n\n\n\n\n\nIII\n10\nWed, Mar 13\nNotes on causal theories\n\n\nPaper 1 updates\n\n\n\n\n\n11\nWed, Mar 20\nModeling social in/justice\nHW 3\n\n\n\n\n\n\n\n12\nWed, Mar 27\nBivariate regression analysis\n\nLab 3\n\n\n\n\n\n\n13\nWed, Apr 3\n\n\n\nPaper 3\n\n\n\n\nIV\n14\nWed, Apr 10\nMultivariate analysis\n\n\n\n\n\n\n\n\n15\nWed, Apr 17\nOverview of additional models\nHW 4\nLab 4\n\n\n\n\n\n\n16\nWed, Apr 24\nWrap-up\n\n\nPaper 4"
+    "text": "Part\nWeek\nDay\nTopics\nHWs\nLabs\nPapers\n\n\n\n\n\n\nI\n1\nWed, Jan 10\nIntroduction to the course\nHW 0\nLab 0\n\n\n\n\n\n\n2\nWed, Jan 17\nFoundations\n\n\nPaper 1\n\n\n\n\n\n3\nWed, Jan 24\nTheory construction\n\n\n\n\n\n\n\n\n4\nWed, Jan 31\nMore on theory construction\nHW 1\n\n\n\n\n\n\nII\n5\nWed, Feb 7\nUnivariate analysis\n\nLab 1\n\n\n\n\n\n\n6\nWed, Feb 14\nBivariate analysis\nHW 2\n\n\n\n\n\n\n\n7\nWed, Feb 21\nExploratory data analysis\n\nLab 2\n\n\n\n\n\n\n8\nWed, Feb 28\nMidterm examination\n\n\nPaper 2\n\n\n\n\n\n9\nWed, Mar 6\nSpring break\n\n\n\n\n\n\n\nIII\n10\nWed, Mar 13\nNotes on causal theories\n\n\nPaper 1 updates\n\n\n\n\n\n11\nWed, Mar 20\nModeling social in/justice\nHW 3\n\n\n\n\n\n\n\n12\nWed, Mar 27\nBivariate regression analysis\n\nLab 3\n\n\n\n\n\n\n13\nWed, Apr 3\n\n\n\nPaper 3\n\n\n\n\nIV\n14\nWed, Apr 10\nMultivariate analysis\n\n\n\n\n\n\n\n\n15\nWed, Apr 17\nOverview of additional models\n\nLab 4\n\n\n\n\n\n\n16\nWed, Apr 24\nWrap-up\n\n\nPaper 4"
+  },
+  {
+    "objectID": "week15.html#part-i-context",
+    "href": "week15.html#part-i-context",
+    "title": "DATA 202 - Week 15",
+    "section": "Part I: Context",
+    "text": "Part I: Context"
+  },
+  {
+    "objectID": "week15.html#part-i-code",
+    "href": "week15.html#part-i-code",
+    "title": "DATA 202 - Week 15",
+    "section": "Part I: Code",
+    "text": "Part I: Code\n\nData analysis examples:\nThere is a wealth of information on the web to support your future work in R/RStudio. These sources are useful for analyzing data that you find online and want to perform various tests on. Below, I outline some of these sources that can help extend your analysis as you move forward. I will also note that many of these examples are better selections than current AI software and sites (e.g., ChatGPT).\n\nUsing R for Multivariate Analysis\nAn Introduction to Political and Social Data Analysis Using R\nModern Statistics with R\nR for Graduate Students\nR for Social Scientists\nData Analysis Examples"
+  },
+  {
+    "objectID": "week15-slides.html#part-i-content",
+    "href": "week15-slides.html#part-i-content",
+    "title": "DATA 202 - Week 15",
+    "section": "Part I: Content",
+    "text": "Part I: Content\nReview Paper 4 assignment (final assessment)."
+  },
+  {
+    "objectID": "week15-slides.html#part-i-context",
+    "href": "week15-slides.html#part-i-context",
+    "title": "DATA 202 - Week 15",
+    "section": "Part I: Context",
+    "text": "Part I: Context"
+  },
+  {
+    "objectID": "week15-slides.html#part-i-code",
+    "href": "week15-slides.html#part-i-code",
+    "title": "DATA 202 - Week 15",
+    "section": "Part I: Code",
+    "text": "Part I: Code\n\n\n\nCourse Data GitHub"
+  },
+  {
+    "objectID": "week15.html",
+    "href": "week15.html",
+    "title": "DATA 202 - Week 15",
+    "section": "",
+    "text": "Review Paper 4 assignment (final assessment).\n\n\n\nThe rubric for the final assessment (paper 4) will be used to assess your growth over the course of the semester. In addition to the requirements outlined in the assignment, the rubric will be used to assess the overall quality of the submission.\n\nDATA 202 final assessment rubric\n\n\n\n\n\n\n\n\n\nCriteria\nExemplary\nGood\nAcceptable\nIncomplete\n\n\n\n\nPurpose\nThe central purpose or argument is readily apparent.\nThe writing has a clear purpose or argument, but may sometimes digress.\nThe central purpose or argument is not consistently clear throughout the paper.\nThe purpose or argument is generally unclear.\n\n\nContent\nThe focus of the paper relates to a relevant social issue and includes citations and support from the literature.\nThe content of the paper provides reasonable support for a social issue but may sometimes be unclear.\nThe content of the paper is not consistent in its relation to a social issue.\nThe content of the paper is generally not related to a social issue.\n\n\nOrganization\nThe ideas are arranged logically and the paper contains the required sections as outlined in the paper assignment.\nThe ideas are arranged logically for the most part but may not include all required details or sections.\nThe ideas are arranged in some logical fashion but fail to provide the required details and sections.\nThe ideas are not arranged logically and fail to attend to the required sections as outlined in the paper assignment.\n\n\nR Code\nAll code is original and directly relates to the logic model and theory.\nThe code is original but may sometimes digress from the logic model and theory.\nThe code is somewhat original but fails to to relate to the logic model or theory.\nThe code is not original and does not relate to the logical model and theory."
+  },
+  {
+    "objectID": "week15.html#part-i-content",
+    "href": "week15.html#part-i-content",
+    "title": "DATA 202 - Week 15",
+    "section": "",
+    "text": "Review Paper 4 assignment (final assessment).\n\n\n\nThe rubric for the final assessment (paper 4) will be used to assess your growth over the course of the semester. In addition to the requirements outlined in the assignment, the rubric will be used to assess the overall quality of the submission.\n\nDATA 202 final assessment rubric\n\n\n\n\n\n\n\n\n\nCriteria\nExemplary\nGood\nAcceptable\nIncomplete\n\n\n\n\nPurpose\nThe central purpose or argument is readily apparent.\nThe writing has a clear purpose or argument, but may sometimes digress.\nThe central purpose or argument is not consistently clear throughout the paper.\nThe purpose or argument is generally unclear.\n\n\nContent\nThe focus of the paper relates to a relevant social issue and includes citations and support from the literature.\nThe content of the paper provides reasonable support for a social issue but may sometimes be unclear.\nThe content of the paper is not consistent in its relation to a social issue.\nThe content of the paper is generally not related to a social issue.\n\n\nOrganization\nThe ideas are arranged logically and the paper contains the required sections as outlined in the paper assignment.\nThe ideas are arranged logically for the most part but may not include all required details or sections.\nThe ideas are arranged in some logical fashion but fail to provide the required details and sections.\nThe ideas are not arranged logically and fail to attend to the required sections as outlined in the paper assignment.\n\n\nR Code\nAll code is original and directly relates to the logic model and theory.\nThe code is original but may sometimes digress from the logic model and theory.\nThe code is somewhat original but fails to to relate to the logic model or theory.\nThe code is not original and does not relate to the logical model and theory."
+  },
+  {
+    "objectID": "week15.html#part-ii-context",
+    "href": "week15.html#part-ii-context",
+    "title": "DATA 202 - Week 15",
+    "section": "Part II: Context",
+    "text": "Part II: Context"
+  },
+  {
+    "objectID": "week15.html#part-iii-code",
+    "href": "week15.html#part-iii-code",
+    "title": "DATA 202 - Week 15",
+    "section": "Part III: Code",
+    "text": "Part III: Code\nData analysis examples:\nThere is a wealth of information on the web to support your future work in R/RStudio. These sources are useful for analyzing data that you find online and want to perform various tests on. Below, I outline some of these sources that can help extend your analysis as you move forward. I will also note that many of these examples are better selections than current AI software and sites (e.g., ChatGPT).\n\nUsing R for Multivariate Analysis\nAn Introduction to Political and Social Data Analysis Using R\nModern Statistics with R\nR for Graduate Students\nR for Social Scientists\nData Analysis Examples"
+  },
+  {
+    "objectID": "week15.html#part-ii-content",
+    "href": "week15.html#part-ii-content",
+    "title": "DATA 202 - Week 15",
+    "section": "Part II: Content",
+    "text": "Part II: Content\nLive coding help as needed."
+  },
+  {
+    "objectID": "week15-slides.html#part-ii-content",
+    "href": "week15-slides.html#part-ii-content",
+    "title": "DATA 202 - Week 15",
+    "section": "Part II: Content",
+    "text": "Part II: Content\nLive coding help as needed."
+  },
+  {
+    "objectID": "week15-slides.html#part-iii-code",
+    "href": "week15-slides.html#part-iii-code",
+    "title": "DATA 202 - Week 15",
+    "section": "Part III: Code",
+    "text": "Part III: Code\nData analysis examples:\nThere is a wealth of information on the web to support your future work in R/RStudio. These sources are useful for analyzing data that you find online and want to perform various tests on. Below, I outline some of these sources that can help extend your analysis as you move forward. I will also note that many of these examples are better selections than current AI software and sites (e.g., ChatGPT).\n\nUsing R for Multivariate Analysis\nAn Introduction to Political and Social Data Analysis Using R\nModern Statistics with R\nR for Graduate Students\nR for Social Scientists\nData Analysis Examples\n\n\n\n\nCourse Data GitHub"
   }
 ]
